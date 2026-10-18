@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Việc cần xử lý · Đối soát · salevề vận hành</title>
+<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="admin-v2.css">
+<style>
+/* Bổ sung riêng cho màn này */
+col.c-don{width:104px}col.c-exc{width:190px}col.c-age{width:124px}
+#tbl-ds col.c-user,#tbl-um col.c-user{width:auto}
+.tbl--inbox td.two .sub{font-size:11.5px}
+.exc{white-space:nowrap;vertical-align:middle}
+.qp .box .exc{font-size:12px}
+@media (max-width:1366px){col.c-exc{width:190px}}
+</style>
+<script>window.ADM_SCREENS=[["index.html","Mục lục"],["00-he-component.html","00 · Hệ component"],["01-hop-viec.html","01 · Việc cần xử lý · Tất cả"],["02-hop-viec-duyet-chi.html","02 · Việc cần xử lý · Chờ duyệt chi"],["03-ho-so-lenh-chi.html","03 · Hồ sơ lệnh chi RT-2720"],["04-hop-viec-khieu-nai.html","04 · Việc cần xử lý · Khiếu nại"],["05-ho-so-khieu-nai.html","05 · Hồ sơ khiếu nại KN706476"],["06-hop-viec-doi-soat.html","06 · Việc cần xử lý · Đối soát"],["07-ho-so-doi-soat.html","07 · Hồ sơ đối soát DS241010"],["08-hop-viec-gian-lan.html","08 · Việc cần xử lý · Nghi gian lận"],["09-giao-dich-don.html","09 · Giao dịch · Đơn & hoa hồng"],["10-giao-dich-lenh-chi.html","10 · Giao dịch · Lệnh chi"],["12-nguoi-dung.html","12 · Người dùng"],["13-ho-so-nguoi-dung.html","13 · Hồ sơ người dùng"],["14-noi-dung.html","14 · Nội dung"],["15-cau-hinh.html","15 · Cấu hình"],["16-nhat-ky.html","16 · Nhật ký"],["17-trang-thai-phim-tat.html","17 · Trạng thái & phím tắt"],["18-ho-so-don.html","18 · Hồ sơ đơn 2409B58F2"],["19-nhan-vien.html","19 · Nhân viên"],["20-tai-khoan.html","20 · Tài khoản của tôi"],["21-doi-chieu.html","21 · Đối chiếu"]];</script>
+</head>
+<body class="adm" data-role="admin">
+<div class="app">
+<aside class="sb">
+  <a class="sb__brand" href="01-hop-viec.html"><span class="sb__logo">sale<em>về</em></span><span class="sb__tag">vận hành</span></a>
+  <nav class="sb__nav" aria-label="Vận hành">
+    <div class="sb__group">Việc cần xử lý</div>
+    <a class="sb__item sb__item--inbox" data-nav="hop-viec" href="01-hop-viec.html"><svg class="ic"><use href="#i-home"/></svg><span>Tất cả</span><b class="n n--hot" data-role-total>9</b></a>
+    <a class="sb__item sb__item--inbox" data-nav="duyet-chi" data-roles="finance admin" href="02-hop-viec-duyet-chi.html"><svg class="ic"><use href="#i-wallet"/></svg><span>Chờ duyệt chi</span><b class="n n--hot">3</b></a>
+    <a class="sb__item sb__item--inbox" data-nav="khieu-nai" data-roles="ops admin" href="04-hop-viec-khieu-nai.html"><svg class="ic"><use href="#i-support"/></svg><span>Khiếu nại</span><b class="n n--hot">2</b></a>
+    <a class="sb__item sb__item--inbox is-active" data-nav="doi-soat" aria-current="page" data-roles="ops admin" href="06-hop-viec-doi-soat.html"><svg class="ic"><use href="#i-unmatched"/></svg><span>Đối soát</span><b class="n n--hot">3</b></a>
+    <a class="sb__item sb__item--inbox" data-nav="gian-lan" data-roles="ops admin" href="08-hop-viec-gian-lan.html"><svg class="ic"><use href="#i-shield"/></svg><span>Nghi gian lận</span><b class="n n--hot">1</b></a>
+    <div class="sb__group">Giao dịch</div>
+    <a class="sb__item" data-nav="don" href="09-giao-dich-don.html"><svg class="ic"><use href="#i-package"/></svg><span>Đơn &amp; hoa hồng</span></a>
+    <a class="sb__item" data-nav="lenh-chi" data-roles="finance admin" href="10-giao-dich-lenh-chi.html"><svg class="ic"><use href="#i-bank"/></svg><span>Lệnh chi</span></a>
+    <a class="sb__item" data-nav="doi-chieu" data-roles="finance admin" href="21-doi-chieu.html"><svg class="ic"><use href="#i-layers"/></svg><span>Đối chiếu</span></a>
+    <div class="sb__group">Tra cứu</div>
+    <a class="sb__item" data-nav="nguoi-dung" href="12-nguoi-dung.html"><svg class="ic"><use href="#i-users"/></svg><span>Người dùng</span></a>
+    <a class="sb__item" data-nav="nhat-ky" data-roles="admin" href="16-nhat-ky.html"><svg class="ic"><use href="#i-history"/></svg><span>Nhật ký</span></a>
+    <div class="sb__group" data-roles="admin">Quản trị</div>
+    <a class="sb__item" data-nav="noi-dung" data-roles="admin" href="14-noi-dung.html"><svg class="ic"><use href="#i-content"/></svg><span>Nội dung</span></a>
+    <a class="sb__item" data-nav="nhan-vien" data-roles="admin" href="19-nhan-vien.html"><svg class="ic"><use href="#i-users"/></svg><span>Nhân viên</span></a>
+    <a class="sb__item" data-nav="cau-hinh" data-roles="admin" href="15-cau-hinh.html"><svg class="ic"><use href="#i-settings"/></svg><span>Cấu hình</span></a>
+  </nav>
+  <div class="sb__foot">
+    <div class="sb__sync"><i class="dot dot--ok"></i>Đồng bộ sàn 14:30 · ổn</div>
+    <a class="sb__user" href="20-tai-khoan.html"><span class="avatar avatar--staff" data-role-avatar>S</span><div><b data-role-name>Nguyễn Sơn</b><small data-role-mail>Quản trị · admin@saleve.vn</small></div></a>
+    <a class="sb__out" href="#"><svg class="ic ic--xs"><use href="#i-arrow-up-right"/></svg><span>Về trang người dùng</span></a>
+  </div>
+</aside>
+<div class="main">
+  <header class="hd">
+    <div class="hd__crumb"><span>Vận hành</span><i>/</i><span>Việc cần xử lý</span><i>/</i><b>Đối soát</b></div>
+    <label class="hd__search"><svg class="ic ic--sm"><use href="#i-search"/></svg><input placeholder="Tìm người dùng, mã KN / DS / RT, mã đơn sàn…"><span class="kbd">⌘K</span></label>
+    <div style="position:relative">
+      <button class="hd__inbox" data-pop="#pop-inbox"><svg class="ic ic--sm"><use href="#i-bell"/></svg><span>Việc cần xử lý</span><b class="n n--hot" data-role-total>9</b></button>
+      <div class="pop" id="pop-inbox">
+        <div class="pop__hd">Việc đang chờ<small>hỏi lại 20 giây/lần · vừa xong</small></div>
+        <a class="pop__i" href="02-hop-viec-duyet-chi.html" data-roles="finance admin"><svg class="ic ic--sm"><use href="#i-wallet"/></svg><span>Chờ duyệt chi · việc cũ nhất từ 22 giờ trước</span><b class="n">3</b></a>
+        <a class="pop__i" href="04-hop-viec-khieu-nai.html" data-roles="ops admin"><svg class="ic ic--sm"><use href="#i-support"/></svg><span>Khiếu nại · 1 quá hạn</span><b class="n">2</b></a>
+        <a class="pop__i" href="06-hop-viec-doi-soat.html" data-roles="ops admin"><svg class="ic ic--sm"><use href="#i-unmatched"/></svg><span>Đối soát · việc cũ nhất từ 2 ngày trước</span><b class="n">3</b></a>
+        <a class="pop__i" href="08-hop-viec-gian-lan.html" data-roles="ops admin"><svg class="ic ic--sm"><use href="#i-shield"/></svg><span>Nghi gian lận · giữ tiền tối đa 7 ngày</span><b class="n">1</b></a>
+      </div>
+    </div>
+    <button class="hd__me" title="Tài khoản"><span class="avatar avatar--staff" data-role-avatar>S</span></button>
+  </header>
+  <main class="pg">
+<div data-roles="ops admin" class="stack" data-tabs>
+<div class="pg__head">
+  <div><h1>Đối soát</h1></div>
+  <div class="pg__actions"><button class="btn btn--ghost btn--sm" data-open="#modal-keys"><svg class="ic"><use href="#i-keyboard"/></svg>Phím tắt</button></div>
+</div>
+
+<div class="row row--between row--wrap">
+  <div class="counts" aria-label="Lọc theo trạng thái việc">
+    <button class="counts__i is-on">Đang mở <b>3</b></button>
+    <button class="counts__i counts__i--hot">Chưa ai nhận <b>2</b></button>
+    <button class="counts__i">Chờ xác nhận khớp <b>1</b></button>
+    <button class="counts__i">Chờ sàn <b>0</b></button>
+    <button class="counts__i">Xong 7 ngày <b>5</b></button>
+  </div>
+  <div class="tabs"><span class="tabs__i is-active" data-tab="ds">Yêu cầu đối soát <span class="tabs__n n--hot">2</span></span><span class="tabs__i" data-tab="um">Đơn không khớp <span class="tabs__n">2</span></span></div>
+</div>
+
+<div class="qp-layout is-closed">
+<div class="stack">
+  <div class="tbl-wrap" data-panel="ds">
+    <div class="tbl__hd"><b>2 yêu cầu đang mở</b></div>
+    <table class="tbl tbl--v2 tbl--inbox" id="tbl-ds">
+      <colgroup><col class="c-code"><col class="c-user"><col style="width:104px"><col class="c-don hide-md"><col class="c-exc"><col class="c-who"><col class="c-when"></colgroup>
+      <thead class="sort"><tr><th class="sort">Mã</th><th class="sort">Người dùng</th><th class="sort th-plat">Sàn</th><th class="hide-md sort">Đơn sàn</th><th>Loại ngoại lệ · gợi ý</th><th title="Người phụ trách">Phụ trách</th><th class="sort is-asc">Hạn</th></tr></thead>
+      <tbody>
+        <tr class="is-click"><td class="code">DS241012</td><td class="u">Phạm Hồng Hạnh<span class="sub show-md"><span class="mono">2410B9X2</span> · mua 10/10</span></td><td class="plat">Shopee</td><td class="hide-md"><span class="code">2410B9X2</span><span class="sub">mua 14:02 · 10/10</span></td><td class="two"><span class="badge badge--purple badge--sm">Tìm thấy đơn gần giống</span><span class="sub">1 đơn không khớp trùng mã</span></td><td class="w-who"><span class="who who--none" title="Chưa ai nhận"><i></i><em>Chưa ai</em></span></td><td class="when-cell" data-sort="-60"><span class="sla sla--late">Quá hạn 1 giờ</span><span class="age">tạo 2 ngày trước</span></td></tr>
+        <tr class="is-click"><td class="code"><a class="link" href="07-ho-so-doi-soat.html">DS241010</a></td><td class="u">Trần Thị Bích<span class="sub show-md"><span class="mono">2410C11Q8</span> · mua 05/10</span></td><td class="plat">Shopee</td><td class="hide-md"><span class="code">2410C11Q8</span><span class="sub">mua 09:15 · 05/10</span></td><td class="two"><span class="badge badge--off badge--sm">Không tìm thấy đơn</span><span class="sub">quét sàn 3 lần không thấy · 2 click cùng sản phẩm</span></td><td class="w-who"><span class="who" title="Trần Đức Minh · vận hành"><span class="avatar avatar--staff">M</span><em>Minh</em></span></td><td class="when-cell" data-sort="1440"><span class="sla sla--ok">Còn 1 ngày</span><span class="age">tạo 1 ngày trước</span></td></tr>
+      </tbody>
+    </table>
+    <div class="skel" hidden aria-hidden="true"><i style="width:60%"></i><i style="width:85%"></i><i style="width:72%"></i></div>
+    <div class="empty" hidden><img class="empty__m" src="mascot/xu-chua-co-gi.svg" alt=""><div class="empty__t">Không còn yêu cầu đối soát đang mở</div><div class="empty__d">Yêu cầu mới tự hiện ở đây.</div><button class="btn btn--secondary btn--sm">Xem xong 7 ngày</button></div>
+    <div class="errbox" hidden><div class="errbox__t">Không tải được danh sách</div><div class="errbox__d">Mã lỗi DS-503 · máy chủ không trả lời sau 10 giây.</div><button class="btn btn--secondary btn--sm">Thử lại</button></div>
+    <div class="pager"><span>1–2 / 2 yêu cầu đang mở</span><div class="pager__r"><select class="input"><option>25 / trang</option><option>50 / trang</option></select><button class="btn btn--ghost btn--icon" disabled><svg class="ic"><use href="#i-chevron-left"/></svg></button><button class="btn btn--ghost btn--icon" disabled><svg class="ic"><use href="#i-chevron-right"/></svg></button></div></div>
+  </div>
+
+  <div class="tbl-wrap" data-panel="um" hidden>
+    <div class="tbl__hd"><b>2 đơn không khớp</b></div>
+    <table class="tbl tbl--v2 tbl--inbox" id="tbl-um">
+      <colgroup><col class="c-code"><col style="width:104px"><col><col class="c-num hide-md"><col class="c-exc"><col class="c-who"><col class="c-when"></colgroup>
+      <thead class="sort"><tr><th class="sort">Đơn sàn</th><th class="sort th-plat">Sàn</th><th class="sort">Sản phẩm · sub-ID</th><th class="num hide-md sort">HH sàn</th><th>Loại ngoại lệ · gợi ý</th><th title="Người phụ trách">Phụ trách</th><th class="sort is-asc">Hạn</th></tr></thead>
+      <tbody>
+        <tr class="is-click"><td class="code">2410B9X2</td><td class="plat">Shopee</td><td class="u">Bộ chăn ga cotton 1m8<span class="sub">sub-ID <span class="mono">sv_hanh9q2</span> hợp lệ · không có click khớp</span></td><td class="num hide-md">42.000đ</td><td class="two"><span class="badge badge--purple badge--sm">Tìm thấy đơn gần giống</span><span class="sub">gợi ý DS241012 · trùng mã đơn, click 2 giờ trước khi mua</span></td><td class="w-who"><span class="who who--none" title="Chưa ai nhận"><i></i><em>Chưa ai</em></span></td><td class="when-cell" data-sort="36000"><span class="sla sla--ok">Còn 25 ngày</span><span class="age">tạo 5 ngày trước</span></td></tr>
+        <tr class="is-click"><td class="code">2410C77Q</td><td class="plat">Shopee</td><td class="u">Nồi chiên không dầu 5L<span class="sub">sub-ID <span class="mono">sv_quan4m1</span> hợp lệ · click gần nhất 9 ngày trước khi mua</span></td><td class="num hide-md">61.500đ</td><td class="two"><span class="badge badge--purple badge--sm">Lệch ngày</span><span class="sub">ngoài cửa sổ 7 ngày · chưa có yêu cầu DS</span></td><td class="w-who"><span class="who" title="Trần Đức Minh · vận hành"><span class="avatar avatar--staff">M</span><em>Minh</em></span></td><td class="when-cell" data-sort="38880"><span class="sla sla--ok">Còn 27 ngày</span><span class="age">tạo 3 ngày trước</span></td></tr>
+      </tbody>
+    </table>
+    <div class="pager"><span>1–2 / 2 đơn không khớp · hết 30 ngày chuyển "không khớp vĩnh viễn", không ghi ví</span><div class="pager__r"><select class="input"><option>25 / trang</option><option>50 / trang</option></select><button class="btn btn--ghost btn--icon" disabled><svg class="ic"><use href="#i-chevron-left"/></svg></button><button class="btn btn--ghost btn--icon" disabled><svg class="ic"><use href="#i-chevron-right"/></svg></button></div></div>
+  </div>
+</div>
+
+<aside class="qp" aria-label="Xem nhanh DS241012">
+  <div class="qp__hd">
+    <div><h3>DS241012 <span class="badge badge--purple">Tìm thấy đơn gần giống</span></h3><small>Yêu cầu đối soát · gửi 10:40 · 13/10/2026 · chưa ai nhận · <span class="sla sla--late">Quá hạn 1 giờ</span></small></div>
+    <button class="qp__x" title="Đóng" aria-label="Đóng"><svg class="ic ic--sm"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="qp__bd">
+    <div class="sec"><div class="sec__t">Người dùng</div>
+      <div class="row gap-12"><span class="avatar">H</span><div class="grow"><b>Phạm Hồng Hạnh</b> <span class="badge badge--info badge--sm">Bạc</span><div class="small muted">0903 •••• 227 · 9 đơn · chưa có DS trước</div></div></div>
+    </div>
+    <div class="sec"><div class="sec__t">Người dùng báo</div>
+      <div class="qp__quote">"Em mua bộ chăn ga ngày 10/10 qua link trong app, tới giờ chưa thấy đơn trong mục Đang chờ."</div>
+      <dl class="kv kv--tight"><dt>Mã đơn sàn</dt><dd class="mono">2410B9X2</dd><dt>Mua lúc</dt><dd>14:02 · 10/10/2026</dd><dt>Giá trị</dt><dd>525.000đ</dd><dt>Khách báo</dt><dd>33.600đ <span class="muted">(80% × 42.000đ)</span></dd></dl>
+    </div>
+    <div class="sec"><div class="sec__t">Gợi ý khớp</div>
+      <div class="box box--white stack" style="gap:6px">
+        <div class="row row--between"><b class="mono">2410B9X2</b></div>
+        <div class="small">Đơn không khớp cùng mã · hoa hồng sàn 42.000đ · sub-ID <span class="mono">sv_hanh9q2</span> thuộc Hạnh.</div>
+        <div class="small muted">Vì sao chưa tự khớp: Hạnh có click lúc 12:01 cùng ngày (2 giờ trước khi mua) nhưng lần báo đầu của sàn ghi sub-ID lệch 1 ký tự.</div>
+      </div>
+    </div>
+  </div>
+  <div class="qp__ft">
+      <span class="btn btn--secondary btn--sm is-disabled" title="Mở hồ sơ">Mở hồ sơ</span>
+    <button class="btn btn--primary btn--sm" data-open="#m-gan">Gán đơn cho Hạnh…</button>
+  </div>
+</aside>
+</div>
+</div>
+<div data-roles="finance" class="card" style="margin-top:8px"><div class="empty"><img class="empty__m" src="mascot/xu-chua-co-gi.svg" alt=""><div class="empty__t">Vai <span data-role-label-short></span> không xem được mục này</div><div class="empty__d">Cần vai Vận hành hoặc Quản trị.</div><a class="btn btn--secondary btn--sm" href="01-hop-viec.html">Về Việc cần xử lý</a></div></div>
+  </main>
+</div>
+</div>
+<div class="modal-wrap" id="m-gan" role="dialog" aria-labelledby="m-gan-t"><div class="modal">
+  <h2 class="modal__t" id="m-gan-t">Gán đơn 2410B9X2 cho Phạm Hồng Hạnh?</h2>
+  <p class="modal__d">DS241012 đóng là "đã khớp".</p>
+  <label class="field"><span class="field__l">Lý do khớp tay <em>*</em></span><textarea class="input" data-min="5" placeholder="Vd: cùng mã đơn, click 12:01 cùng ngày, sub-ID lệch 1 ký tự do sàn"></textarea><div class="counter"></div></label>
+  <div class="callout callout--neutral small"><svg class="ic"><use href="#i-info"/></svg><div>Người thực hiện <b data-role-name>Nguyễn Sơn</b> · 15/10/2026 15:20.</div></div>
+  <div class="modal__ft"><button class="btn btn--ghost" data-close>Huỷ</button><button class="btn btn--primary" data-toast="Đã gán 2410B9X2 cho Phạm Hồng Hạnh · DS241012 đóng · ghi nhật ký">Gán đơn · 33.600đ vào phần Chờ sàn duyệt</button></div>
+</div></div>
+<div class="modal-wrap" id="m-khl" role="dialog" aria-labelledby="m-khl-t"><div class="modal modal--danger">
+  <h2 class="modal__t" id="m-khl-t">Đóng DS241012 là không hợp lệ?</h2>
+  <p class="modal__d">Người dùng nhận thông báo kèm lý do và có thể gửi yêu cầu mới nếu có thêm bằng chứng.</p>
+  <div class="reason">
+    <label class="is-on"><input type="radio" name="khl" checked><span>Không có click qua salevề<small>không thấy click trong 7 ngày trước khi mua</small></span></label>
+    <label><input type="radio" name="khl"><span>Mua ngoài cửa sổ 7 ngày<small>click có nhưng quá hạn</small></span></label>
+    <label><input type="radio" name="khl"><span>Ghi cho kênh khác<small>sàn ghi hoa hồng cho đối tác khác</small></span></label>
+    <label><input type="radio" name="khl"><span>Khác<small>ghi rõ ở ghi chú</small></span></label>
+  </div>
+  <label class="field"><span class="field__l">Ghi chú gửi người dùng <em>*</em></span><textarea class="input" data-min="10" placeholder="Nêu bằng chứng ngắn gọn…"></textarea><div class="counter"></div></label>
+  <div class="modal__ft"><button class="btn btn--ghost" data-close>Huỷ</button><button class="btn btn--danger-solid" data-toast="DS241012 đã đóng · không hợp lệ · ghi nhật ký">Đóng không hợp lệ</button></div>
+</div></div>
+<div class="modal-wrap" id="modal-keys" role="dialog" aria-label="Phím tắt"><div class="modal" style="width:560px">
+  <h2 class="modal__t">Phím tắt</h2>
+  <div class="keys--v2">
+    <div><span><span class="kbd">J</span> <span class="kbd">K</span></span><span>việc sau / trước</span></div><div><span class="kbd">Enter</span><span>mở hồ sơ</span></div>
+    <div><span class="kbd">A</span><span>nhận việc</span></div><div><span class="kbd">/</span><span>tìm trong trang</span></div>
+    <div><span class="kbd">⌘K</span><span>tìm toàn hệ</span></div><div><span class="kbd">Esc</span><span>đóng bảng bên / hộp thoại</span></div>
+    <div><span><span class="kbd">1</span>…<span class="kbd">5</span></span><span>lọc theo trạng thái</span></div><div><span class="kbd">?</span><span>bảng này</span></div>
+  </div>
+  <div class="modal__ft"><button class="btn btn--primary" data-close>Đóng</button></div>
+</div></div>
+<script src="admin.js"></script>
+<script>
+/* hành vi chung V2: mật độ bảng, chọn hàng + panel, kết luận/mã lý do, composer 2 tab */
+(function(){
+  document.querySelectorAll('.tbl__dense-toggle').forEach(function(g){g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+    g.querySelectorAll('button').forEach(function(x){x.classList.toggle('is-on',x===b)});
+    var t=document.querySelector(g.getAttribute('data-dense'));if(t)t.classList.toggle('tbl--xs',b.textContent.indexOf('Dày')===0);});});
+  document.querySelectorAll('th.th-plat').forEach(function(th){var i=[].indexOf.call(th.parentElement.children,th);var cg=th.closest('table').querySelector('colgroup');if(cg&&cg.children[i])cg.children[i].classList.add('c-plat');});
+  document.querySelectorAll('.tbl--v2 tbody tr.is-click').forEach(function(tr){tr.addEventListener('click',function(e){if(e.target.closest('a,button,.check,[data-open],[data-toast]'))return;
+    var tb=tr.closest('tbody');tb.querySelectorAll('tr').forEach(function(x){x.classList.toggle('is-sel',x===tr)});
+    var lay=tr.closest('.qp-layout');if(lay)lay.classList.remove('is-closed');});});
+  /* bảng bên: hàng có nội dung dựng sẵn thì hiện bản đầy đủ; hàng khác hiện tóm tắt lấy từ chính hàng (không hiện nhầm việc khác) */
+  (function(){var qp=document.querySelector('.qp-layout .qp');if(!qp)return;var full=qp.innerHTML,lay=qp.closest('.qp-layout'),tb=lay.querySelector('.tbl--v2 tbody');if(!tb)return;
+    var key=(qp.querySelector('.qp__hd h3')||{}).textContent||'';key=(key.match(/[A-Z]{2}[-A-Z0-9]{3,}|\d{4}[A-Z0-9]{4,}/)||[''])[0];
+    var heads=[].map.call(lay.querySelectorAll('.tbl--v2 thead th'),function(h){return h.textContent.trim();});
+    var openHref=(qp.querySelector('.qp__ft a.btn')||{}).getAttribute?qp.querySelector('.qp__ft a.btn').getAttribute('href'):null;
+    tb.addEventListener('click',function(e){var tr=e.target.closest('tr');if(!tr||e.target.closest('a,button,.check'))return;
+      var txt=tr.textContent;if(key&&txt.indexOf(key)>=0){qp.innerHTML=full;return;}
+      var c=tr.cells,rows='';for(var i=0;i<c.length;i++){var h=heads[i],v=c[i].innerHTML.trim();if(!h||!c[i].textContent.trim()||c[i].querySelector('.check'))continue;rows+='<dt>'+h.charAt(0)+h.slice(1).toLowerCase()+'</dt><dd>'+v+'</dd>';}
+      var title=(c[0].querySelector('.mono,.sub.mono')||c[0]).textContent.trim();
+      qp.innerHTML='<div class="qp__hd"><div><h3>'+title+'</h3></div><button class="qp__x" title="Đóng" aria-label="Đóng"><svg class="ic ic--sm"><use href="#i-x"/></svg></button></div><div class="qp__bd"><dl class="kv kv--tight">'+rows+'</dl></div><div class="qp__ft"><span class="btn btn--secondary btn--sm is-disabled" title="Mở hồ sơ">Mở hồ sơ</span></div>';
+      qp.querySelector('.qp__x').addEventListener('click',function(){lay.classList.add('is-closed');});},true);})();
+  document.querySelectorAll('.qp__x').forEach(function(x){x.addEventListener('click',function(){var lay=x.closest('.qp-layout');if(lay)lay.classList.add('is-closed');});});
+  document.querySelectorAll('.qp__open').forEach(function(x){x.addEventListener('click',function(){var lay=document.querySelector('.qp-layout');if(lay)lay.classList.remove('is-closed');});});
+  document.querySelectorAll('.reason').forEach(function(r){r.addEventListener('click',function(e){var l=e.target.closest('label');if(!l)return;
+    r.querySelectorAll('label').forEach(function(x){x.classList.toggle('is-on',x===l);var m=x.getAttribute('data-more');if(m){var p=document.querySelector(m);if(p)p.hidden=(x!==l);}});});});
+  document.querySelectorAll('.composer').forEach(function(cp){cp.querySelectorAll('[data-cp]').forEach(function(b){b.addEventListener('click',function(){var note=b.getAttribute('data-cp')==='note';
+    cp.querySelectorAll('[data-cp]').forEach(function(x){x.classList.toggle('is-on',x===b);x.classList.toggle('is-note',x===b&&note)});cp.classList.toggle('composer--note',note);
+    var u=cp.querySelector('[data-cp-user]'),n=cp.querySelector('[data-cp-note]');if(u)u.hidden=note;if(n)n.hidden=!note;
+    var h=cp.querySelector('[data-cp-hint]');if(h)h.textContent=note?'Chỉ nhân viên thấy · không gửi cho khách · ghi nhật ký':'Gửi nguyên văn cho khách qua thông báo app + Zalo · ghi nhật ký';
+    cp.querySelectorAll('[data-cp-only]').forEach(function(x){x.hidden=(x.getAttribute('data-cp-only')==='note')!==note;});});});});
+  document.querySelectorAll('.reason label[data-submit]').forEach(function(l){l.addEventListener('click',function(){var b=document.getElementById('kl-submit');if(!b||l.classList.contains('is-off'))return;b.textContent=l.getAttribute('data-submit');b.setAttribute('data-open',l.getAttribute('data-modal'));});});
+})();
+</script>
+<script>
+/* sắp xếp khi bấm tiêu đề cột (bản mẫu: sắp ngay trên trình duyệt) */
+(function(){
+  function dur(m){var n=+m[1];return m[2]==='phút'?n:m[2]==='giờ'?n*60:n*1440;}
+  function key(td){
+    if(td.hasAttribute('data-sort')&&/^\d+$/.test(td.getAttribute('data-sort')))return +td.getAttribute('data-sort');var t=(td.getAttribute('data-sort')||td.textContent||'').replace(/\s+/g,' ').trim(), m, d;
+    if((/^[−-]\s*\d/.test(t)||/^quá hạn/i.test(t))&&/(phút|giờ|ngày)/.test(t)){m=t.match(/(\d+)\s*(phút|giờ|ngày)/);return -dur(m);}
+    if(/^còn\s/.test(t)){m=t.match(/(\d+)\s*(phút|giờ|ngày)/);return m?dur(m):1e9;}
+    if(/^(đã xử lý|không hạn|tạm dừng|giữ còn)/.test(t)){m=t.match(/(\d+)\s*(phút|giờ|ngày)/);return m?dur(m)+1e6:1e12;}
+    d=t.match(/(\d{2})\/(\d{2})(?:\/(\d{4}))?/); m=t.match(/(\d{2}):(\d{2})/);
+    if(d){return ((d[3]?+d[3]:2026)*10000+(+d[2])*100+(+d[1]))*10000+(m?(+m[1])*100+(+m[2]):0);}
+    var num=t.replace(/\s/g,'');
+    if(/^[+−-]?[\d.]+(đ|%)?$/.test(num)){return parseFloat(num.replace(/[^\d−-]/g,'').replace('−','-'))||0;}
+    return t.toLowerCase();
+  }
+  document.querySelectorAll('.tbl th.sort').forEach(function(th){
+    th.addEventListener('click',function(){
+      var table=th.closest('table'),tr=th.parentElement,idx=[].indexOf.call(tr.children,th);
+      var asc=!th.classList.contains('is-asc');
+      tr.querySelectorAll('th').forEach(function(x){x.classList.remove('is-asc','is-desc');});
+      th.classList.add(asc?'is-asc':'is-desc');
+      var tb=table.tBodies[0],rows=[].slice.call(tb.rows);
+      rows.sort(function(a,b){var ka=key(a.cells[idx]),kb=key(b.cells[idx]);
+        if(typeof ka==='number'&&typeof kb==='number')return asc?ka-kb:kb-ka;
+        ka=String(ka);kb=String(kb);return asc?ka.localeCompare(kb,'vi'):kb.localeCompare(ka,'vi');});
+      rows.forEach(function(r){tb.appendChild(r);});
+    });
+  });
+  /* sắp ngay khi mở trang theo cột đang đánh dấu */
+  document.querySelectorAll('.tbl th.sort.is-asc, .tbl th.sort.is-desc').forEach(function(th){var asc=th.classList.contains('is-asc');th.classList.toggle('is-asc',!asc);th.classList.toggle('is-desc',asc);th.click();});
+  /* giữ ?role= và ?clean= khi bấm link nội bộ */
+  var q=location.search.replace(/^\?/,'');if(q){document.querySelectorAll('a[href]').forEach(function(a){var h=a.getAttribute('href');if(/^[0-9a-z_-]+\.html$/i.test(h))a.setAttribute('href',h+'?'+q);});}
+})();
+</script>
+</body>
+</html>

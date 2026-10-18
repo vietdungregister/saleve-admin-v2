@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mục lục · Prototype trang vận hành salevề V2</title>
+<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="admin-v2.css">
+<script>window.ADM_SCREENS=[["index.html","Mục lục"],["00-he-component.html","00 · Hệ component"],["01-hop-viec.html","01 · Việc cần xử lý · Tất cả"],["02-hop-viec-duyet-chi.html","02 · Việc cần xử lý · Chờ duyệt chi"],["03-ho-so-lenh-chi.html","03 · Hồ sơ lệnh chi RT-2720"],["04-hop-viec-khieu-nai.html","04 · Việc cần xử lý · Khiếu nại"],["05-ho-so-khieu-nai.html","05 · Hồ sơ khiếu nại KN706476"],["06-hop-viec-doi-soat.html","06 · Việc cần xử lý · Đối soát"],["07-ho-so-doi-soat.html","07 · Hồ sơ đối soát DS241010"],["08-hop-viec-gian-lan.html","08 · Việc cần xử lý · Nghi gian lận"],["09-giao-dich-don.html","09 · Giao dịch · Đơn & hoa hồng"],["10-giao-dich-lenh-chi.html","10 · Giao dịch · Lệnh chi"],["12-nguoi-dung.html","12 · Người dùng"],["13-ho-so-nguoi-dung.html","13 · Hồ sơ người dùng"],["14-noi-dung.html","14 · Nội dung"],["15-cau-hinh.html","15 · Cấu hình"],["16-nhat-ky.html","16 · Nhật ký"],["17-trang-thai-phim-tat.html","17 · Trạng thái & phím tắt"],["18-ho-so-don.html","18 · Hồ sơ đơn 2409B58F2"],["19-nhan-vien.html","19 · Nhân viên"],["20-tai-khoan.html","20 · Tài khoản của tôi"],["21-doi-chieu.html","21 · Đối chiếu"]];</script>
+<style>
+body{background:var(--kem)}
+.wrap{max-width:1240px;margin:0 auto;padding:36px 28px 80px;display:flex;flex-direction:column;gap:28px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:24px;align-items:start}
+.hero h1{font:800 32px/1.15 var(--display);letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--cam)}
+.hero p{font:400 14.5px/1.6 var(--font);color:var(--muc-2);max-width:720px;margin-top:10px}
+.hero .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.howto{background:#fff;border-radius:var(--r);padding:18px 20px;display:flex;flex-direction:column;gap:10px;font-size:13px}
+.howto b{font-weight:700}
+.howto ol{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;color:var(--muc-2)}
+.howto .kbd{margin:0 2px}
+.grp{display:flex;flex-direction:column;gap:12px}
+.grp__h{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--muc);padding-bottom:8px}
+.grp__h h2{font:800 20px/1.2 var(--display);letter-spacing:-.02em}
+.grp__h span{font:500 12.5px/1.4 var(--font);color:var(--phu)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.scr{display:flex;flex-direction:column;background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--vien);transition:box-shadow .12s,transform .12s}
+.scr:hover{box-shadow:var(--shadow-pop);transform:translateY(-2px)}
+.scr__img{aspect-ratio:16/10;background:var(--sand-2);overflow:hidden;border-bottom:1px solid var(--vien)}
+.scr__img img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.scr__b{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px}
+.scr__b b{font:700 14px/1.3 var(--font);display:flex;gap:8px;align-items:center}
+.scr__b b i{font:700 11px/1 var(--mono);color:var(--phu);background:var(--sand);border-radius:4px;padding:3px 5px;font-style:normal}
+.scr__b small{font:400 12.5px/1.45 var(--font);color:var(--phu)}
+.foot{font:400 12.5px/1.5 var(--font);color:var(--phu);border-top:1px solid var(--vien-3);padding-top:14px}
+@media (max-width:1100px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:720px){.grid{grid-template-columns:1fr}.wrap{padding:24px 16px 60px}}
+</style>
+</head>
+<body class="adm">
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Prototype · bản tĩnh · số liệu là ví dụ</div>
+      <h1>Trang vận hành <em>salevề</em> · V2</h1>
+      <p>Hai mươi mốt màn cho đội vận hành, kế toán và quản trị của nền tảng hoàn tiền: bốn việc cần xử lý có hạn xử lý, hồ sơ việc là trang riêng, duyệt chi hai người, trạng thái đơn cho mỗi đơn, số dư ví, ghi chú nội bộ nền vàng, số tài khoản luôn che, mọi hành động tiền có người thực hiện và lý do. Mở từng màn để bấm thử: hàng trong bảng, nút duyệt, từ chối, panel bên phải, phím tắt.</p>
+      <div class="acts">
+        <a class="btn btn--primary" href="01-hop-viec.html">Bắt đầu từ Việc cần xử lý</a>
+        <a class="btn btn--secondary" href="index.html?clean=1" id="btn-clean">Bản sạch để trình bày</a>
+        <a class="btn btn--ghost" href="01-hop-viec.html?role=ops">Xem với vai Vận hành</a>
+        <a class="btn btn--ghost" href="02-hop-viec-duyet-chi.html?role=finance">Xem với vai Kế toán</a>
+      </div>
+    </div>
+    <div class="howto">
+      <b>Luồng xem đề xuất (15 phút)</b>
+      <ol>
+        <li>01 Việc cần xử lý → bấm một hàng, xem panel phải, mở hồ sơ.</li>
+        <li>02 Chờ duyệt chi → tick 3 lệnh, bấm "Duyệt 3 lệnh" xem modal.</li>
+        <li>03 Hồ sơ RT-2720 → thử "Từ chối…" (bắt buộc lý do), "Hiện số đầy đủ".</li>
+        <li>04 → 05 Khiếu nại → ghi chú nội bộ vàng, kết luận có khoản bù.</li>
+        <li>06 → 07 Đối soát, 08 Gian lận.</li>
+        <li>09 Đơn & hoa hồng → trạng thái đơn; 13 Hồ sơ người dùng → "Điều chỉnh số dư…".</li>
+        <li>15 Cấu hình → "Lưu thay đổi…"; 16 Nhật ký → trước/sau; 17 các trạng thái.</li>
+      </ol>
+      <div class="hint">Thanh đen trên cùng là thanh demo để đổi màn và vai, không thuộc thiết kế. Thêm <span class="kbd">?clean=1</span> vào URL để ẩn. Phím <span class="kbd">?</span> mở bảng phím tắt.</div>
+    </div>
+  </div>
+
+  <div class="grp">
+    <div class="grp__h"><h2>Việc cần xử lý</h2><span>việc cần người làm, mỗi hàng một badge hạn, sắp theo hạn gần nhất</span></div>
+    <div class="grid">
+      <a class="scr" href="01-hop-viec.html"><div class="scr__img"><img src="anh/thumb/01-hop-viec.png" alt=""></div><div class="scr__b"><b><i>01</i>Việc cần xử lý · Tất cả</b><small>Hàng chờ gộp mọi loại việc, tile sức khoẻ, panel xem nhanh RT-2720 cần duyệt lần hai.</small></div></a>
+      <a class="scr" href="02-hop-viec-duyet-chi.html"><div class="scr__img"><img src="anh/thumb/02-hop-viec-duyet-chi.png" alt=""></div><div class="scr__b"><b><i>02</i>Chờ duyệt chi</b><small>Chọn nhiều lệnh, duyệt một lần có hộp xác nhận; người tạo không có nút duyệt; quỹ chi số dư ví.</small></div></a>
+      <a class="scr" href="03-ho-so-lenh-chi.html"><div class="scr__img"><img src="anh/thumb/03-ho-so-lenh-chi.png" alt=""></div><div class="scr__b"><b><i>03</i>Hồ sơ lệnh chi RT-2720</b><small>Duyệt hai người, diff ví trước/sau, kiểm tra nhanh, từ chối có mã lý do, số tài khoản che.</small></div></a>
+      <a class="scr" href="04-hop-viec-khieu-nai.html"><div class="scr__img"><img src="anh/thumb/04-hop-viec-khieu-nai.png" alt=""></div><div class="scr__b"><b><i>04</i>Khiếu nại</b><small>Trạng thái việc tách khỏi kết quả xử lý, hạn xử lý từng hàng, panel bằng chứng và đơn ba trạng thái.</small></div></a>
+      <a class="scr" href="05-ho-so-khieu-nai.html"><div class="scr__img"><img src="anh/thumb/05-ho-so-khieu-nai.png" alt=""></div><div class="scr__b"><b><i>05</i>Hồ sơ khiếu nại KN706476</b><small>Dòng thời gian, ghi chú nội bộ nền vàng, đối chiếu đơn, kết luận tạo khoản bù chờ người thứ hai, composer hai tab.</small></div></a>
+      <a class="scr" href="06-hop-viec-doi-soat.html"><div class="scr__img"><img src="anh/thumb/06-hop-viec-doi-soat.png" alt=""></div><div class="scr__b"><b><i>06</i>Đối soát</b><small>Yêu cầu DS và đơn không khớp trong một hộp, loại ngoại lệ có tên, gợi ý kèm mức tin cậy, gán tay có lý do.</small></div></a>
+      <a class="scr" href="07-ho-so-doi-soat.html"><div class="scr__img"><img src="anh/thumb/07-ho-so-doi-soat.png" alt=""></div><div class="scr__b"><b><i>07</i>Hồ sơ đối soát DS241010</b><small>Trường hợp không tìm thấy đơn: click quanh lúc mua, chờ sàn thêm 7 ngày, đóng không hợp lệ có mã lý do.</small></div></a>
+      <a class="scr" href="08-hop-viec-gian-lan.html"><div class="scr__img"><img src="anh/thumb/08-hop-viec-gian-lan.png" alt=""></div><div class="scr__b"><b><i>08</i>Nghi gian lận</b><small>Mức rủi ro, liên kết thiết bị / IP / tài khoản nhận, tiền đang giữ 7 ngày, quyết định từng người, không chọn nhiều.</small></div></a>
+    </div>
+  </div>
+
+  <div class="grp">
+    <div class="grp__h"><h2>Giao dịch</h2><span>danh sách trạng thái máy để tra cứu và đối soát</span></div>
+    <div class="grid">
+      <a class="scr" href="09-giao-dich-don.html"><div class="scr__img"><img src="anh/thumb/09-giao-dich-don.png" alt=""></div><div class="scr__b"><b><i>09</i>Đơn &amp; hoa hồng</b><small>Vòng đời 5 nấc, trạng thái đơn, mốc khoá sửa, trục thời gian; panel kể vòng đời của một đơn.</small></div></a>
+      <a class="scr" href="10-giao-dich-lenh-chi.html"><div class="scr__img"><img src="anh/thumb/10-giao-dich-lenh-chi.png" alt=""></div><div class="scr__b"><b><i>10</i>Lệnh chi</b><small>Hai pha duyệt → chuyển; lệnh PayOS chỉ đọc; tải CSV lô được ghi nhật ký.</small></div></a>
+    </div>
+  </div>
+
+  <div class="grp">
+    <div class="grp__h"><h2>Tra cứu</h2><span>người dùng và nhật ký</span></div>
+    <div class="grid">
+      <a class="scr" href="21-doi-chieu.html"><div class="scr__img"><img src="anh/thumb/21-doi-chieu.png" alt=""></div><div class="scr__b"><b><i>21</i>Đối chiếu</b><small>Tiền đang nợ khách, đối chiếu từng tháng với Shopee và tiền đã chi.</small></div></a>
+      <a class="scr" href="12-nguoi-dung.html"><div class="scr__img"><img src="anh/thumb/12-nguoi-dung.png" alt=""></div><div class="scr__b"><b><i>12</i>Người dùng</b><small>Tìm nhanh, số dư ví, nghi vấn rủi ro, lệnh rút đang chờ; mở hồ sơ được ghi nhật ký.</small></div></a>
+      <a class="scr" href="13-ho-so-nguoi-dung.html"><div class="scr__img"><img src="anh/thumb/13-ho-so-nguoi-dung.png" alt=""></div><div class="scr__b"><b><i>13</i>Hồ sơ người dùng</b><small>Số dư ví, tab đơn / lệnh rút / khiếu nại / giới thiệu / phiên, điều chỉnh số dư qua hai người, khoá có lý do.</small></div></a>
+      <a class="scr" href="16-nhat-ky.html"><div class="scr__img"><img src="anh/thumb/16-nhat-ky.png" alt=""></div><div class="scr__b"><b><i>16</i>Nhật ký</b><small>Chip lọc theo trường, trước / sau và lý do trong panel, hiện số tài khoản không ghi số, xuất CSV cũng ghi.</small></div></a>
+    </div>
+  </div>
+
+  <div class="grp">
+    <div class="grp__h"><h2>Quản trị</h2><span>chỉ vai quản trị</span></div>
+    <div class="grid">
+      <a class="scr" href="14-noi-dung.html"><div class="scr__img"><img src="anh/thumb/14-noi-dung.png" alt=""></div><div class="scr__b"><b><i>14</i>Nội dung</b><small>Bài viết, voucher (xoá mềm phải ẩn khỏi app), chiến dịch, gửi thông báo có xem trước và xác nhận.</small></div></a>
+      <a class="scr" href="19-nhan-vien.html"><div class="scr__img"><img src="anh/thumb/19-nhan-vien.png" alt=""></div><div class="scr__b"><b><i>19</i>Nhân viên</b><small>Danh sách, mời, đổi vai, khoá; bảng quyền theo vai.</small></div></a>
+      <a class="scr" href="20-tai-khoan.html"><div class="scr__img"><img src="anh/thumb/20-tai-khoan.png" alt=""></div><div class="scr__b"><b><i>20</i>Tài khoản của tôi</b><small>Thông tin cá nhân, đổi email, nhận thông báo, phiên đăng nhập.</small></div></a>
+      <a class="scr" href="15-cau-hinh.html"><div class="scr__img"><img src="anh/thumb/15-cau-hinh.png" alt=""></div><div class="scr__b"><b><i>15</i>Cấu hình</b><small>Ngưỡng tiền cần hai người, hạn xử lý, bảo mật số tài khoản, trạng thái tích hợp, bảng quyền theo vai.</small></div></a>
+    </div>
+  </div>
+
+  <div class="grp">
+    <div class="grp__h"><h2>Hệ thống</h2><span>bảng tra cho dev và client</span></div>
+    <div class="grid">
+      <a class="scr" href="00-he-component.html"><div class="scr__img"><img src="anh/thumb/00-he-component.png" alt=""></div><div class="scr__b"><b><i>00</i>Hệ component</b><small>Token màu, badge và nhãn tiếng Việt, hạn xử lý, trạng thái đơn, số dư ví, bảng, panel, hồ sơ, modal, phím tắt.</small></div></a>
+      <a class="scr" href="17-trang-thai-phim-tat.html"><div class="scr__img"><img src="anh/thumb/17-trang-thai-phim-tat.png" alt=""></div><div class="scr__b"><b><i>17</i>Trạng thái &amp; phím tắt</b><small>Đang tải, rỗng, lỗi, mất kết nối, 403, toast, modal xác nhận, phím tắt, tiêu đề tab và email nhóm vận hành.</small></div></a>
+    </div>
+  </div>
+
+  <div class="foot">Mở bằng trình duyệt máy tính từ 1280px trở lên (laptop 13" vừa). Màu, chữ và mascot theo bộ nhận diện salevề; số liệu, tên người và mã đơn trong mọi màn là ví dụ để minh hoạ luồng làm việc.</div>
+</div>
+<script src="admin.js"></script>
+<script>
+(function(){
+  if(/[?&]clean=1/.test(location.search)){
+    document.querySelectorAll('a.scr, .acts a').forEach(function(a){var h=a.getAttribute('href');if(h&&h.indexOf('clean=1')<0)a.setAttribute('href',h+(h.indexOf('?')<0?'?':'&')+'clean=1');});
+    var b=document.getElementById('btn-clean'); if(b){b.textContent='Đang ở bản sạch'; b.classList.add('is-disabled');}
+  }
+})();
+</script>
+</body>
+</html>

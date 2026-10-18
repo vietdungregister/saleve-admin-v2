@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tra cứu · Nhật ký · salevề vận hành</title>
+<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="admin-v2.css">
+<style>
+/* Bổ sung riêng cho màn này */
+col.c-when{width:104px}col.c-act{width:176px}col.c-obj{width:196px}col.c-dev{width:118px}
+.tbl--inbox td .badge--sm{height:21px;font-size:11px}
+.tbl--inbox td.act b{display:block;font-weight:600}
+.tbl--inbox td.obj .code{font:600 12.5px/1 var(--mono);color:var(--reu)}
+.qp .diff--v2 .diff__col{font-size:12.5px}
+.qp .kv{grid-template-columns:110px minmax(0,1fr);font-size:12.5px}
+#tbl-nk col:nth-child(2){width:200px}
+</style>
+<script>window.ADM_SCREENS=[["index.html","Mục lục"],["00-he-component.html","00 · Hệ component"],["01-hop-viec.html","01 · Việc cần xử lý · Tất cả"],["02-hop-viec-duyet-chi.html","02 · Việc cần xử lý · Chờ duyệt chi"],["03-ho-so-lenh-chi.html","03 · Hồ sơ lệnh chi RT-2720"],["04-hop-viec-khieu-nai.html","04 · Việc cần xử lý · Khiếu nại"],["05-ho-so-khieu-nai.html","05 · Hồ sơ khiếu nại KN706476"],["06-hop-viec-doi-soat.html","06 · Việc cần xử lý · Đối soát"],["07-ho-so-doi-soat.html","07 · Hồ sơ đối soát DS241010"],["08-hop-viec-gian-lan.html","08 · Việc cần xử lý · Nghi gian lận"],["09-giao-dich-don.html","09 · Giao dịch · Đơn & hoa hồng"],["10-giao-dich-lenh-chi.html","10 · Giao dịch · Lệnh chi"],["12-nguoi-dung.html","12 · Người dùng"],["13-ho-so-nguoi-dung.html","13 · Hồ sơ người dùng"],["14-noi-dung.html","14 · Nội dung"],["15-cau-hinh.html","15 · Cấu hình"],["16-nhat-ky.html","16 · Nhật ký"],["17-trang-thai-phim-tat.html","17 · Trạng thái & phím tắt"],["18-ho-so-don.html","18 · Hồ sơ đơn 2409B58F2"],["19-nhan-vien.html","19 · Nhân viên"],["20-tai-khoan.html","20 · Tài khoản của tôi"],["21-doi-chieu.html","21 · Đối chiếu"]];</script>
+</head>
+<body class="adm" data-role="admin">
+<div class="app">
+<aside class="sb">
+  <a class="sb__brand" href="01-hop-viec.html"><span class="sb__logo">sale<em>về</em></span><span class="sb__tag">vận hành</span></a>
+  <nav class="sb__nav" aria-label="Vận hành">
+    <div class="sb__group">Việc cần xử lý</div>
+    <a class="sb__item sb__item--inbox" data-nav="hop-viec" href="01-hop-viec.html"><svg class="ic"><use href="#i-home"/></svg><span>Tất cả</span><b class="n n--hot" data-role-total>9</b></a>
+    <a class="sb__item sb__item--inbox" data-nav="duyet-chi" data-roles="finance admin" href="02-hop-viec-duyet-chi.html"><svg class="ic"><use href="#i-wallet"/></svg><span>Chờ duyệt chi</span><b class="n n--hot">3</b></a>
+    <a class="sb__item sb__item--inbox" data-nav="khieu-nai" data-roles="ops admin" href="04-hop-viec-khieu-nai.html"><svg class="ic"><use href="#i-support"/></svg><span>Khiếu nại</span><b class="n n--hot">2</b></a>
+    <a class="sb__item sb__item--inbox" data-nav="doi-soat" data-roles="ops admin" href="06-hop-viec-doi-soat.html"><svg class="ic"><use href="#i-unmatched"/></svg><span>Đối soát</span><b class="n n--hot">3</b></a>
+    <a class="sb__item sb__item--inbox" data-nav="gian-lan" data-roles="ops admin" href="08-hop-viec-gian-lan.html"><svg class="ic"><use href="#i-shield"/></svg><span>Nghi gian lận</span><b class="n n--hot">1</b></a>
+    <div class="sb__group">Giao dịch</div>
+    <a class="sb__item" data-nav="don" href="09-giao-dich-don.html"><svg class="ic"><use href="#i-package"/></svg><span>Đơn &amp; hoa hồng</span></a>
+    <a class="sb__item" data-nav="lenh-chi" data-roles="finance admin" href="10-giao-dich-lenh-chi.html"><svg class="ic"><use href="#i-bank"/></svg><span>Lệnh chi</span></a>
+    <a class="sb__item" data-nav="doi-chieu" data-roles="finance admin" href="21-doi-chieu.html"><svg class="ic"><use href="#i-layers"/></svg><span>Đối chiếu</span></a>
+    <div class="sb__group">Tra cứu</div>
+    <a class="sb__item" data-nav="nguoi-dung" href="12-nguoi-dung.html"><svg class="ic"><use href="#i-users"/></svg><span>Người dùng</span></a>
+    <a class="sb__item is-active" data-nav="nhat-ky" aria-current="page" data-roles="admin" href="16-nhat-ky.html"><svg class="ic"><use href="#i-history"/></svg><span>Nhật ký</span></a>
+    <div class="sb__group" data-roles="admin">Quản trị</div>
+    <a class="sb__item" data-nav="noi-dung" data-roles="admin" href="14-noi-dung.html"><svg class="ic"><use href="#i-content"/></svg><span>Nội dung</span></a>
+    <a class="sb__item" data-nav="nhan-vien" data-roles="admin" href="19-nhan-vien.html"><svg class="ic"><use href="#i-users"/></svg><span>Nhân viên</span></a>
+    <a class="sb__item" data-nav="cau-hinh" data-roles="admin" href="15-cau-hinh.html"><svg class="ic"><use href="#i-settings"/></svg><span>Cấu hình</span></a>
+  </nav>
+  <div class="sb__foot">
+    <div class="sb__sync"><i class="dot dot--ok"></i>Đồng bộ sàn 14:30 · ổn</div>
+    <a class="sb__user" href="20-tai-khoan.html"><span class="avatar avatar--staff" data-role-avatar>S</span><div><b data-role-name>Nguyễn Sơn</b><small data-role-mail>Quản trị · admin@saleve.vn</small></div></a>
+    <a class="sb__out" href="#"><svg class="ic ic--xs"><use href="#i-arrow-up-right"/></svg><span>Về trang người dùng</span></a>
+  </div>
+</aside>
+<div class="main">
+  <header class="hd">
+    <div class="hd__crumb"><span>Vận hành</span><i>/</i><span>Tra cứu</span><i>/</i><b>Nhật ký</b></div>
+    <label class="hd__search"><svg class="ic ic--sm"><use href="#i-search"/></svg><input placeholder="Tìm người dùng, mã KN / DS / RT, mã đơn sàn…"><span class="kbd">⌘K</span></label>
+    <div style="position:relative">
+      <button class="hd__inbox" data-pop="#pop-inbox"><svg class="ic ic--sm"><use href="#i-bell"/></svg><span>Việc cần xử lý</span><b class="n n--hot" data-role-total>9</b></button>
+      <div class="pop" id="pop-inbox">
+        <div class="pop__hd">Việc đang chờ<small>hỏi lại 20 giây/lần · vừa xong</small></div>
+        <a class="pop__i" href="02-hop-viec-duyet-chi.html" data-roles="finance admin"><svg class="ic ic--sm"><use href="#i-wallet"/></svg><span>Chờ duyệt chi · việc cũ nhất từ 22 giờ trước</span><b class="n">3</b></a>
+        <a class="pop__i" href="04-hop-viec-khieu-nai.html" data-roles="ops admin"><svg class="ic ic--sm"><use href="#i-support"/></svg><span>Khiếu nại · 1 quá hạn</span><b class="n">2</b></a>
+        <a class="pop__i" href="06-hop-viec-doi-soat.html" data-roles="ops admin"><svg class="ic ic--sm"><use href="#i-unmatched"/></svg><span>Đối soát · việc cũ nhất từ 2 ngày trước</span><b class="n">3</b></a>
+        <a class="pop__i" href="08-hop-viec-gian-lan.html" data-roles="ops admin"><svg class="ic ic--sm"><use href="#i-shield"/></svg><span>Nghi gian lận · giữ tiền tối đa 7 ngày</span><b class="n">1</b></a>
+      </div>
+    </div>
+    <button class="hd__me" title="Tài khoản"><span class="avatar avatar--staff" data-role-avatar>S</span></button>
+  </header>
+  <main class="pg">
+<div data-roles="admin" class="stack">
+<div class="pg__head">
+  <div><h1>Nhật ký</h1></div>
+  <div class="pg__actions"><button class="btn btn--secondary btn--sm" data-open="#m-csv"><svg class="ic"><use href="#i-download"/></svg>Xuất CSV</button><button class="btn btn--ghost btn--sm" data-open="#modal-keys"><svg class="ic"><use href="#i-keyboard"/></svg>Phím tắt</button></div>
+</div>
+
+<div class="toolbar"><div class="tabs"><span class="tabs__i is-active" data-tab="staff">Nhân viên</span><span class="tabs__i" data-tab="user">Người dùng</span></div><div class="fbar"><button class="fsel is-set">Thời gian: <b>7 ngày</b><svg class="ic"><use href="#i-chevron-down"/></svg></button><button class="fsel">Nhân viên: <b>Tất cả</b><svg class="ic"><use href="#i-chevron-down"/></svg></button><button class="fsel">Việc: <b>Tất cả</b><svg class="ic"><use href="#i-chevron-down"/></svg></button></div></div>
+
+<div data-tabs class="qp-layout qp-layout--list is-closed">
+<div class="stack">
+  <div class="tbl-wrap" data-panel="staff">
+    <div class="tbl__hd"><b>63 bản ghi</b></div>
+    <table class="tbl tbl--v2 tbl--inbox" id="tbl-nk">
+      <colgroup><col class="c-when"><col style="width:180px"><col style="width:300px"><col class="c-side"></colgroup>
+      <thead class="sort"><tr><th>Lúc</th><th class="sort">Nhân viên</th><th class="sort">Việc đã làm</th><th class="col-side">Kết quả</th></tr></thead>
+      <tbody>
+        <tr class="is-click"><td class="when"><b>15:52</b>15/10</td><td class="u">Nguyễn Sơn<span class="sub">Quản trị · IP 113.161.74.•</span></td><td class="two"><b>Điều chỉnh số dư</b><span class="sub"><a class="link" href="13-ho-so-nguoi-dung.html">Nguyễn Văn An</a></span></td><td class="col-side"><span class="money pos">+12.000đ</span> Chờ sàn duyệt · có hiệu lực ngay<span class="sub">tham chiếu KN706468</span></td></tr>
+        <tr class="is-click"><td class="when"><b>15:20</b>15/10</td><td class="u">Nguyễn Sơn<span class="sub">Quản trị · IP 113.161.74.•</span></td><td class="two"><b>Gán đơn không khớp</b><span class="sub"><a class="link" href="06-hop-viec-doi-soat.html">2410B9X2</a></span></td><td class="col-side">Gán cho <b>Phạm Hồng Hạnh</b> · đóng DS241012<span class="sub">lý do "cùng mã đơn, click 12:01 cùng ngày"</span></td></tr>
+        <tr class="is-click"><td class="when"><b>15:12</b>15/10</td><td class="u">Nguyễn Sơn<span class="sub">Quản trị · IP 113.161.74.•</span></td><td class="two"><b>Xem hồ sơ người dùng</b><span class="sub"><a class="link" href="13-ho-so-nguoi-dung.html">Nguyễn Văn An</a></span></td><td class="col-side"><span class="muted">Chỉ xem, không đổi dữ liệu</span><span class="sub">mở từ KN706476</span></td></tr>
+        <tr class="is-click"><td class="when"><b>14:20</b>15/10</td><td class="u">Lê Thu Hà<span class="sub">Kế toán · IP 14.226.231.•</span></td><td class="two"><b>Tải CSV lô chi</b><span class="sub"><a class="link" href="10-giao-dich-lenh-chi.html">15/10-01</a></span></td><td class="col-side">Lần 1 · 1 dòng · 1.850.000đ<span class="sub">CSV có số tài khoản đầy đủ · vai Kế toán</span></td></tr>
+        <tr class="is-click"><td class="when"><b>14:05</b>15/10</td><td class="u">Lê Thu Hà<span class="sub">Kế toán · IP 14.226.231.•</span></td><td class="two"><b>Duyệt chi lần một</b><span class="sub"><a class="link" href="03-ho-so-lenh-chi.html">RT-2720</a></span></td><td class="col-side">1.200.000đ · Nguyễn Văn An · chờ người thứ hai<span class="sub">ghi chú "đã đối chiếu tên chủ TK"</span></td></tr>
+        <tr class="is-click"><td class="when"><b>14:03</b>15/10</td><td class="u">Lê Thu Hà<span class="sub">Kế toán · IP 14.226.231.•</span></td><td class="two"><b>Hiện số tài khoản</b><span class="sub"><a class="link" href="03-ho-so-lenh-chi.html">RT-2720</a></span></td><td class="col-side">60 giây · lý do "đối chiếu tên chủ TK"<span class="sub">nhật ký không chứa số tài khoản</span></td></tr>
+        <tr class="is-click"><td class="when"><b>11:45</b>15/10</td><td class="u">Nguyễn Sơn<span class="sub">Quản trị · IP 113.161.74.•</span></td><td class="two"><b>Sửa cấu hình</b><span class="sub"><a class="link" href="15-cau-hinh.html">withdraw_min</a></span></td><td class="col-side"><span class="chg"><s>20.000đ</s> → <b>30.000đ</b></span><span class="sub">lưu thẳng · có hiệu lực ngay</span></td></tr>
+        <tr class="is-click"><td class="when"><b>10:15</b>15/10</td><td class="u">Lê Thu Hà<span class="sub">Kế toán · IP 14.226.231.•</span></td><td class="two"><b>Gom lô chi</b><span class="sub"><a class="link" href="10-giao-dich-lenh-chi.html">15/10-01</a></span></td><td class="col-side">1 lệnh · 1.850.000đ<span class="sub">RT-2724</span></td></tr>
+        <tr class="is-click"><td class="when"><b>09:30</b>15/10</td><td class="u">Trần Đức Minh<span class="sub">Vận hành · IP 14.226.231.•</span></td><td class="two"><b>Giữ thêm 7 ngày</b><span class="sub"><a class="link" href="08-hop-viec-gian-lan.html">Trần Văn Khoa</a></span></td><td class="col-side">Giữ tới 20/10 → 27/10<span class="sub">lý do "chờ xác minh thiết bị d-7f3a"</span></td></tr>
+        <tr class="is-click"><td class="when"><b>09:02</b>15/10</td><td class="u">Nguyễn Sơn<span class="sub">Quản trị · IP 113.161.74.•</span></td><td class="two"><b>Xuất CSV nhật ký</b><span class="sub"><span class="link">7 ngày</span></span></td><td class="col-side">63 dòng · bộ lọc 7 ngày<span class="sub">lần xuất cũng được ghi</span></td></tr>
+        <tr class="is-click"><td class="when"><b>08:58</b>15/10</td><td class="u">Trần Đức Minh<span class="sub">Vận hành · IP 14.226.231.•</span></td><td class="two"><b>Đăng nhập</b><span class="sub"><span class="link">ops@saleve.vn</span></span></td><td class="col-side">Thành công sau 3 lần OTP sai<span class="sub">08:55, 08:56, 08:57 thất bại · báo quản trị</span></td></tr>
+        <tr class="is-click"><td class="when"><b>17:30</b>10/10</td><td class="u">Nguyễn Sơn<span class="sub">Quản trị · IP 113.161.74.•</span></td><td class="two"><b>Đăng bài viết</b><span class="sub"><a class="link" href="14-noi-dung.html">sale-11-11</a></span></td><td class="col-side">Đăng ngay · nổi bật<span class="sub">Lịch sale 11.11 Shopee</span></td></tr>
+      </tbody>
+    </table>
+    <div class="skel" hidden aria-hidden="true"><i style="width:60%"></i><i style="width:85%"></i><i style="width:72%"></i></div>
+    <div class="empty" hidden><img class="empty__m" src="mascot/xu-chua-co-gi.svg" alt=""><div class="empty__t">Không có bản ghi khớp bộ lọc</div><div class="empty__d">Nới khoảng thời gian hoặc bỏ bớt chip.</div></div>
+    <div class="errbox" hidden><div class="errbox__t">Không tải được nhật ký</div><div class="errbox__d">Mã lỗi NK-503.</div><button class="btn btn--secondary btn--sm">Thử lại</button></div>
+    <div class="pager"><span>1–12 / 63 bản ghi</span><div class="pager__r"><select class="input"><option>25 / trang</option><option>50 / trang</option><option>100 / trang</option></select><button class="btn btn--ghost btn--icon" disabled><svg class="ic"><use href="#i-chevron-left"/></svg></button><button class="btn btn--ghost btn--icon"><svg class="ic"><use href="#i-chevron-right"/></svg></button></div></div>
+  </div>
+  <div class="tbl-wrap" data-panel="user" hidden>
+    <div class="tbl__hd"><b>2.418 bản ghi</b></div>
+    <table class="tbl tbl--v2 tbl--inbox">
+      <colgroup><col class="c-when"><col style="width:180px"><col style="width:300px"><col></colgroup>
+      <thead class="sort"><tr><th>Lúc</th><th class="sort">Người dùng</th><th class="sort">Việc đã làm</th><th>Chi tiết</th></tr></thead>
+      <tbody>
+        <tr class="is-click"><td class="when"><b>13:36</b>15/10</td><td class="u">Nguyễn Văn An</td><td class="two"><b>Gửi khiếu nại</b><span class="sub"><a class="link" href="05-ho-so-khieu-nai.html">KN706476</a></span></td><td>4 ảnh · đơn 2409B58F2</td></tr>
+        <tr class="is-click"><td class="when"><b>13:30</b>15/10</td><td class="u">Nguyễn Văn An</td><td class="two"><b>Đăng nhập</b><span class="sub">OTP email</span></td><td>iPhone · app salevề · IP 113.161.74.•</td></tr>
+        <tr class="is-click"><td class="when"><b>10:05</b>12/10</td><td class="u">Trần Văn Khoa</td><td class="two"><b>Tạo lệnh rút</b><span class="sub"><a class="link" href="10-giao-dich-lenh-chi.html">RT-2718</a></span></td><td>300.000đ · MB</td></tr>
+        <tr class="is-click"><td class="when"><b>09:58</b>12/10</td><td class="u">Trần Văn Khoa</td><td class="two"><b>Đổi tài khoản ngân hàng</b><span class="sub">MB •••• 9931</span></td><td>khoá rút 24 giờ · thiết bị d-7f3a</td></tr>
+        <tr class="is-click"><td class="when"><b>09:40</b>12/10</td><td class="u">Nguyễn Văn An</td><td class="two"><b>Tạo lệnh rút</b><span class="sub"><a class="link" href="03-ho-so-lenh-chi.html">RT-2720</a></span></td><td>1.200.000đ · VCB</td></tr>
+        <tr class="is-click"><td class="when"><b>08:55</b>12/10</td><td class="u">Trần Văn Khoa</td><td class="two"><b>Đăng ký</b><span class="sub">mã mời của Trần Văn Khoa</span></td><td>tài khoản Khoa3 · cùng thiết bị d-7f3a</td></tr>
+        <tr class="is-click"><td class="when"><b>14:02</b>10/10</td><td class="u">Phạm Hồng Hạnh</td><td class="two"><b>Bấm link mua</b><span class="sub">Bộ chăn ga cotton 1m8</span></td><td>Shopee · sub-ID sv_hanh9q2</td></tr>
+        <tr class="is-click"><td class="when"><b>21:10</b>04/10</td><td class="u">Trần Thị Bích</td><td class="two"><b>Đổi số điện thoại</b><span class="sub">0987 •••• 210</span></td><td>xác minh OTP</td></tr>
+      </tbody>
+    </table>
+    <div class="pager"><span>1–8 / 2.418 bản ghi</span><div class="pager__r"><select class="input"><option>25 / trang</option></select></div></div>
+  </div>
+</div>
+
+<aside class="qp" aria-label="Chi tiết bản ghi">
+  <div class="qp__hd">
+    <div><h3>Sửa cấu hình </h3><small>11:45 · 15/10/2026 · bản ghi #88102</small></div>
+    <button class="qp__x" title="Đóng" aria-label="Đóng"><svg class="ic ic--sm"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="qp__bd">
+    <div class="sec"><div class="sec__t">Trước / sau</div>
+      <div class="diff--v2"><div class="diff__col diff__col--before"><div class="diff__l">Trước</div>Ngưỡng rút tối thiểu: 20.000đ</div><div class="diff__col diff__col--after"><div class="diff__l">Sau</div>Ngưỡng rút tối thiểu: 30.000đ</div></div>
+    </div>
+    <div class="sec"><div class="sec__t">Lý do</div>
+      <div class="msg msg--note"><div class="msg__hd">Nguyễn Sơn<time>11:45</time></div>Dừng thử 30.000đ: số lệnh rút nhỏ tăng mạnh, phí xử lý vượt lợi ích.</div>
+    </div>
+    <div class="sec"><div class="sec__t">Ai · ở đâu</div>
+      <dl class="kv"><dt>Người tạo</dt><dd>Nguyễn Sơn · Quản trị</dd><dt>IP</dt><dd>113.161.74.• (đã che phần cuối)</dd><dt>Thiết bị</dt><dd>Chrome 130 · macOS · <span class="mono">d-10af</span></dd><dt>Hiệu lực</dt><dd>11:52 · 15/10/2026 (sau duyệt)</dd></dl>
+    </div>
+    <div class="sec"><div class="sec__t">Liên quan</div>
+      <div class="list-links"><a href="15-cau-hinh.html"><span>Mở cấu hình <span class="mono b">withdraw_min</span></span><span>↗</span></a><a href="#"><span>Lần sửa trước · 20.000đ → 30.000đ</span><span>02/09</span></a></div>
+    </div>
+  </div>
+  <div class="qp__ft">
+      <button class="btn btn--secondary btn--sm" data-toast="Đã sao chép liên kết bản ghi #88102">Sao chép liên kết</button>
+  </div>
+</aside>
+</div>
+</div>
+<div data-roles="ops finance" class="card" style="margin-top:8px"><div class="empty"><img class="empty__m" src="mascot/xu-chua-co-gi.svg" alt=""><div class="empty__t">Vai <span data-role-label-short></span> không xem được nhật ký</div><div class="empty__d">Cần vai Quản trị.</div><a class="btn btn--secondary btn--sm" href="01-hop-viec.html">Về Việc cần xử lý</a></div></div>
+  </main>
+</div>
+</div>
+<div class="modal-wrap" id="m-csv" role="dialog" aria-labelledby="m-csv-t"><div class="modal">
+  <h2 class="modal__t" id="m-csv-t">Xuất CSV 63 bản ghi theo bộ lọc?</h2>
+  <p class="modal__d">Tệp gồm lúc, người, vai, hành động, đối tượng, trước/sau, lý do, IP che.</p>
+  <div class="callout callout--neutral small"><svg class="ic"><use href="#i-info"/></svg><div>Người thực hiện <b data-role-name>Nguyễn Sơn</b> · 16/10/2026.</div></div>
+  <div class="modal__ft"><button class="btn btn--ghost" data-close>Huỷ</button><button class="btn btn--primary" data-toast="Đang xuất 63 dòng · lần xuất đã ghi nhật ký">Xuất CSV (ghi nhật ký)</button></div>
+</div></div>
+<div class="modal-wrap" id="modal-keys" role="dialog" aria-label="Phím tắt"><div class="modal" style="width:560px">
+  <h2 class="modal__t">Phím tắt</h2>
+  <div class="keys--v2">
+    <div><span><span class="kbd">J</span> <span class="kbd">K</span></span><span>việc sau / trước</span></div><div><span class="kbd">Enter</span><span>mở hồ sơ</span></div>
+    <div><span class="kbd">A</span><span>nhận việc</span></div><div><span class="kbd">/</span><span>tìm trong trang</span></div>
+    <div><span class="kbd">⌘K</span><span>tìm toàn hệ</span></div><div><span class="kbd">Esc</span><span>đóng bảng bên / hộp thoại</span></div>
+    <div><span><span class="kbd">1</span>…<span class="kbd">5</span></span><span>lọc theo trạng thái</span></div><div><span class="kbd">?</span><span>bảng này</span></div>
+  </div>
+  <div class="modal__ft"><button class="btn btn--primary" data-close>Đóng</button></div>
+</div></div>
+<script src="admin.js"></script>
+<script>
+/* hành vi chung V2: mật độ bảng, chọn hàng + panel, kết luận/mã lý do, composer 2 tab */
+(function(){
+  document.querySelectorAll('.tbl__dense-toggle').forEach(function(g){g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+    g.querySelectorAll('button').forEach(function(x){x.classList.toggle('is-on',x===b)});
+    var t=document.querySelector(g.getAttribute('data-dense'));if(t)t.classList.toggle('tbl--xs',b.textContent.indexOf('Dày')===0);});});
+  document.querySelectorAll('th.th-plat').forEach(function(th){var i=[].indexOf.call(th.parentElement.children,th);var cg=th.closest('table').querySelector('colgroup');if(cg&&cg.children[i])cg.children[i].classList.add('c-plat');});
+  document.querySelectorAll('.tbl--v2 tbody tr.is-click').forEach(function(tr){tr.addEventListener('click',function(e){if(e.target.closest('a,button,.check,[data-open],[data-toast]'))return;
+    var tb=tr.closest('tbody');tb.querySelectorAll('tr').forEach(function(x){x.classList.toggle('is-sel',x===tr)});
+    var lay=tr.closest('.qp-layout');if(lay)lay.classList.remove('is-closed');});});
+  /* bảng bên: hàng có nội dung dựng sẵn thì hiện bản đầy đủ; hàng khác hiện tóm tắt lấy từ chính hàng (không hiện nhầm việc khác) */
+  (function(){var qp=document.querySelector('.qp-layout .qp');if(!qp)return;var full=qp.innerHTML,lay=qp.closest('.qp-layout'),tb=lay.querySelector('.tbl--v2 tbody');if(!tb)return;
+    var key=(qp.querySelector('.qp__hd h3')||{}).textContent||'';key=(key.match(/[A-Z]{2}[-A-Z0-9]{3,}|\d{4}[A-Z0-9]{4,}/)||[''])[0];
+    var heads=[].map.call(lay.querySelectorAll('.tbl--v2 thead th'),function(h){return h.textContent.trim();});
+    var openHref=(qp.querySelector('.qp__ft a.btn')||{}).getAttribute?qp.querySelector('.qp__ft a.btn').getAttribute('href'):null;
+    tb.addEventListener('click',function(e){var tr=e.target.closest('tr');if(!tr||e.target.closest('a,button,.check'))return;
+      var txt=tr.textContent;if(key&&txt.indexOf(key)>=0){qp.innerHTML=full;return;}
+      var c=tr.cells,rows='';for(var i=0;i<c.length;i++){var h=heads[i],v=c[i].innerHTML.trim();if(!h||!c[i].textContent.trim()||c[i].querySelector('.check'))continue;rows+='<dt>'+h.charAt(0)+h.slice(1).toLowerCase()+'</dt><dd>'+v+'</dd>';}
+      var title=(c[0].querySelector('.mono,.sub.mono')||c[0]).textContent.trim();
+      qp.innerHTML='<div class="qp__hd"><div><h3>'+title+'</h3></div><button class="qp__x" title="Đóng" aria-label="Đóng"><svg class="ic ic--sm"><use href="#i-x"/></svg></button></div><div class="qp__bd"><dl class="kv kv--tight">'+rows+'</dl></div><div class="qp__ft"><span class="btn btn--secondary btn--sm is-disabled" title="Mở hồ sơ">Mở hồ sơ</span></div>';
+      qp.querySelector('.qp__x').addEventListener('click',function(){lay.classList.add('is-closed');});},true);})();
+  document.querySelectorAll('.qp__x').forEach(function(x){x.addEventListener('click',function(){var lay=x.closest('.qp-layout');if(lay)lay.classList.add('is-closed');});});
+  document.querySelectorAll('.qp__open').forEach(function(x){x.addEventListener('click',function(){var lay=document.querySelector('.qp-layout');if(lay)lay.classList.remove('is-closed');});});
+  document.querySelectorAll('.reason').forEach(function(r){r.addEventListener('click',function(e){var l=e.target.closest('label');if(!l)return;
+    r.querySelectorAll('label').forEach(function(x){x.classList.toggle('is-on',x===l);var m=x.getAttribute('data-more');if(m){var p=document.querySelector(m);if(p)p.hidden=(x!==l);}});});});
+  document.querySelectorAll('.composer').forEach(function(cp){cp.querySelectorAll('[data-cp]').forEach(function(b){b.addEventListener('click',function(){var note=b.getAttribute('data-cp')==='note';
+    cp.querySelectorAll('[data-cp]').forEach(function(x){x.classList.toggle('is-on',x===b);x.classList.toggle('is-note',x===b&&note)});cp.classList.toggle('composer--note',note);
+    var u=cp.querySelector('[data-cp-user]'),n=cp.querySelector('[data-cp-note]');if(u)u.hidden=note;if(n)n.hidden=!note;
+    var h=cp.querySelector('[data-cp-hint]');if(h)h.textContent=note?'Chỉ nhân viên thấy · không gửi cho khách · ghi nhật ký':'Gửi nguyên văn cho khách qua thông báo app + Zalo · ghi nhật ký';
+    cp.querySelectorAll('[data-cp-only]').forEach(function(x){x.hidden=(x.getAttribute('data-cp-only')==='note')!==note;});});});});
+  document.querySelectorAll('.reason label[data-submit]').forEach(function(l){l.addEventListener('click',function(){var b=document.getElementById('kl-submit');if(!b||l.classList.contains('is-off'))return;b.textContent=l.getAttribute('data-submit');b.setAttribute('data-open',l.getAttribute('data-modal'));});});
+})();
+</script>
+<script>
+/* sắp xếp khi bấm tiêu đề cột (bản mẫu: sắp ngay trên trình duyệt) */
+(function(){
+  function dur(m){var n=+m[1];return m[2]==='phút'?n:m[2]==='giờ'?n*60:n*1440;}
+  function key(td){
+    if(td.hasAttribute('data-sort')&&/^\d+$/.test(td.getAttribute('data-sort')))return +td.getAttribute('data-sort');var t=(td.getAttribute('data-sort')||td.textContent||'').replace(/\s+/g,' ').trim(), m, d;
+    if((/^[−-]\s*\d/.test(t)||/^quá hạn/i.test(t))&&/(phút|giờ|ngày)/.test(t)){m=t.match(/(\d+)\s*(phút|giờ|ngày)/);return -dur(m);}
+    if(/^còn\s/.test(t)){m=t.match(/(\d+)\s*(phút|giờ|ngày)/);return m?dur(m):1e9;}
+    if(/^(đã xử lý|không hạn|tạm dừng|giữ còn)/.test(t)){m=t.match(/(\d+)\s*(phút|giờ|ngày)/);return m?dur(m)+1e6:1e12;}
+    d=t.match(/(\d{2})\/(\d{2})(?:\/(\d{4}))?/); m=t.match(/(\d{2}):(\d{2})/);
+    if(d){return ((d[3]?+d[3]:2026)*10000+(+d[2])*100+(+d[1]))*10000+(m?(+m[1])*100+(+m[2]):0);}
+    var num=t.replace(/\s/g,'');
+    if(/^[+−-]?[\d.]+(đ|%)?$/.test(num)){return parseFloat(num.replace(/[^\d−-]/g,'').replace('−','-'))||0;}
+    return t.toLowerCase();
+  }
+  document.querySelectorAll('.tbl th.sort').forEach(function(th){
+    th.addEventListener('click',function(){
+      var table=th.closest('table'),tr=th.parentElement,idx=[].indexOf.call(tr.children,th);
+      var asc=!th.classList.contains('is-asc');
+      tr.querySelectorAll('th').forEach(function(x){x.classList.remove('is-asc','is-desc');});
+      th.classList.add(asc?'is-asc':'is-desc');
+      var tb=table.tBodies[0],rows=[].slice.call(tb.rows);
+      rows.sort(function(a,b){var ka=key(a.cells[idx]),kb=key(b.cells[idx]);
+        if(typeof ka==='number'&&typeof kb==='number')return asc?ka-kb:kb-ka;
+        ka=String(ka);kb=String(kb);return asc?ka.localeCompare(kb,'vi'):kb.localeCompare(ka,'vi');});
+      rows.forEach(function(r){tb.appendChild(r);});
+    });
+  });
+  /* sắp ngay khi mở trang theo cột đang đánh dấu */
+  document.querySelectorAll('.tbl th.sort.is-asc, .tbl th.sort.is-desc').forEach(function(th){var asc=th.classList.contains('is-asc');th.classList.toggle('is-asc',!asc);th.classList.toggle('is-desc',asc);th.click();});
+  /* giữ ?role= và ?clean= khi bấm link nội bộ */
+  var q=location.search.replace(/^\?/,'');if(q){document.querySelectorAll('a[href]').forEach(function(a){var h=a.getAttribute('href');if(/^[0-9a-z_-]+\.html$/i.test(h))a.setAttribute('href',h+'?'+q);});}
+})();
+</script>
+</body>
+</html>

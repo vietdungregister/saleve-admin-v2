@@ -1,0 +1,373 @@
+/* ============================================================
+   salevề admin · prototype V2 (hướng P1+) · admin-v2.css
+   Nạp SAU admin.css. Chỉ chứa phần mới theo nghiên cứu 14–15/10/2026:
+   hộp việc + SLA, trạng thái 3 cột, ví 3 ô, panel xem nhanh, trang hồ sơ,
+   ghi chú nội bộ nền vàng, mã lý do, bulk bar duyệt lô, STK che + hiện số.
+   Token gốc (màu, chữ) giữ nguyên ở admin.css :root.
+   ============================================================ */
+
+:root{
+  --sb-w:256px;                      /* NT-1: sidebar 256, rail 64 */
+  --vang-nhat:#FFF6DB; --vang-vien:#F2DFA3; --vang-chu:#6B4E00;   /* ghi chú nội bộ (NT-23) */
+  --lam:#2D5A8E; --lam-nhat:#E3ECF6;                                /* "đang xử lý" tone lam (NT-28) */
+  --tim:#5B4A8A; --tim-nhat:#ECE7F6;                                /* ngoại lệ / cần người khác */
+  --qp-w:420px;                                                     /* panel xem nhanh */
+}
+@media (max-width:1180px){ :root{--sb-w:64px} }
+
+/* ---------- Sidebar: nhóm 4 mục hộp việc có đếm, rail 64 ---------- */
+.sb__item .n{margin-left:auto}
+.sb__item--inbox{font-weight:600}
+@media (max-width:1180px){
+  .sb__brand .sb__tag,.sb__group,.sb__item span,.sb__foot .sb__sync,.sb__user div,.sb__out span{display:none}
+  .sb__item{justify-content:center;padding:0}
+  .sb__item .n{position:absolute;top:4px;right:6px;margin:0}
+  .sb__item{position:relative}
+}
+
+/* ---------- Dãy nút đếm theo trạng thái việc (NT-4, NT-22) ---------- */
+.counts{display:flex;gap:6px;flex-wrap:wrap}
+.counts__i{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 12px;border-radius:99px;border:1px solid var(--vien-3);background:#fff;font:600 12.5px/1 var(--font);color:var(--muc-2);cursor:pointer}
+.counts__i b{font:800 12px/1 var(--font);color:var(--muc)}
+.counts__i.is-on{background:var(--muc);color:#fff;border-color:var(--muc)}
+.counts__i.is-on b{color:#fff}
+.counts__i--hot b{color:var(--cam-chu)}
+
+/* ---------- Badge SLA: một badge/hàng, đổi màu theo thời gian còn lại (NT-21) ---------- */
+.sla{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:99px;font:700 12px/1 var(--font);white-space:nowrap;font-variant-numeric:tabular-nums}
+.sla::before{content:"";width:6px;height:6px;border-radius:99px;background:currentColor}
+.sla--ok{background:var(--reu-nhat);color:var(--reu)}          /* còn > 15' hoặc còn nhiều */
+.sla--warn{background:var(--dao);color:var(--cam-chu)}         /* sắp tới hạn */
+.sla--late{background:var(--gach-nhat);color:var(--gach)}       /* quá hạn, số âm */
+.sla--none{background:var(--sand);color:var(--phu)}            /* không có SLA */
+.age{color:var(--phu);font:500 12px/1.3 var(--font);white-space:nowrap}
+
+/* ---------- Tone bổ sung cho badge (NT-28: 5–6 tone, luôn kèm chữ) ---------- */
+.badge--blue{background:var(--lam-nhat);color:var(--lam)}
+.badge--purple{background:var(--tim-nhat);color:var(--tim)}
+.badge--lock{background:var(--sand);color:var(--muc-2)}
+.badge--lock::before{background:var(--vien-4)}
+
+/* ---------- Ba cột trạng thái (đơn sàn · hoa hồng · chi trả) (NT-7) ---------- */
+.st3{display:inline-flex;gap:6px;align-items:center}
+.st3 .badge{height:22px;font-size:11.5px}
+.st3 i{color:var(--vien-4);font-style:normal}
+.tbl--v2 td{height:40px;padding:6px 12px}                      /* NT-25: hàng 40 mặc định */
+.tbl--v2.tbl--xs td{height:32px;padding:4px 10px;font-size:13px}
+.tbl--v2.tbl--lg td{height:48px}
+.tbl--v2 td.num,.tbl--v2 th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tbl--v2 td.code{font:600 12.5px/1 var(--mono)}
+.tbl--v2 tr.is-sel td{background:var(--dao-nhat)}
+.tbl--v2 tr.is-sel td:first-child{box-shadow:inset 3px 0 0 var(--cam)}
+.tbl--v2 tr.is-mine td:first-child{box-shadow:inset 3px 0 0 var(--reu)}
+.tbl__dense-toggle{display:inline-flex;gap:2px;background:var(--sand-2);border-radius:8px;padding:2px;margin-left:auto}
+.tbl__dense-toggle button{height:24px;padding:0 8px;border:0;border-radius:6px;background:transparent;font:600 11.5px/1 var(--font);color:var(--muc-2);cursor:pointer}
+.tbl__dense-toggle button.is-on{background:#fff;color:var(--muc);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+
+/* ---------- Ví 3 ô: Chờ / Đã ghi sổ / Khả dụng (NT-10) ---------- */
+.wallet3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.wallet3__i{background:#fff;border-radius:12px;padding:12px 14px;border:1px solid var(--vien)}
+.wallet3__l{font:700 10.5px/1 var(--font);letter-spacing:.1em;text-transform:uppercase;color:var(--phu);margin-bottom:8px}
+.wallet3__v{font:800 20px/1 var(--display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.wallet3__i--avail .wallet3__v{color:var(--reu)}
+.wallet3__s{font:400 11.5px/1.3 var(--font);color:var(--phu);margin-top:6px}
+
+/* ---------- Panel xem nhanh 420 bên phải, không phủ (NT-5) ---------- */
+.qp-layout{display:grid;grid-template-columns:minmax(0,1fr) var(--qp-w);gap:16px;align-items:start}
+.qp{position:sticky;top:calc(var(--hd-h) + 16px);background:#fff;border-radius:14px;border:1px solid var(--vien);display:flex;flex-direction:column;max-height:calc(100vh - var(--hd-h) - 32px)}
+.qp__hd{padding:14px 16px 10px;border-bottom:1px solid var(--vien);display:flex;align-items:flex-start;gap:10px}
+.qp__hd h3{margin:0;font:800 18px/1.2 var(--display);display:flex;align-items:center;gap:8px}
+.qp__hd small{display:block;color:var(--phu);font:400 12px/1.3 var(--font);margin-top:3px}
+.qp__x{margin-left:auto;width:28px;height:28px;border-radius:8px;border:1px solid var(--vien-3);background:#fff;display:inline-flex;align-items:center;justify-content:center;color:var(--phu);cursor:pointer}
+.qp__bd{padding:14px 16px;overflow:auto;display:flex;flex-direction:column;gap:14px}
+.qp__ft{border-top:1px solid var(--vien);padding:10px 16px;display:flex;gap:8px;align-items:center}
+.qp__ft .btn{height:34px}
+.qp__nav{display:inline-flex;gap:4px;margin-right:auto}
+.qp__nav button{width:30px;height:30px;border-radius:8px;border:1px solid var(--vien-3);background:#fff;color:var(--muc-2);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+@media (max-width:1279px){ .qp-layout{grid-template-columns:1fr} .qp{position:fixed;top:var(--hd-h);right:0;bottom:0;width:var(--qp-w);max-width:92vw;border-radius:0;box-shadow:var(--shadow-drawer);z-index:60;max-height:none} }
+
+/* ---------- Trang hồ sơ có URL: 2 cột (NT-3, NT-5) ---------- */
+.rec{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px;align-items:start}
+.rec__hd{display:flex;align-items:flex-start;gap:14px;margin-bottom:4px}
+.rec__hd h1{margin:0;font:800 26px/1.15 var(--display);letter-spacing:-.02em;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rec__hd .pg__sub{margin-top:4px}
+.rec__nav{margin-left:auto;display:flex;gap:6px;align-items:center;color:var(--phu);font:500 12.5px/1 var(--font);white-space:nowrap}
+.rec__nav .btn{height:32px}
+.rec__side{display:flex;flex-direction:column;gap:12px;position:sticky;top:calc(var(--hd-h) + 16px)}
+.rec__main{display:flex;flex-direction:column;gap:14px;min-width:0}
+
+/* ---------- Dòng thời gian hội thoại: khách / nội bộ / hành động (NT-23) ---------- */
+.thread{display:flex;flex-direction:column;gap:10px}
+.msg{border-radius:12px;padding:12px 14px;border:1px solid var(--vien);background:#fff;font:400 13.5px/1.5 var(--font)}
+.msg__hd{display:flex;gap:8px;align-items:center;font:600 12.5px/1 var(--font);color:var(--muc-2);margin-bottom:6px}
+.msg__hd time{margin-left:auto;font-weight:400;color:var(--phu);font-variant-numeric:tabular-nums}
+.msg--user{background:#fff}
+.msg--note{background:var(--vang-nhat);border-color:var(--vang-vien)}            /* ghi chú nội bộ: nền vàng */
+.msg--note .msg__hd{color:var(--vang-chu)}
+.msg--note .msg__hd::before{content:"Nội bộ";font:700 10px/1 var(--font);letter-spacing:.1em;text-transform:uppercase;background:var(--vang-vien);color:var(--vang-chu);padding:3px 6px;border-radius:4px}
+.msg--sys{background:var(--sand-2);border-color:transparent;color:var(--muc-2);font-size:12.5px}
+.msg--sys .msg__hd{margin-bottom:2px}
+.msg__att{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.msg__att .thumb{width:84px;height:84px}
+
+/* ---------- Composer hai chế độ (NT-23) ---------- */
+.composer{border-radius:12px;border:1px solid var(--vien-3);background:#fff;overflow:hidden}
+.composer__tabs{display:flex;border-bottom:1px solid var(--vien)}
+.composer__tabs button{height:36px;padding:0 14px;border:0;background:transparent;font:600 12.5px/1 var(--font);color:var(--phu);cursor:pointer;border-bottom:2px solid transparent}
+.composer__tabs button.is-on{color:var(--muc);border-bottom-color:var(--muc)}
+.composer__tabs button.is-on.is-note{color:var(--vang-chu);border-bottom-color:var(--vang-chu);background:var(--vang-nhat)}
+.composer textarea{width:100%;border:0;padding:12px 14px;min-height:92px;font:400 13.5px/1.5 var(--font);resize:vertical;background:transparent;outline:0}
+.composer--note textarea{background:var(--vang-nhat)}
+.composer__ft{display:flex;gap:8px;align-items:center;padding:8px 10px;border-top:1px solid var(--vien);background:var(--sand-2)}
+.composer__ft .hint{margin-right:auto}
+
+/* ---------- Form kết luận với mã lý do (NT-15, NT-19) ---------- */
+.reason{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.reason label{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--vien-3);border-radius:10px;cursor:pointer;font:500 13px/1.4 var(--font)}
+.reason label.is-on{border-color:var(--muc);box-shadow:var(--ring)}
+.reason input{margin-top:3px}
+.reason small{display:block;color:var(--phu);font-size:11.5px}
+
+/* ---------- Duyệt hai người: tiến độ x/y, diff (NT-13, NT-14) ---------- */
+.approve{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:var(--dao-nhat);border:1px dashed var(--cam)}
+.approve__p{display:inline-flex;gap:4px}
+.approve__p i{width:22px;height:22px;border-radius:99px;display:inline-flex;align-items:center;justify-content:center;font:800 11px/1 var(--font);background:var(--sand);color:var(--phu);font-style:normal}
+.approve__p i.is-done{background:var(--reu);color:#fff}
+.approve__p i.is-you{background:var(--cam);color:var(--muc)}
+.approve b{font-weight:700}
+.approve small{color:var(--muc-2);font-size:12px}
+
+/* ---------- Bulk bar duyệt lô (NT-25) ---------- */
+.bulk--v2{display:flex;align-items:center;gap:10px;background:var(--muc);color:#fff;border-radius:12px;padding:10px 14px}
+.bulk--v2 b{font-variant-numeric:tabular-nums}
+.bulk--v2 .btn--primary{background:#fff;color:var(--muc)}
+.bulk--v2 .btn--danger{border-color:#F0A98A;color:#F0A98A}
+.bulk--v2 .x{margin-left:auto;opacity:.8;cursor:pointer}
+
+/* ---------- STK che + hiện số đầy đủ (NT-34) ---------- */
+.acct{font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.acct__reveal{margin-left:8px;font:600 11.5px/1 var(--font);color:var(--reu);text-decoration:underline dotted;cursor:pointer}
+.acct__reveal[aria-disabled="true"]{color:var(--phu);text-decoration:none;cursor:not-allowed}
+
+/* ---------- Ngoại lệ đối soát: loại + mức tin cậy (NT-18) ---------- */
+.exc{display:inline-flex;align-items:center;gap:6px;font:600 12px/1 var(--font)}
+.exc__bar{width:56px;height:6px;border-radius:99px;background:var(--sand);overflow:hidden}
+.exc__bar i{display:block;height:100%;background:var(--reu);border-radius:99px}
+.exc--low .exc__bar i{background:var(--cam)}
+
+/* ---------- Khoá sửa (lock_at) (NT-8) ---------- */
+.lock{display:inline-flex;align-items:center;gap:5px;color:var(--phu);font:500 11.5px/1 var(--font)}
+
+/* ---------- Nhật ký diff trước/sau (NT-35) ---------- */
+.diff--v2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.diff--v2 .diff__col{border-radius:10px;padding:10px 12px;font:500 12.5px/1.5 var(--mono)}
+.diff--v2 .diff__col--before{background:var(--gach-nhat);color:var(--gach);text-decoration:line-through}
+.diff--v2 .diff__col--after{background:var(--reu-nhat);color:var(--reu)}
+.diff--v2 .diff__l{font:700 10.5px/1 var(--font);letter-spacing:.1em;text-transform:uppercase;color:var(--phu);margin-bottom:6px;text-decoration:none}
+
+/* ---------- Tile sức khoẻ gọn trên Hộp việc ---------- */
+.health--row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+
+/* ---------- Bảng phím tắt (NT-24) ---------- */
+.keys--v2{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;font:400 13px/1.5 var(--font)}
+.keys--v2 .kbd{min-width:22px;text-align:center}
+
+/* ---------- Chế độ xem sạch cho client: ẩn thanh demo (đã có ?clean=1) ---------- */
+body.is-client .demo{display:none}
+
+/* ============================================================
+   Bổ sung 15/10/2026 — gộp từ khối <style> lặp ở màn 00–03 (bảng hộp việc,
+   loại việc, người nhận, panel đóng/mở, phím tắt). Màn 04–05 có override riêng.
+   ============================================================ */
+.tbl--v2 th{padding:10px 12px}
+.tbl--v2 td{font-size:13.5px}
+.tbl--v2 td.num{font-weight:600;font-size:13px}
+.tbl--v2 td.u{font-weight:600;font-size:13px;white-space:nowrap}
+.tbl--inbox{table-layout:fixed}
+.tbl--inbox td,.tbl--inbox th{overflow:hidden;text-overflow:ellipsis}
+.tbl--inbox td.brief{white-space:normal;font-size:12.5px;line-height:1.25;padding-top:4px;padding-bottom:4px;color:var(--muc-2)}
+.tbl--inbox td.brief .clamp2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tbl--inbox.tbl--xs td.brief .clamp2{-webkit-line-clamp:1}
+.tbl--inbox td.brief b{color:var(--muc);font-weight:600}
+col.c-sla{width:154px}col.c-code{width:104px}col.c-user{width:134px}col.c-num{width:100px}col.c-who{width:54px}
+.tbl--v2 td.brief .muted{font-weight:400}
+.tbl--inbox td.w-who{line-height:1;padding-top:0;padding-bottom:0;vertical-align:middle}
+.who{vertical-align:middle}
+.tbl--inbox th,.tbl--inbox td{padding-left:8px;padding-right:8px;white-space:nowrap}
+.tbl--inbox th:first-child,.tbl--inbox td:first-child{padding-left:12px}
+.tbl--inbox th:last-child,.tbl--inbox td:last-child{padding-right:12px}
+.tbl--inbox td.w-check{width:36px;padding-right:0}
+.tbl--inbox .sub{font-size:11.5px;line-height:1.2;margin-top:2px;max-width:none}
+.tbl--inbox td.two{line-height:1.2;padding-top:5px;padding-bottom:5px}
+.tbl--inbox td.two b{display:block;font-size:13px;font-weight:600}
+.tbl__hd{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--vien);flex-wrap:wrap}
+.tbl__hd b{font:700 13.5px/1.2 var(--font)}
+.tbl__hd small{color:var(--phu);font-size:12px}
+.kind{display:inline-flex;align-items:center;gap:6px;font:600 12.5px/1 var(--font);color:var(--muc-2);white-space:nowrap}
+.kind .ic{width:16px;height:16px}
+.kind--pay .ic{color:var(--reu)}.kind--kn .ic{color:var(--cam-chu)}.kind--ds .ic{color:var(--lam)}.kind--gl .ic{color:var(--gach)}.kind--adj .ic{color:var(--tim)}
+.who{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;font:500 12.5px/1 var(--font)}
+.who em{font-style:normal}
+.who .avatar{width:22px;height:22px;font-size:10px}
+.tbl--inbox .who em{display:none}
+.who--none{color:var(--phu-2)}
+.who--none i{width:22px;height:22px;border-radius:99px;border:1.5px dashed var(--vien-4);display:inline-block}
+.sla{font-size:11.5px;padding:0 7px}
+.tbl--inbox td .age{margin-left:6px;font-size:11.5px}
+.tbl--v2 td.code{white-space:nowrap}
+.tbl--v2 td.code .kind{margin-right:5px;vertical-align:-3px}
+.qp__open{margin-left:auto;flex-shrink:0}
+.qp-layout.is-closed{grid-template-columns:1fr}
+.qp-layout.is-closed .qp{display:none}
+.qp__nav button{font:600 14px/1 var(--font)}
+.counts__i .ic{width:14px;height:14px;color:var(--phu)}
+.counts__i.is-on .ic{color:#fff}
+.approve__t{display:flex;flex-direction:column;gap:2px;min-width:0}
+.approve__t small{display:block}
+.keys--v2 div{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--vien-2)}
+.reason label.is-on{background:var(--sand-2)}
+.modal .reason label{padding:8px 10px;font-size:12.5px}
+.modal--lo{width:600px}
+.modal .tbl--v2 td{height:36px;padding:4px 10px}
+.acct__reveal{white-space:nowrap}
+@media (max-width:1366px){
+  :root{--qp-w:360px}
+  .tbl--inbox td .age{display:none}
+  col.c-sla{width:102px}col.c-user{width:106px}
+}
+
+/* ---------- Ẩn/hiện cột phụ theo bề rộng (bảng hộp việc + panel ở laptop 1280–1366) ---------- */
+.show-md{display:none!important}
+@media (max-width:1366px){.hide-md{display:none!important}.show-md{display:block!important}}
+.tbl--inbox td.two .badge{vertical-align:middle}
+.tbl--inbox td .sub{max-width:none}
+.qp .list-links{display:flex;flex-direction:column;gap:6px}
+.qp .list-links a{display:flex;justify-content:space-between;gap:8px;font-size:13px}
+.qp .list-links a span{color:var(--phu);white-space:nowrap}
+.rec__main .card .tbl--v2 td{font-size:13px}
+
+.qp__quote{font:400 13.5px/1.5 var(--font);color:var(--muc-2);border-left:3px solid var(--vien-3);padding-left:10px}
+.qp .sec{gap:8px}
+
+/* ---------- Trang danh sách (Giao dịch, Tra cứu, Nhật ký): panel mở ẩn cột phụ; ≤1366 panel thành lớp phủ ---------- */
+/* Lưu ý: bảng table-layout:fixed phải ẩn CẢ <col> lẫn ô, nếu chỉ ẩn ô thì cột trôi sang cột khác (lỗi gặp 15/10 ở màn 09/10/12) */
+@media (min-width:1367px){
+  .qp-layout--list:not(.is-closed) .col-side,.qp-layout--list:not(.is-closed) col.c-side{display:none}
+}
+@media (max-width:1366px){
+  .qp-layout--list{grid-template-columns:1fr}
+  .qp-layout--list .qp{position:fixed;top:var(--hd-h);right:0;bottom:0;width:380px;border-radius:0;box-shadow:var(--shadow-drawer);z-index:60;max-height:none}
+  .qp-layout--list.is-closed .qp{display:none}
+}
+.tbl--inbox td.u .sub{font-weight:400}
+.tbl--inbox td.when{color:var(--muc-2);font-size:12.5px;line-height:1.25}
+.tbl--inbox td.when b{display:block;font-weight:600;color:var(--muc)}
+.tbl--v2 td.num.pos{color:var(--reu)}
+.tbl--v2 td.num.neg{color:var(--gach)}
+.approve__p--sm i{width:18px;height:18px;font-size:10px}
+.tl--qp .tl__t{font-size:13px}
+.tl--qp .tl__s{font-size:12px}
+
+/* cột Nhận rộng 62 để chữ 'Nhận' không cụt (15/10) */
+col.c-who{width:62px}
+
+/* tên người nhận hiện khi panel đóng (16/10, góp ý review) */
+.qp-layout.is-closed .tbl--inbox .who em{display:inline;font:500 12.5px/1 var(--font)}
+.qp-layout.is-closed col.c-who{width:112px}
+.health--row .health__i{padding:10px 14px;gap:3px}
+.health--row .health__s{font-size:11.5px}
+
+/* thân thiện 16/10: hàng 44, chữ 14, thẻ thoáng hơn */
+.tbl--v2 td{height:44px;font-size:14px}
+.tbl--v2.tbl--xs td{height:36px}
+.tbl--inbox .sub{font-size:12px}
+.card__head{padding:18px 20px 12px}
+.qp__bd{gap:16px}
+
+/* cột hạn rộng hơn khi bảng bên đóng ("Quá hạn 3 giờ" + đã chờ) */
+.qp-layout.is-closed col.c-sla{width:204px}
+
+/* ẩn 'x ngày trước' khi bảng bên mở (cột hạn còn 154px) */
+
+/* cột Ngày tạo: cờ hạn chỉ khi sắp hạn / quá hạn (17/10) */
+col.c-when{width:140px}
+.tbl--inbox td.when-cell{white-space:nowrap}
+.tbl--inbox td.when-cell{line-height:1.2;padding-top:6px;padding-bottom:6px;overflow:visible}
+.tbl--inbox td.when-cell .sla{display:inline-flex;height:20px;font-size:11px;padding:0 8px;margin:0 0 3px;vertical-align:top}
+.tbl--inbox td.when-cell .age{display:block;margin:0}
+.tbl--v2 td.plat{font-size:13px;color:var(--muc-2);white-space:nowrap}
+
+/* bảng bên mở: ẩn cột Sàn (col đánh dấu bằng JS) */
+.qp-layout:not(.is-closed) .th-plat,.qp-layout:not(.is-closed) td.plat,.qp-layout:not(.is-closed) col.c-plat{display:none}
+.qp__ft{justify-content:flex-end}
+/* bảng bên mở: ẩn cột Phụ trách (bảng bên đã ghi người nhận) */
+.qp-layout:not(.is-closed) .tbl--inbox col.c-who,.qp-layout:not(.is-closed) .tbl--inbox .w-who{display:none}
+.tbl--inbox td.when-cell .age{display:block!important}
+/* bảng bên mở: cột người dùng gọn, cột ngày đủ chỗ cho nhãn hạn */
+.qp-layout:not(.is-closed) .tbl--inbox col.c-user{width:140px}
+.qp-layout:not(.is-closed) .tbl--inbox col.c-when{width:128px}
+
+/* ---------- Thanh lọc dùng chung (17/10): một kiểu "Nhãn: giá trị ▾", cùng cao 34, bo tròn ---------- */
+.fbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.fsel{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px 0 14px;border-radius:99px;border:1px solid var(--vien-3);background:#fff;font:500 13px/1 var(--font);color:var(--phu);cursor:pointer;white-space:nowrap}
+.fsel b{font-weight:600;color:var(--muc)}
+.fsel .ic{width:14px;height:14px;color:var(--phu-2)}
+.fsel:hover{border-color:var(--vien-4)}
+.fsel.is-set{border-color:var(--muc);background:var(--sand-2)}
+.fsearch{margin-left:auto;display:inline-flex;align-items:center;gap:8px;height:34px;width:280px;padding:0 14px;border-radius:99px;border:1px solid var(--vien-3);background:#fff;color:var(--phu)}
+.fsearch input{border:0;outline:0;background:transparent;flex:1;min-width:0;font:400 13px/1 var(--font);color:var(--muc)}
+.fsearch:focus-within{border-color:var(--muc);box-shadow:var(--ring)}
+.tbl__sum{font:500 12.5px/1 var(--font);color:var(--phu);margin-left:4px}
+.counts__i{height:34px}
+
+/* một hàng: nút đếm trái · bộ lọc phải; ô tìm ở thanh tiêu đề bảng (17/10) */
+.toolbar{display:flex;align-items:center;gap:8px 16px;flex-wrap:wrap}
+.toolbar .fbar{margin-left:auto;flex-wrap:nowrap}
+.toolbar .counts{gap:6px}
+.counts__i{padding:0 11px}
+.fsel{padding:0 10px 0 12px}
+.tbl__hd .fsearch,.tbl__bar .fsearch{margin-left:auto;width:260px;height:32px}
+.fsearch.fsearch--main{margin:0 8px 0 0;width:440px;height:40px}
+.fsearch--main input{font-size:14px}
+
+/* ---------- Theme (17/10): rêu mặc định · kem+mực · trung tính sáng ---------- */
+html[data-theme="reu"]{--sb-bg:#244A40;--sb-bg-2:#2F5D50;--sb-chu:#DDEBE4;--sb-nhan:#A9C7BB}
+html[data-theme="reu"] .btn--primary{background:#2F5D50;border-color:#2F5D50}
+html[data-theme="reu"] .btn--primary:hover{background:#244A40;border-color:#244A40}
+html[data-theme="reu"] .sb__item.is-active{color:#244A40}
+html[data-theme="reu"] .counts__i.is-on,html[data-theme="reu"] .chip.is-active{background:#2F5D50;border-color:#2F5D50}
+html[data-theme="sang"]{--sb-bg:#FFFFFF;--sb-bg-2:#F1EDE7;--sb-chu:#5B4F45;--sb-nhan:#8B7F73;--kem:#F6F4F1}
+html[data-theme="sang"] .sb{border-right:1px solid #E8E3DC}
+html[data-theme="sang"] .sb__logo{color:#2A211B}
+html[data-theme="sang"] .sb__item:hover{color:#2A211B}
+html[data-theme="sang"] .sb__item.is-active{background:#F1EDE7;color:#2A211B}
+html[data-theme="sang"] .sb__user b{color:#2A211B}
+html[data-theme="sang"] .sb__tag{background:#F6F4F1}
+.theme-sw{position:fixed;right:16px;bottom:16px;z-index:95;display:flex;align-items:center;gap:4px;padding:4px;border-radius:99px;background:#fff;border:1px solid var(--vien-3);box-shadow:var(--shadow-pop);font:600 12px/1 var(--font)}
+.theme-sw span{padding:0 6px 0 8px;color:var(--phu)}
+.theme-sw button{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border-radius:99px;color:var(--muc-2)}
+.theme-sw button i{width:12px;height:12px;border-radius:99px;border:1px solid rgba(0,0,0,.15)}
+.theme-sw button.is-on{background:var(--sand);color:var(--muc)}
+@media print{.theme-sw{display:none}}
+
+/* ---------- REV-005 (18/10) ---------- */
+:root{--phu-2:#74695E}                         /* 4,6:1 trên trắng (trước 3,9:1) */
+.input,.fsel,.fsearch{border-color:#CFC4B6}     /* viền ô nhập đủ thấy */
+.bulk--v2 .btn--danger{background:transparent;color:#FFD4C2;border-color:#FFD4C2}
+body.is-clean .demo-only,body.is-clean .set__k code{display:none!important}
+/* nút đổi màu: góc dưới sidebar, không đè nội dung */
+.theme-sw{left:12px;right:auto;bottom:12px;width:calc(var(--sb-w) - 24px);justify-content:space-between;padding:3px;box-shadow:none}
+.theme-sw span{display:none}
+.theme-sw button{flex:1;justify-content:center;padding:0 6px;font-size:11px}
+.sb__foot{padding-bottom:44px}
+@media (max-width:1180px){.theme-sw{width:auto;left:8px}.theme-sw button{font-size:0;gap:0}}
+body.is-clean .theme-sw{display:none}
+.wallet3{grid-template-columns:repeat(auto-fit,minmax(0,1fr))}
+.tbl--v2 td.when-cell{line-height:1.2;padding-top:6px;padding-bottom:6px;white-space:nowrap}
+.tbl--v2 td.when-cell .sla{display:inline-flex;height:20px;font-size:11px;padding:0 8px;margin:0 0 3px}
+.tbl--v2 td.when-cell .age{display:block!important;margin:0;font-size:11.5px}
+
+/* Một sàn: ẩn cột Sàn và bộ lọc Sàn (hiện lại khi bật sàn thứ hai) */
+html:not([data-multi-platform]) .th-plat,html:not([data-multi-platform]) td.plat,html:not([data-multi-platform]) col.c-plat,html:not([data-multi-platform]) .fsel--plat{display:none!important}
+.sla--ok{background:transparent;color:var(--muc-2);padding-left:0}
+.sla--ok::before{display:none}

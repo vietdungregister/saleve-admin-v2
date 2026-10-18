@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hệ component V2 · salevề vận hành</title>
+<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="admin-v2.css">
+<script>window.ADM_SCREENS=[["index.html","Mục lục"],["00-he-component.html","00 · Hệ component"],["01-hop-viec.html","01 · Việc cần xử lý · Tất cả"],["02-hop-viec-duyet-chi.html","02 · Việc cần xử lý · Chờ duyệt chi"],["03-ho-so-lenh-chi.html","03 · Hồ sơ lệnh chi RT-2720"],["04-hop-viec-khieu-nai.html","04 · Việc cần xử lý · Khiếu nại"],["05-ho-so-khieu-nai.html","05 · Hồ sơ khiếu nại KN706476"],["06-hop-viec-doi-soat.html","06 · Việc cần xử lý · Đối soát"],["07-ho-so-doi-soat.html","07 · Hồ sơ đối soát DS241010"],["08-hop-viec-gian-lan.html","08 · Việc cần xử lý · Nghi gian lận"],["09-giao-dich-don.html","09 · Giao dịch · Đơn & hoa hồng"],["10-giao-dich-lenh-chi.html","10 · Giao dịch · Lệnh chi"],["12-nguoi-dung.html","12 · Người dùng"],["13-ho-so-nguoi-dung.html","13 · Hồ sơ người dùng"],["14-noi-dung.html","14 · Nội dung"],["15-cau-hinh.html","15 · Cấu hình"],["16-nhat-ky.html","16 · Nhật ký"],["17-trang-thai-phim-tat.html","17 · Trạng thái & phím tắt"],["18-ho-so-don.html","18 · Hồ sơ đơn 2409B58F2"],["19-nhan-vien.html","19 · Nhân viên"],["20-tai-khoan.html","20 · Tài khoản của tôi"],["21-doi-chieu.html","21 · Đối chiếu"]];</script>
+<style>
+/* Bổ sung riêng cho màn này */
+/* màn 00: sơ đồ vòng đời, hình thu nhỏ panel/hồ sơ, lưới mẫu */
+.sheet__h span.when{margin-left:auto;font:500 12px/1.4 var(--font);color:var(--reu);text-align:right;max-width:460px}
+.flow{display:flex;align-items:stretch;flex-wrap:wrap;row-gap:12px}
+.flow__n{display:flex;flex-direction:column;gap:3px;width:148px;padding:10px 12px;border-radius:10px;background:#fff;border:1px solid var(--vien-3)}
+.flow__n b{font:700 13px/1.25 var(--font)}
+.flow__n small{color:var(--phu);font:400 11.5px/1.3 var(--font)}
+.flow__n code{font:600 11px/1 var(--mono);color:var(--phu)}
+.flow__a{align-self:center;width:26px;height:2px;background:var(--vien-4);position:relative;flex-shrink:0}
+.flow__a::after{content:'';position:absolute;right:-2px;top:-4px;border:5px solid transparent;border-left-color:var(--vien-4)}
+.flow__n--done{background:var(--reu-nhat);border-color:var(--reu)}
+.flow__n--now{background:var(--dao-nhat);border-color:var(--cam)}
+.flow__n--bad{background:var(--gach-nhat);border-color:var(--gach)}
+.flow__n--lock{background:var(--sand);border-color:var(--vien-4)}
+.flow__br{display:flex;align-items:center;gap:8px;color:var(--gach);font:600 12px/1.3 var(--font);padding-left:174px}
+.flow__br .flow__n{width:auto;min-width:148px}
+.mini{background:var(--kem);border:1px solid var(--vien);border-radius:12px;padding:12px;display:grid;gap:8px;min-height:190px;font:600 10.5px/1 var(--font);color:var(--phu);letter-spacing:.04em;text-transform:uppercase}
+.mini i{display:block;border-radius:6px;background:#fff;border:1px solid var(--vien)}
+.mini--qp{grid-template-columns:34px minmax(0,1fr) 112px}
+.mini--rec{grid-template-columns:minmax(0,1fr) 96px}
+.mini .lines{display:flex;flex-direction:column;gap:5px}
+.mini .lines i{height:16px}
+.mini .lines i.sel{background:var(--dao-nhat);border-left:3px solid var(--cam)}
+.mini .box{display:flex;flex-direction:column;gap:6px;padding:8px;background:#fff;border:1px solid var(--vien);border-radius:8px}
+.mini .box i{height:10px;border:0;background:var(--sand)}
+.mini .box i.btn-i{background:var(--muc);height:14px;margin-top:auto}
+.mini .side{background:var(--muc);border-radius:8px}
+.lbl-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.swatches{grid-template-columns:repeat(6,minmax(0,1fr))}
+.sw em b{color:var(--reu)}
+.wallet3--full .wallet3__v{font-size:22px}
+.keys--v2{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tone{display:grid;grid-template-columns:150px minmax(0,1fr) 170px;gap:10px 14px;align-items:center;padding:8px 0;border-top:1px solid var(--vien-2);font-size:13px}
+.tone:first-child{border-top:0}
+.tone .mono{color:var(--phu)}
+.ex-state{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.sla-rule{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 14px;font-size:13px;align-items:center}
+.modal.is-static{box-shadow:var(--shadow-pop)}
+.reason--6{grid-template-columns:repeat(3,1fr)}
+.sheet .tbl td{white-space:normal}
+</style>
+</head>
+<body class="adm" data-role="admin">
+<div class="app">
+<aside class="sb">
+  <a class="sb__brand" href="01-hop-viec.html"><span class="sb__logo">sale<em>về</em></span><span class="sb__tag">vận hành</span></a>
+  <nav class="sb__nav" aria-label="Vận hành">
+    <div class="sb__group">Việc cần xử lý</div>
+    <a class="sb__item sb__item--inbox" data-nav="hop-viec" href="01-hop-viec.html"><svg class="ic"><use href="#i-home"/></svg><span>Tất cả</span><b class="n n--hot" data-role-total>9</b></a>
+    <a class="sb__item sb__item--inbox" data-nav="duyet-chi" data-roles="finance admin" href="02-hop-viec-duyet-chi.html"><svg class="ic"><use href="#i-wallet"/></svg><span>Chờ duyệt chi</span><b class="n n--hot">3</b></a>
+    <a class="sb__item sb__item--inbox" data-nav="khieu-nai" data-roles="ops admin" href="04-hop-viec-khieu-nai.html"><svg class="ic"><use href="#i-support"/></svg><span>Khiếu nại</span><b class="n n--hot">2</b></a>
+    <a class="sb__item sb__item--inbox" data-nav="doi-soat" data-roles="ops admin" href="06-hop-viec-doi-soat.html"><svg class="ic"><use href="#i-unmatched"/></svg><span>Đối soát</span><b class="n n--hot">3</b></a>
+    <a class="sb__item sb__item--inbox" data-nav="gian-lan" data-roles="ops admin" href="08-hop-viec-gian-lan.html"><svg class="ic"><use href="#i-shield"/></svg><span>Nghi gian lận</span><b class="n n--hot">1</b></a>
+    <div class="sb__group">Giao dịch</div>
+    <a class="sb__item" data-nav="don" href="09-giao-dich-don.html"><svg class="ic"><use href="#i-package"/></svg><span>Đơn &amp; hoa hồng</span></a>
+    <a class="sb__item" data-nav="lenh-chi" data-roles="finance admin" href="10-giao-dich-lenh-chi.html"><svg class="ic"><use href="#i-bank"/></svg><span>Lệnh chi</span></a>
+    <a class="sb__item" data-nav="doi-chieu" data-roles="finance admin" href="21-doi-chieu.html"><svg class="ic"><use href="#i-layers"/></svg><span>Đối chiếu</span></a>
+    <div class="sb__group">Tra cứu</div>
+    <a class="sb__item" data-nav="nguoi-dung" href="12-nguoi-dung.html"><svg class="ic"><use href="#i-users"/></svg><span>Người dùng</span></a>
+    <a class="sb__item" data-nav="nhat-ky" data-roles="admin" href="16-nhat-ky.html"><svg class="ic"><use href="#i-history"/></svg><span>Nhật ký</span></a>
+    <div class="sb__group" data-roles="admin">Quản trị</div>
+    <a class="sb__item" data-nav="noi-dung" data-roles="admin" href="14-noi-dung.html"><svg class="ic"><use href="#i-content"/></svg><span>Nội dung</span></a>
+    <a class="sb__item" data-nav="nhan-vien" data-roles="admin" href="19-nhan-vien.html"><svg class="ic"><use href="#i-users"/></svg><span>Nhân viên</span></a>
+    <a class="sb__item" data-nav="cau-hinh" data-roles="admin" href="15-cau-hinh.html"><svg class="ic"><use href="#i-settings"/></svg><span>Cấu hình</span></a>
+  </nav>
+  <div class="sb__foot">
+    <div class="sb__sync"><i class="dot dot--ok"></i>Đồng bộ sàn 14:30 · ổn</div>
+    <a class="sb__user" href="20-tai-khoan.html"><span class="avatar avatar--staff" data-role-avatar>S</span><div><b data-role-name>Nguyễn Sơn</b><small data-role-mail>Quản trị · admin@saleve.vn</small></div></a>
+    <a class="sb__out" href="#"><svg class="ic ic--xs"><use href="#i-arrow-up-right"/></svg><span>Về trang người dùng</span></a>
+  </div>
+</aside>
+<div class="main">
+  <header class="hd">
+    <div class="hd__crumb"><span>Vận hành</span><i>/</i><b>Hệ component</b></div>
+    <label class="hd__search"><svg class="ic ic--sm"><use href="#i-search"/></svg><input placeholder="Tìm người dùng, mã KN / DS / RT, mã đơn sàn…"><span class="kbd">⌘K</span></label>
+    <div style="position:relative">
+      <button class="hd__inbox" data-pop="#pop-inbox"><svg class="ic ic--sm"><use href="#i-bell"/></svg><span>Việc cần xử lý</span><b class="n n--hot" data-role-total>9</b></button>
+      <div class="pop" id="pop-inbox">
+        <div class="pop__hd">Việc đang chờ<small>hỏi lại 20 giây/lần · vừa xong</small></div>
+        <a class="pop__i" href="02-hop-viec-duyet-chi.html" data-roles="finance admin"><svg class="ic ic--sm"><use href="#i-wallet"/></svg><span>Chờ duyệt chi · việc cũ nhất từ 22 giờ trước</span><b class="n">3</b></a>
+        <a class="pop__i" href="04-hop-viec-khieu-nai.html" data-roles="ops admin"><svg class="ic ic--sm"><use href="#i-support"/></svg><span>Khiếu nại · 1 quá hạn</span><b class="n">2</b></a>
+        <a class="pop__i" href="06-hop-viec-doi-soat.html" data-roles="ops admin"><svg class="ic ic--sm"><use href="#i-unmatched"/></svg><span>Đối soát · việc cũ nhất 2 ngày trước</span><b class="n">3</b></a>
+        <a class="pop__i" href="08-hop-viec-gian-lan.html" data-roles="ops admin"><svg class="ic ic--sm"><use href="#i-shield"/></svg><span>Nghi gian lận · giữ tiền tối đa 7 ngày</span><b class="n">1</b></a>
+      </div>
+    </div>
+    <button class="hd__me" title="Tài khoản"><span class="avatar avatar--staff" data-role-avatar>S</span></button>
+  </header>
+  <main class="pg">
+<div class="pg__head">
+  <div><div class="eyebrow">Hệ component · 18/10/2026</div><h1 style="margin-top:6px">Hệ component V2</h1><p class="pg__sub">Phần mới so với gói 13/10: việc cần xử lý có hạn xử lý, trạng thái ba cột, số dư ví, panel xem nhanh, trang hồ sơ, ghi chú nội bộ nền vàng, mã lý do, duyệt hai người, số tài khoản che. Token và component cũ (nút, ô nhập, drawer) giữ nguyên ở <span class="mono">admin.css</span>; phần mới ở <span class="mono">admin-v2.css</span>. Mỗi mục có một dòng “khi nào dùng”. Số liệu là ví dụ.</p></div>
+  <div class="pg__actions"><a class="btn btn--secondary btn--sm" href="01-hop-viec.html">Xem Việc cần xử lý →</a><a class="btn btn--secondary btn--sm" href="03-ho-so-lenh-chi.html">Xem hồ sơ →</a></div>
+</div>
+<div class="sheet">
+
+<!-- 01 TOKEN MÀU -->
+<section class="sheet__s">
+  <div class="sheet__h"><span class="eyebrow">01</span><h2>Token màu</h2><span>Giữ bảng màu app (kem · mực · rêu · cam · gạch) · thêm ba họ cho admin V2: vàng ghi chú, lam, tím</span></div>
+  <div class="swatches">
+    <div class="sw"><i style="background:#FBF7F0;border-bottom:1px solid #EFE7DB"></i><b>Kem · nền trang</b><small>#FBF7F0 · --kem</small></div>
+    <div class="sw"><i style="background:#FFFFFF;border-bottom:1px solid #EFE7DB"></i><b>Trắng · thẻ, bảng, panel</b><small>#FFFFFF · --trang</small></div>
+    <div class="sw"><i style="background:#F1E9DC"></i><b>Sand · nền phụ, badge khoá</b><small>#F1E9DC · --sand</small></div>
+    <div class="sw"><i style="background:#2A211B"></i><b>Mực · chữ, nút chính, sidebar</b><small>#2A211B · --muc</small></div>
+    <div class="sw"><i style="background:#6B6057"></i><b>Chữ phụ</b><small>#6B6057 · --phu · 5,7:1 trên kem</small></div>
+    <div class="sw"><i style="background:#EFE7DB"></i><b>Viền, kẻ bảng</b><small>#EFE7DB · --vien</small></div>
+    <div class="sw"><i style="background:#2F5D50"></i><b>Rêu · thành công, tiền dương</b><small>#2F5D50 · --reu</small></div>
+    <div class="sw"><i style="background:#DDEBE4"></i><b>Rêu nhạt · nền đã xong, còn nhiều thời gian</b><small>#DDEBE4 · --reu-nhat</small></div>
+    <div class="sw"><i style="background:#FF5A1F"></i><b>Cam · đếm việc, hàng chọn, bước hiện tại</b><small>#FF5A1F · --cam</small><em>không làm nút</em></div>
+    <div class="sw"><i style="background:#FFE1D2"></i><b>Đào · chờ xử lý, sắp tới hạn</b><small>#FFE1D2 · --dao · chữ --cam-chu #A63310</small></div>
+    <div class="sw"><i style="background:#9B3A2A"></i><b>Gạch · thất bại, quá hạn, tiền âm</b><small>#9B3A2A · --gach · nhạt #F7E3DE</small></div>
+    <div class="sw"><i style="background:#B54431"></i><b>Gạch đậm · nút nguy hiểm trong modal</b><small>#B54431 · --gach-dam</small></div>
+    <div class="sw"><i style="background:#FFF6DB;border-bottom:1px solid #F2DFA3"></i><b>Vàng ghi chú · nền ghi chú nội bộ</b><small>#FFF6DB · --vang-nhat</small><em><b>MỚI V2</b> · chỉ cho ghi chú nội bộ, tab Nội bộ</em></div>
+    <div class="sw"><i style="background:#F2DFA3"></i><b>Vàng viền · viền ghi chú, nhãn NỘI BỘ</b><small>#F2DFA3 · --vang-vien</small><em><b>MỚI V2</b></em></div>
+    <div class="sw"><i style="background:#6B4E00"></i><b>Vàng chữ · chữ trên vàng nhạt</b><small>#6B4E00 · --vang-chu · 7,6:1</small><em><b>MỚI V2</b></em></div>
+    <div class="sw"><i style="background:#2D5A8E"></i><b>Lam · đang xử lý, đã xác nhận</b><small>#2D5A8E · --lam · nhạt #E3ECF6</small><em><b>MỚI V2</b> · badge--blue</em></div>
+    <div class="sw"><i style="background:#5B4A8A"></i><b>Tím · ngoại lệ, cần người khác</b><small>#5B4A8A · --tim · nhạt #ECE7F6</small><em><b>MỚI V2</b> · badge--purple</em></div>
+    <div class="sw"><i style="background:#FFD98F"></i><b>Vàng nổi bật · hiếm</b><small>#FFD98F · --vang</small><em>giữ từ gói cũ, không dùng cho ghi chú</em></div>
+  </div>
+  <p class="spec"><b>Khi nào dùng:</b> màu chỉ gắn với ý nghĩa cố định (rêu = xong/tiền dương, đào = chờ, gạch = xấu, vàng = nội bộ, lam = đang chạy, tím = ngoại lệ). Không dùng gradient, không dùng đỏ tươi; cam đặc chỉ ở số đếm việc, vạch hàng đang chọn và bước hiện tại.</p>
+</section>
+
+<!-- 02 BADGE 6 TONE + NHÃN -->
+<section class="sheet__s">
+  <div class="sheet__h"><span class="eyebrow">02</span><h2>Badge trạng thái · 6 tone + bảng nhãn tiếng Việt</h2><span>Luôn có chữ · nhãn “Chờ / Chưa / Đang / Đã + động từ” · mã thô chỉ ở tooltip hoặc cột mono</span></div>
+  <div class="card card--pad">
+    <div class="tone"><b>Chờ · đào</b><div><span class="badge badge--pending"><i class="dot"></i>Chờ duyệt lần hai</span> <span class="badge badge--pending"><i class="dot"></i>Chờ sàn duyệt</span> <span class="badge badge--pending"><i class="dot"></i>Chờ gom lô</span></div><span class="mono">badge--pending</span></div>
+    <div class="tone"><b>Đang · lam</b><div><span class="badge badge--blue">Đang chuyển (PayOS)</span> <span class="badge badge--pending">Chờ sàn duyệt</span> <span class="badge badge--blue">Đang điều tra</span></div><span class="mono">badge--blue · MỚI</span></div>
+    <div class="tone"><b>Đã xong · rêu</b><div><span class="badge badge--done"><i class="dot"></i>Đã chi</span> <span class="badge badge--done"><i class="dot"></i>Đã duyệt đủ</span> <span class="badge badge--done"><i class="dot"></i>Có thể rút</span></div><span class="mono">badge--done</span></div>
+    <div class="tone"><b>Xấu · gạch</b><div><span class="badge badge--fail"><i class="dot"></i>Thất bại · tiền đã về ví</span> <span class="badge badge--fail"><i class="dot"></i>Từ chối · gian lận</span> <span class="badge badge--fail"><i class="dot"></i>Sổ cái lệch</span></div><span class="mono">badge--fail</span></div>
+    <div class="tone"><b>Đóng · sand</b><div><span class="badge badge--off"><i class="dot"></i>Không hợp lệ</span> <span class="badge badge--off"><i class="dot"></i>Hết hạn duyệt</span> <span class="badge badge--off"><i class="dot"></i>Nháp</span></div><span class="mono">badge--off</span></div>
+    <div class="tone"><b>Ngoại lệ · tím</b><div><span class="badge badge--purple">Tìm thấy đơn gần giống</span> <span class="badge badge--purple">Lệch ngày</span> <span class="badge badge--purple">Cần người thứ hai</span></div><span class="mono">badge--purple · MỚI</span></div>
+    <div class="tone"><b>Khoá · bổ sung</b><div><span class="badge badge--lock"><i class="dot"></i>Đã khoá</span> <span class="badge badge--lock"><i class="dot"></i>Đã khoá sửa</span> </div><span class="mono">badge--lock · badge--second</span></div>
+  </div>
+  <div class="tbl-wrap"><table class="tbl tbl--v2">
+    <thead><tr><th>Nhóm</th><th>Mã thô</th><th>Nhãn hiển thị</th><th>Badge</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="7">Lệnh chi <span class="mono">withdrawal.status</span></td><td class="mono">pending_review</td><td>Chờ duyệt x/y</td><td><span class="badge badge--pending badge--sm">Chờ duyệt lần hai</span></td></tr>
+      <tr><td class="mono">approved · batch</td><td>Đã duyệt · chờ gom lô / Trong lô · chờ chuyển</td><td><span class="badge badge--done badge--sm">Đã duyệt</span> <span class="badge badge--pending badge--sm">Chờ gom lô</span></td></tr>
+      <tr><td class="mono">processing · payos</td><td>Đang chuyển (PayOS)</td><td><span class="badge badge--blue badge--sm">Đang chuyển</span></td></tr>
+      <tr><td class="mono">paid</td><td>Đã chi</td><td><span class="badge badge--done badge--sm">Đã chi</span></td></tr>
+      <tr><td class="mono">failed</td><td>Thất bại · tiền đã về ví (kèm <span class="mono">failure_code</span>)</td><td><span class="badge badge--fail badge--sm">Thất bại</span></td></tr>
+      <tr><td class="mono">rejected</td><td>Từ chối · mã lý do</td><td><span class="badge badge--fail badge--sm">Từ chối</span></td></tr>
+      <tr><td class="mono">expired</td><td>Hết hạn duyệt</td><td><span class="badge badge--off badge--sm">Hết hạn</span></td></tr>
+      <tr><td rowspan="7">Hoa hồng <span class="mono">commission.status</span></td><td class="mono">recorded</td><td>Đã ghi nhận</td><td><span class="badge badge--off badge--sm">Đã ghi nhận</span></td></tr>
+      <tr><td class="mono">pending</td><td>Chờ sàn duyệt</td><td><span class="badge badge--pending badge--sm">Chờ sàn duyệt</span></td></tr>
+      <tr><td class="mono">confirmed</td><td>Chờ sàn duyệt (sàn chốt, chưa có tiền)</td><td><span class="badge badge--pending badge--sm">Chờ sàn duyệt</span></td></tr>
+      <tr><td class="mono">available</td><td>Có thể rút (sàn đã chốt kỳ)</td><td><span class="badge badge--done badge--sm">Đã về ví</span></td></tr>
+      <tr><td class="mono">paid · credited</td><td>Đã chi / Đã cộng ví</td><td><span class="badge badge--done badge--sm">Đã cộng ví</span></td></tr>
+      <tr><td class="mono">rejected</td><td>Từ chối · lý do (huỷ, kênh khác, ngành loại trừ…)</td><td><span class="badge badge--fail badge--sm">Từ chối</span></td></tr>
+      <tr><td class="mono">locked (lock_at)</td><td>Đã khoá sửa từ dd/mm</td><td><span class="badge badge--lock badge--sm">Đã khoá sửa</span></td></tr>
+      <tr><td rowspan="6">Việc KN / DS <span class="mono">ticket.state</span></td><td class="mono">new</td><td>Mới</td><td><span class="badge badge--pending badge--sm">Mới</span></td></tr>
+      <tr><td class="mono">needs_reply</td><td>Cần phản hồi</td><td><span class="badge badge--pending badge--sm">Cần phản hồi</span></td></tr>
+      <tr><td class="mono">investigating</td><td>Đang điều tra</td><td><span class="badge badge--blue badge--sm">Đang điều tra</span></td></tr>
+      <tr><td class="mono">waiting_user</td><td>Chờ người dùng</td><td><span class="badge badge--off badge--sm">Chờ người dùng</span></td></tr>
+      <tr><td class="mono">on_hold</td><td>Tạm dừng</td><td><span class="badge badge--lock badge--sm">Tạm dừng</span></td></tr>
+      <tr><td class="mono">done · invalid</td><td>Đã xong / Không hợp lệ (kết quả tách khỏi trạng thái việc)</td><td><span class="badge badge--done badge--sm">Đã xong</span> <span class="badge badge--off badge--sm">Không hợp lệ</span></td></tr>
+      <tr><td rowspan="3">Gian lận <span class="mono">risk.action</span></td><td class="mono">hold</td><td>Đang giữ · 7 ngày</td><td><span class="badge badge--purple badge--sm">Đang giữ</span></td></tr>
+      <tr><td class="mono">escalated</td><td>Đã leo thang</td><td><span class="badge badge--blue badge--sm">Đã leo thang</span></td></tr>
+      <tr><td class="mono">locked</td><td>Đã khoá tài khoản</td><td><span class="badge badge--fail badge--sm">Đã khoá</span></td></tr>
+      <tr><td rowspan="3">Vai nhân viên <span class="mono">staff_role</span></td><td class="mono">ops</td><td>Vận hành</td><td><span class="role role--ops">Vận hành</span></td></tr>
+      <tr><td class="mono">finance</td><td>Kế toán</td><td><span class="role role--finance">Kế toán</span></td></tr>
+      <tr><td class="mono">admin</td><td>Quản trị</td><td><span class="role role--admin">Quản trị</span></td></tr>
+      <tr><td>Hạng · kênh</td><td class="mono">silver · gold · payos · batch</td><td>Bạc · Vàng · PayOS · Lô thủ công</td><td><span class="badge badge--info badge--sm">Bạc</span> <span class="badge badge--info badge--sm">Vàng</span> <span class="muted small">kênh: chữ thường, không badge</span></td></tr>
+    </tbody></table></div>
+  <p class="spec"><b>Khi nào dùng:</b> một badge cho một trường; không ghép hai trạng thái vào một badge trừ tiến độ duyệt “x/y”. Dev giữ bảng nhãn trong một file hằng số; mã thô không bao giờ lên giao diện.</p>
+</section>
+
+<!-- 03 hạn xử lý -->
+<section class="sheet__s">
+  <div class="sheet__h"><span class="eyebrow">03</span><h2>Badge hạn xử lý · 4 trạng thái</h2><span>Một badge mỗi hàng việc cần xử lý · sắp mặc định theo mốc gần nhất · x ngày trước đứng cạnh</span></div>
+  <div class="demo-row">
+    <span class="sla sla--ok">còn 2 ngày</span><span class="sla sla--ok">còn 4 giờ</span><span class="sla sla--warn">còn 15 phút</span><span class="sla sla--warn">còn 2 giờ</span><span class="sla sla--late">Quá hạn 3 giờ</span><span class="sla sla--late">Quá hạn 2 ngày</span><span class="sla sla--none">không hạn</span>
+    <span class="demo-lbl" style="width:auto;margin-left:12px">Kèm x ngày trước</span><span><span class="sla sla--warn">còn 2 giờ</span> <span class="age">3 ngày trước</span></span>
+  </div>
+  <div class="card card--pad"><div class="sla-rule">
+    <span class="sla sla--ok">còn nhiều</span><span>Thời gian còn lại <b>trên ngưỡng cảnh báo</b> của loại việc.</span>
+    <span class="sla sla--warn">sắp tới hạn</span><span>Còn <b>≤ 15 phút</b> (mốc Zendesk) <b>hoặc</b> dưới ngưỡng cảnh báo của loại việc: mặc định khiếu nại / duyệt chi 2 giờ, đối soát 4 giờ, gian lận 1 ngày — <b>ngưỡng tự quyết</b>, cấu hình được, chưa có bằng chứng ngoài 15 phút.</span>
+    <span class="sla sla--late">quá hạn</span><span>Hết hạn: hiện <b>số âm</b> (“−3 giờ”), lên đầu danh sách, đếm vào tile “quá hạn”. Tie-break theo ngày tạo.</span>
+    <span class="sla sla--none">không hạn</span><span>Việc không có hạn (lệnh chờ gom lô đã duyệt đủ, hồ sơ chỉ đọc). Vẫn hiện x ngày trước.</span>
+  </div></div>
+  <p class="spec"><b>Khi nào dùng:</b> mọi hàng ở bốn việc cần xử lý và tab Tất cả. Danh sách máy (Giao dịch › Đơn, Lệnh chi, Sổ cái) không có hạn. Tooltip badge liệt kê các mốc khác (phản hồi đầu, giải quyết).</p>
+</section>
+
+<!-- 04 TRẠNG THÁI 3 CỘT + VÒNG ĐỜI -->
+<section class="sheet__s">
+  <div class="sheet__h"><span class="eyebrow">04</span><h2>Trạng thái đơn · một nhãn</h2><span>Cùng bộ từ với số dư ví</span></div>
+  <div class="demo-row"><span class="badge badge--pending">Chờ sàn duyệt</span><span>→</span><span class="badge badge--pending">Chờ sàn duyệt</span><span>→</span><span class="badge badge--done">Đã về ví</span><span style="margin-left:18px" class="muted">nhánh</span><span class="badge badge--fail">Bị từ chối · đổi trả</span><span class="muted">ngoại lệ</span><span class="badge badge--purple">Không khớp</span><span class="badge badge--purple">Lệch ngày</span></div>
+</section>
+
+<!-- 05 VÍ 3 Ô -->
+<section class="sheet__s">
+  <div class="sheet__h"><span class="eyebrow">05</span><h2>Số dư ví</h2><span>Chờ sàn duyệt · Chờ sàn duyệt · Có thể rút · chỉ duyệt chi khi Có thể rút đủ</span></div>
+  <div class="wallet3 wallet3--full">
+    <div class="wallet3__i"><div class="wallet3__l">Chờ sàn duyệt</div><div class="wallet3__v">485.612đ</div><div class="wallet3__s">sàn chưa duyệt</div></div>
+    <div class="wallet3__i wallet3__i--avail"><div class="wallet3__l">Có thể rút</div><div class="wallet3__v">1.240.000đ</div><div class="wallet3__s">Có thể rút · đã trừ 1.200.000đ đang giữ cho RT-2720</div></div>
+  </div>
+  <p class="spec"><b>Khi nào dùng:</b> hồ sơ người dùng, panel ngữ cảnh của khiếu nại/lệnh chi, màn Chờ duyệt chi (quỹ chi: Chờ duyệt · Đã vào lô chờ chuyển · Có thể rút để chi). Trong cột hẹp dùng dạng danh sách (<span class="mono">.wallet3--col</span>, xem hồ sơ RT-2720).</p>
+</section>
+
+<!-- 06 BẢNG -->
+<section class="sheet__s">
+  <div class="sheet__h"><span class="eyebrow">06</span><h2>Bảng 44 · thanh chọn nhiều</h2><span>Cột đầu là mã · số canh phải tabular · đầu bảng dính · phân trang 25/50 · thanh chọn nhiều thay toolbar khi chọn</span></div>
+  <div class="bulk--v2" id="bulk"><svg class="ic ic--sm"><use href="#i-check"/></svg><span>Đã chọn <b data-n>2</b> · <b data-sum>2.700.000đ</b></span><button class="btn btn--primary btn--sm">Duyệt <span data-n>2</span> lệnh</button><button class="btn btn--danger btn--sm">Từ chối…</button><span class="x" role="button" tabindex="0" aria-label="Bỏ chọn" data-uncheck><svg class="ic ic--sm"><use href="#i-x"/></svg></span></div>
+  <div class="tbl-wrap">
+    <div class="tbl__hd"><b>Lệnh chờ duyệt</b></div>
+    <table class="tbl tbl--v2 tbl--inbox">
+      <colgroup><col style="width:36px"><col style="width:100px"><col style="width:96px"><col><col style="width:110px"><col style="width:150px"><col style="width:90px"></colgroup>
+      <thead><tr><th class="w-check"><span class="check"><i class="on"></i></span></th><th>Hạn</th><th>Mã</th><th>Người nhận</th><th class="num">Số tiền</th><th>Bước duyệt</th><th>Tạo lúc</th></tr></thead>
+      <tbody>
+        <tr class="is-click is-sel" data-amount="1200000"><td class="w-check"><span class="check"><i class="on"></i></span></td><td><span class="sla sla--warn">còn 2 giờ</span></td><td class="code">RT-2720</td><td class="u">Nguyễn Văn An · VCB <span class="acct">•••• 4821</span></td><td class="num">1.200.000đ</td><td><span class="approve__p"><i class="is-done">✓</i><i class="is-you">2</i></span> <span class="small muted">chờ bạn duyệt lần hai</span></td><td class="age">09:40 · 12/10</td></tr>
+        <tr class="is-click" data-amount="1500000"><td class="w-check"><span class="check"><i class="on"></i></span></td><td><span class="sla sla--ok">còn 5 giờ</span></td><td class="code">RT-2715</td><td class="u">Trần Thị Bích · TCB <span class="acct">•••• 0193</span></td><td class="num">1.500.000đ</td><td><span class="approve__p"><i class="is-done">✓</i><i class="is-you">2</i></span> <span class="small muted">chờ bạn duyệt lần hai</span></td><td class="age">08:15 · 12/10</td></tr>
+      </tbody>
+    </table>
+    <div class="pager"><span>1–3 / 3 lệnh</span><div class="pager__r"><select class="input" aria-label="Số hàng mỗi trang"><option>25 / trang</option><option>50 / trang</option></select><button class="btn btn--ghost btn--icon" disabled><svg class="ic"><use href="#i-chevron-left"/></svg></button><button class="btn btn--ghost btn--icon" disabled><svg class="ic"><use href="#i-chevron-right"/></svg></button></div></div>
+  </div>
+  <p class="spec"><b>Khi nào dùng:</b> 40 là mặc định; 32 cho kế toán duyệt lô dài; 48 khi ô có hai dòng (tên + STK). Hàng đang chọn: nền đào nhạt + vạch cam; hàng của bạn: vạch rêu (<span class="mono">is-mine</span>). Chọn nhiều → thanh chọn nhiều mực thay thanh công cụ; hành động gian lận không chọn nhiều.</p>
+</section>
+
+<!-- 07 PANEL XEM NHANH -->
+<section class="sheet__s">
+  <div class="sheet__h"><span class="eyebrow">07</span><h2>Panel xem nhanh 420</h2><span>Bên phải bảng, không phủ · chỉ để xem và làm hành động chính · “Mở hồ sơ ↗” sang trang riêng</span></div>
+  <div class="lbl-grid">
+    <div class="mini mini--qp"><span class="side"></span><div class="lines"><span>Bảng 40px</span><i></i><i></i><i class="sel"></i><i></i><i></i><i></i><i></i></div><div class="box"><span>Panel 420</span><i style="width:60%"></i><i style="width:90%"></i><i style="width:75%"></i><i style="width:85%"></i><i style="width:50%"></i><i class="btn-i"></i></div></div>
+    <div class="card card--pad stack" style="gap:8px">
+      <dl class="kv kv--tight"><dt>Bố cục</dt><dd><span class="mono">.qp-layout</span> = lưới <span class="mono">1fr + 420px</span>; panel dính dưới header, cuộn riêng phần thân</dd><dt>Đầu</dt><dd>Mã + badge trạng thái · dòng ngữ cảnh · “Mở hồ sơ ↗” · ×</dd><dt>Thân</dt><dd>Số tiền lớn → tiến độ duyệt → người liên quan → kiểm tra nhanh → dòng thời gian rút gọn</dd><dt>Chân</dt><dd>↑↓ việc trước/sau (J/K) · hành động phụ · hành động chính có số tiền</dd><dt>1280</dt><dd>Hộp Tất cả: panel 360, bảng ẩn cột phụ. Hộp Duyệt chi (9 cột): panel thành lớp phủ — ngưỡng tự quyết</dd></dl>
+    </div>
+  </div>
+  <p class="spec"><b>Khi nào dùng:</b> bốn việc cần xử lý và tab Tất cả. Không dùng để soạn trả lời dài hay sửa nhiều trường — việc đó ở trang hồ sơ. Drawer chỉ còn cho form phụ (tạo điều chỉnh, gán đơn); modal chỉ để xác nhận.</p>
+</section>
+
+<!-- 08 TRANG HỒ SƠ -->
+<section class="sheet__s">
+  <div class="sheet__h"><span class="eyebrow">08</span><h2>Trang hồ sơ hai cột · có URL</h2><span>Trái: dòng thời gian, bằng chứng, kết luận · Phải 340: ngữ cảnh · đầu trang: ← Việc trước · Việc sau → · Mở tab mới</span></div>
+  <div class="lbl-grid">
+    <div class="mini mini--rec" style="grid-template-rows:auto 1fr"><div class="box" style="grid-column:1/-1;flex-direction:row;align-items:center;gap:8px;padding:6px 8px"><span>RT-2720 · badge · ← → · tab mới</span></div><div class="lines"><span>Chính</span><i style="height:22px;background:var(--dao-nhat);border-color:var(--cam)"></i><i style="height:34px"></i><i style="height:34px"></i><i style="height:40px;background:var(--vang-nhat);border-color:var(--vang-vien)"></i><i style="height:26px;background:var(--muc)"></i></div><div class="lines"><span>Ngữ cảnh</span><i style="height:36px"></i><i style="height:30px"></i><i style="height:30px"></i><i style="height:30px"></i></div></div>
+    <div class="card card--pad stack" style="gap:8px">
+      <dl class="kv kv--tight"><dt>URL</dt><dd><span class="mono">/lenh-chi/RT-2720</span> · <span class="mono">/kn/KN706476</span> · <span class="mono">/ds/DS241010</span> · <span class="mono">/nguoi-dung/{id}</span> — gửi được link, trỏ từ nhật ký</dd><dt>Cột chính</dt><dd>Khối duyệt (x/y) → trước/sau → kiểm tra nhanh → dòng thời gian + composer → <b>kết luận</b> (nút có số tiền · từ chối có mã lý do)</dd><dt>Cột phải</dt><dd>Người dùng + số dư ví → đơn ba trạng thái → lệnh / khiếu nại gần đây → nhật ký đối tượng</dd><dt>Sau khi xong</dt><dd>“” nhảy sang hồ sơ kế trong cùng hộp; “Gửi phản hồi” về bảng</dd></dl>
+    </div>
+  </div>
+  <p class="spec"><b>Khi nào dùng:</b> khiếu nại, đối soát, lệnh chi, người dùng, đơn. Mỗi hồ sơ là một trang để người khác mở được từ link; không xử lý hồ sơ trong drawer.</p>
+</section>
+
+<!-- 09 DÒNG THỜI GIAN + COMPOSER -->
+<section class="sheet__s">
+  <div class="sheet__h"><span class="eyebrow">09</span><h2>Dòng thời gian · khách / nội bộ vàng / hệ thống · composer hai tab</h2><span>Trả lời khách nền trắng · ghi chú nội bộ nền vàng có nhãn · hệ thống nền sand · “Gửi phản hồi” / “”</span></div>
+  <div class="lbl-grid">
+    <div class="thread">
+      <div class="msg msg--user"><div class="msg__hd"><span class="avatar avatar--sm">A</span>Nguyễn Văn An · người dùng<time>13:36 hôm nay</time></div>Em mua máy hút bụi cầm tay 259.000đ qua link app, app báo 17.600đ nhưng sàn chỉ ghi 10.000đ. Em gửi 4 ảnh đơn và trang hoa hồng.<div class="msg__att"><span class="thumb thumb--img"></span><span class="thumb thumb--img v2"></span><span class="thumb thumb--img v3"></span><span class="thumb thumb--img v4"></span></div></div>
+      <div class="msg msg--note"><div class="msg__hd">Trần Đức Minh<time>14:20</time></div>Đã đối chiếu báo cáo sàn: đơn áp mã giảm 40% sau khi mua nên hoa hồng tính trên 150.000đ. Đề xuất chấp nhận một phần, bù 2.000đ theo chính sách duyệt khoản bù.</div>
+      <div class="msg msg--sys"><div class="msg__hd"><svg class="ic ic--xs"><use href="#i-user"/></svg>Hệ thống<time>14:21</time></div>Trần Đức Minh nhận việc · trạng thái Mới → Đang điều tra · hạn phản hồi đầu còn 2 giờ.</div>
+      <div class="msg msg--user"><div class="msg__hd"><span class="avatar avatar--sm avatar--staff">M</span>Trần Đức Minh · trả lời người dùng<time>14:25</time></div>Chào An, bên mình đã nhận khiếu nại và đang đối chiếu với sàn. Kết quả có trong 24 giờ, mình sẽ báo qua app.</div>
+    </div>
+    <div class="stack" style="gap:10px">
+      <div class="composer">
+        <div class="composer__tabs"><button type="button" class="is-on">Trả lời người dùng</button><button type="button" class="is-note">Ghi chú nội bộ</button></div>
+        <textarea placeholder="Trả lời gửi cho người dùng qua app · giọng ngắn, nêu rõ số tiền và bước tiếp theo"></textarea>
+        <div class="composer__ft"><span class="hint">Đổi sang tab Nội bộ → nền vàng, không gửi cho người dùng · cảnh báo khi chuyển ngược</span><button class="btn btn--secondary btn--sm" data-toast="Đã gửi · hồ sơ đóng · về bảng">Gửi phản hồi</button><button class="btn btn--primary btn--sm" data-toast="Đã gửi · mở KN706470 (việc kế tiếp)"></button></div>
+      </div>
+      <div class="card card--pad"><div class="demo-lbl">Quy tắc</div><ul class="small" style="margin:8px 0 0;padding-left:18px;line-height:1.75"><li>Ghi chú nội bộ không bao giờ gửi cho người dùng; nhãn NỘI BỘ và nền vàng ở cả dòng thời gian lẫn composer.</li><li>Mục hệ thống nhỏ hơn, nền sand: đổi trạng thái, nhận việc, giữ tiền, duyệt x/y.</li><li>Ảnh bằng chứng gắn theo tin nhắn và gom lại ở khối “Bằng chứng” của hồ sơ.</li><li>Hành vi sau khi gửi (đóng / mở kế tiếp / ở lại) là tuỳ chọn cá nhân.</li></ul></div>
+    </div>
+  </div>
+  <p class="spec"><b>Khi nào dùng:</b> hồ sơ khiếu nại, đối soát, gian lận (có hội thoại). Hồ sơ lệnh chi chỉ có ghi chú nội bộ + mục hệ thống.</p>
+</section>
+
+<!-- 10 FORM KẾT LUẬN + MODAL -->
+<section class="sheet__s">
+  <div class="sheet__h"><span class="eyebrow">10</span><h2>Form kết luận với mã lý do · modal xác nhận</h2><span>Mã lý do dạng danh mục (6 mã cho hoa hồng / khiếu nại) + ghi chú · modal có tóm tắt, người thực hiện, giờ, “không thể hoàn tác”</span></div>
+  <div class="lbl-grid">
+    <div class="card card--pad stack" style="gap:12px">
+      <div class="field"><span class="field__l">Kết quả</span><div class="opts"><label class="opt"><i></i><div><div class="opt__t">Chấp nhận · tạo khoản bù</div><div class="opt__d">Số trả cuối tách khỏi số khách báo</div></div></label><label class="opt is-on"><i></i><div><div class="opt__t">Từ chối · có mã lý do</div><div class="opt__d">Không có tiền đổi; người dùng nhận lý do</div></div></label></div></div>
+      <div class="field"><span class="field__l">Mã lý do <em>*</em></span>
+        <div class="reason reason--6">
+          <label><input type="radio" name="ly-do-00"><span>Đơn huỷ / trả hàng<small>order_cancelled</small></span></label>
+          <label class="is-on"><input type="radio" name="ly-do-00" checked><span>Mã giảm ngoài hệ thống<small>external_promo</small></span></label>
+          <label><input type="radio" name="ly-do-00"><span>Ghi cho kênh khác<small>other_channel</small></span></label>
+          <label><input type="radio" name="ly-do-00"><span>Ngành hàng loại trừ<small>excluded_category</small></span></label>
+          <label><input type="radio" name="ly-do-00"><span>Nghi gian lận</span></label>
+          <label><input type="radio" name="ly-do-00"><span>Khác<small>other · ghi rõ</small></span></label>
+        </div>
+      </div>
+      <label class="field"><span class="field__l">Ghi chú gửi người dùng <em>*</em><small>≥ 10 ký tự · nguyên văn</small></span><textarea class="input" data-min="10">Sàn ghi nhận đơn áp mã giảm 40% sau khi mua nên hoa hồng tính trên 150.000đ.</textarea><div class="counter"></div></label>
+      <div class="row" style="gap:8px"><button class="btn btn--danger" data-open="#m-xn">Từ chối KN706476…</button><button class="btn btn--ghost btn--sm">Lưu nháp</button></div>
+    </div>
+    <div style="background:var(--sand-2);border-radius:var(--r);padding:20px;display:grid;place-items:center">
+      <div class="modal is-static modal--danger">
+        <h2 class="modal__t">Từ chối KN706476?</h2>
+        <p class="modal__d">Không có tiền đổi. Người dùng nhận lý do nguyên văn; khiếu nại chuyển Đã xong · Không hợp lệ.</p>
+        <dl class="kv"><dt>Lý do</dt><dd>Mã giảm ngoài hệ thống · <span class="mono">external_promo</span></dd><dt>Người dùng</dt><dd>Nguyễn Văn An · đơn 2409B58F2</dd><dt>Người thực hiện</dt><dd><b>Nguyễn Sơn</b> · 14:32 · 15/10/2026</dd></dl>
+        <div class="callout callout--warn"><svg class="ic"><use href="#i-alert"/></svg><div><b>Không thể hoàn tác.</b> Người dùng có thể gửi khiếu nại mới với bằng chứng khác.</div></div>
+        <div class="modal__ft"><button class="btn btn--ghost">Quay lại</button><button class="btn btn--danger-solid">Từ chối khiếu nại</button></div>
+      </div>
+    </div>
+  </div>
+  <p class="spec"><b>Khi nào dùng:</b> mọi kết luận hồ sơ và mọi hành động tiền/xoá. Tiêu đề modal là câu hỏi có đối tượng + số tiền; nút gọi đúng hành động (không “OK”); Huỷ bên trái; hành động xấu dùng <span class="mono">modal--danger</span> và bắt buộc lý do. Hành động hoàn tác được thì dùng toast có “Hoàn tác”, không modal.</p>
+</section>
+
+<!-- 11 DUYỆT 2 NGƯỜI -->
+<section class="sheet__s">
+  <div class="sheet__h"><span class="eyebrow">11</span><h2>Duyệt hai người · tiến độ x/y</h2><span>Ngưỡng tiền → số bước duyệt · server chặn trùng người</span></div>
+  <div class="card card--pad stack" style="gap:10px">
+    <div class="approve"><span class="approve__p"><i>1</i><i>2</i></span><div class="approve__t"><b>0/2 · chưa ai duyệt</b><small>Lệnh 1.200.000đ ≥ ngưỡng 1.000.000đ → cần hai người · vào hộp của mọi kế toán/quản trị</small></div><span class="badge badge--pending"><i class="dot"></i>Chờ duyệt</span></div>
+    <div class="approve"><span class="approve__p"><i class="is-done">✓</i><i class="is-you">2</i></span><div class="approve__t"><b>Lê Thu Hà đã duyệt 14:05 · bạn là người thứ hai</b><small>Bạn thấy diff trước/sau, kiểm tra nhanh, rồi “Duyệt chi 1.200.000đ” hoặc “Từ chối…”</small></div><span class="badge badge--second"><i class="dot"></i>Chờ bạn</span></div>
+    <div class="approve" style="border-style:solid;border-color:var(--reu);background:var(--reu-nhat)"><span class="approve__p"><i class="is-done">✓</i><i class="is-done">✓</i></span><div class="approve__t"><b>Lê Thu Hà 14:05 · Nguyễn Sơn 14:32</b><small>Ghi sổ chờ chuyển · kế toán tải CSV lô · đánh dấu đã chi sau khi chuyển</small></div><span class="badge badge--done"><i class="dot"></i>Đã duyệt đủ</span></div>
+    <div class="approve" style="border-style:solid;background:#fff"><span class="approve__p"><i class="is-you">1</i></span><div class="approve__t"><b>0/1 · chờ duyệt</b><small>Đánh dấu đã chi ngoài hệ thống / điều chỉnh số dư do bạn tạo: không có nút duyệt, chỉ có badge</small></div></div>
+  </div>
+  <p class="spec"><b>Khi nào dùng:</b> lệnh rút ≥ ngưỡng (<span class="mono">approval_threshold</span>, mặc định 1.000.000đ — cấu hình), điều chỉnh số dư, đánh dấu đã chi ngoài hệ thống. Lệnh 500.000đ–1.000.000đ: 1/1. Dưới ngưỡng tự động: 0 bước, PayOS tự chi. Hết hạn duyệt → “Hết hạn”, tiền về ví.</p>
+</section>
+
+<!-- 12 STK CHE -->
+<section class="sheet__s">
+  <div class="sheet__h"><span class="eyebrow">12</span><h2>Số tài khoản che · “Hiện số đầy đủ”</h2><span>Che ở server · hiện số là hành động riêng có quyền, lý do, hạn 60 giây, ghi nhật ký không chứa số</span></div>
+  <div class="demo-row demo-row--col" style="gap:12px">
+    <div class="row row--wrap gap-16">
+      <span>Vietcombank <span class="acct">•••• 4821</span><a class="acct__reveal" data-open="#m-reveal">Hiện số đầy đủ</a></span>
+      <span>Techcombank <span class="acct">•••• 0193</span><span class="acct__reveal" data-roles="finance admin" aria-disabled="true" title="Vai Vận hành không có quyền">Hiện số đầy đủ</span></span>
+      <span class="small muted">CSV lô: số đầy đủ, mỗi lần tải ghi nhật ký · bản in / tooltip / aria-label: vẫn che</span>
+    </div>
+  </div>
+  <p class="spec"><b>Khi nào dùng:</b> mọi nơi hiện tài khoản ngân hàng (bảng, panel, hồ sơ, modal). Không bao giờ in số đầy đủ trong giao diện; chỉ kế toán/quản trị có quyền “Hiện số đầy đủ” và phải ghi lý do (modal bên dưới, bấm để xem).</p>
+</section>
+
+<!-- 13 TRẠNG THÁI -->
+<section class="sheet__s">
+  <div class="sheet__h"><span class="eyebrow">13</span><h2>Rỗng · đang tải · lỗi · 403</h2><span>Mỗi danh sách và panel có đủ bốn · mascot chỉ ở rỗng và 403</span></div>
+  <div class="ex-state">
+    <div class="card"><div class="empty empty--sm"><img class="empty__m" src="mascot/xu-chua-co-gi.svg" alt=""><div class="empty__t">Không còn việc cần xử lý — không còn việc chờ</div><div class="empty__d">Cả bốn hộp đều sạch. Việc cần xử lý hỏi lại 20 giây/lần.</div></div></div>
+    <div class="card"><div class="skel"><i style="width:40%"></i><i style="width:90%"></i><i style="width:70%"></i><i style="width:85%"></i><i style="width:60%"></i></div><div class="hint" style="padding:0 16px 16px">Skeleton 5 dòng thay cả bảng · không spinner giữa trang</div></div>
+    <div class="errbox"><svg class="ic ic--lg" style="color:var(--gach)"><use href="#i-x-circle"/></svg><div class="errbox__t">Không tải được danh sách</div><div class="errbox__d">Mã lỗi <span class="mono">INBOX_TIMEOUT</span> · 14:32. Thử lại hoặc báo dev kèm mã.</div><button class="btn btn--secondary btn--sm"><svg class="ic"><use href="#i-refresh"/></svg>Thử lại</button></div>
+    <div class="card"><div class="empty empty--sm"><img class="empty__m" src="mascot/xu-chua-co-gi.svg" alt=""><div class="empty__t">Vai Vận hành không xem được mục Chờ duyệt chi</div><div class="empty__d">Cần vai Kế toán hoặc Quản trị. Nếu nghĩ đây là nhầm, báo quản trị.</div><a class="btn btn--secondary btn--sm" href="01-hop-viec.html">Về Việc cần xử lý</a></div></div>
+  </div>
+  <p class="spec"><b>Khi nào dùng:</b> rỗng thay cả bảng (một câu + một nút); tải = skeleton; lỗi = tiêu đề gạch + mã lỗi + Thử lại, không tự tắt; 403 theo vai khi vào link không được phép (<span class="mono">data-roles</span>). Toast chỉ cho kết quả tốt, 3,8 giây.</p>
+</section>
+
+<!-- 14 PHÍM TẮT -->
+<section class="sheet__s">
+  <div class="sheet__h"><span class="eyebrow">14</span><h2>Phím tắt</h2><span>Bảng trong app (phím ?) vì J/K lệch chiều giữa các hãng · không bắt buộc học</span></div>
+  <div class="card card--pad"><div class="keys--v2">
+    <div><span>Tìm trong trang</span><span class="kbd">/</span></div><div><span>Tìm toàn hệ</span><span class="kbd">⌘K</span></div><div><span>Bảng phím tắt</span><span class="kbd">?</span></div>
+    <div><span>Việc sau / việc trước</span><span><span class="kbd">J</span> <span class="kbd">K</span></span></div><div><span>Mở hồ sơ việc đang chọn</span><span class="kbd">Enter</span></div><div><span>Đóng bảng bên / hộp thoại</span><span class="kbd">Esc</span></div>
+    <div><span>Nhận việc về mình</span><span class="kbd">A</span></div><div><span>Chọn / bỏ chọn hàng</span><span class="kbd">X</span></div><div><span>Duyệt · Từ chối · Giữ</span><span><span class="kbd">D</span> <span class="kbd">⇧X</span> <span class="kbd">H</span></span></div>
+    <div><span>Trả lời · Ghi chú nội bộ</span><span><span class="kbd">R</span> <span class="kbd">N</span></span></div><div><span>Gửi phản hồi · </span><span><span class="kbd">⌘↵</span> <span class="kbd">⌘⇧↵</span></span></div><div><span>Đi tới Việc cần xử lý · Duyệt chi · Khiếu nại · Đối soát</span><span><span class="kbd">G</span> <span class="kbd">I</span>/<span class="kbd">P</span>/<span class="kbd">K</span>/<span class="kbd">D</span></span></div>
+  </div></div>
+  <p class="spec"><b>Khi nào dùng:</b> việc cần xử lý và hồ sơ. Prototype mới chạy <span class="kbd">/</span>, <span class="kbd">⌘K</span>, <span class="kbd">Esc</span>, <span class="kbd">?</span>; phần còn lại là spec cho dev.</p>
+</section>
+
+</div>
+
+  </main>
+</div>
+</div>
+<div class="scrim" data-close></div>
+
+<div class="modal-wrap" id="m-xn" role="dialog" aria-labelledby="m-xn-t"><div class="modal modal--danger">
+  <h2 class="modal__t" id="m-xn-t">Từ chối KN706476?</h2>
+  <p class="modal__d">Không có tiền đổi. Người dùng nhận lý do nguyên văn; khiếu nại chuyển Đã xong · Không hợp lệ.</p>
+  <dl class="kv"><dt>Lý do</dt><dd>Mã giảm ngoài hệ thống · <span class="mono">external_promo</span></dd><dt>Người dùng</dt><dd>Nguyễn Văn An · đơn 2409B58F2</dd><dt>Người thực hiện</dt><dd><b>Nguyễn Sơn</b> · 14:32 · 15/10/2026</dd></dl>
+  <div class="callout callout--warn"><svg class="ic"><use href="#i-alert"/></svg><div><b>Không thể hoàn tác.</b> Người dùng có thể gửi khiếu nại mới với bằng chứng khác.</div></div>
+  <div class="modal__ft"><button class="btn btn--ghost" data-close>Quay lại</button><button class="btn btn--danger-solid" data-toast="Đã từ chối KN706476 · người dùng được báo · ghi nhật ký">Từ chối khiếu nại</button></div>
+</div></div>
+
+<div class="modal-wrap" id="m-reveal" role="dialog" aria-labelledby="m-reveal-t"><div class="modal">
+  <h2 class="modal__t" id="m-reveal-t">Hiện số tài khoản đầy đủ?</h2>
+  <p class="modal__d">Vietcombank <span class="acct">•••• 4821</span> của Nguyễn Văn An. Số hiện trong 60 giây, không sao chép được, không in. Nhật ký ghi ai xem, lúc nào, lý do — không ghi số.</p>
+  <label class="field"><span class="field__l">Lý do <em>*</em></span><select class="input"><option>Đối chiếu sao kê ngân hàng</option><option>Người dùng yêu cầu kiểm tra</option><option>Nghi tài khoản không đúng chủ</option><option>Khác</option></select></label>
+  <label class="field"><span class="field__l">Ghi chú <small>không bắt buộc</small></span><input class="input" placeholder="VD: khớp với CSV lô 15/10-01"></label>
+  <dl class="kv kv--tight"><dt>Người xem</dt><dd><b>Nguyễn Sơn</b> · 14:32 · 15/10/2026</dd></dl>
+  <div class="modal__ft"><button class="btn btn--ghost" data-close>Huỷ</button><button class="btn btn--primary" data-toast="Đã ghi nhật ký · số hiện trong 60 giây (prototype không hiện số)">Hiện trong 60 giây</button></div>
+</div></div>
+
+<div class="modal-wrap" id="modal-keys" role="dialog" aria-label="Phím tắt"><div class="modal" style="width:560px">
+  <h2 class="modal__t">Phím tắt</h2>
+  <div class="keys--v2" style="grid-template-columns:1fr 1fr">
+    <div><span>Tìm trong trang</span><span class="kbd">/</span></div><div><span>Tìm toàn hệ</span><span class="kbd">⌘K</span></div>
+    <div><span>Việc sau / việc trước</span><span><span class="kbd">J</span> <span class="kbd">K</span></span></div><div><span>Mở hồ sơ việc đang chọn</span><span class="kbd">Enter</span></div>
+    <div><span>Đóng bảng bên / hộp thoại</span><span class="kbd">Esc</span></div><div><span>Nhận việc về mình</span><span class="kbd">A</span></div>
+    <div><span>Duyệt · Từ chối · Giữ</span><span><span class="kbd">D</span> <span class="kbd">⇧X</span> <span class="kbd">H</span></span></div><div><span>Xác nhận trong hộp thoại</span><span class="kbd">⌘↵</span></div>
+    <div><span>Trả lời · Ghi chú nội bộ</span><span><span class="kbd">R</span> <span class="kbd">N</span></span></div><div><span>Bảng này</span><span class="kbd">?</span></div>
+  </div>
+  <div class="modal__ft"><button class="btn btn--primary" data-close>Đóng</button></div>
+</div></div>
+
+<script src="admin.js"></script>
+<script>
+/* Hook bổ sung cho prototype V2 (chưa có trong admin.js): mật độ bảng, mã lý do, tab composer, chọn hàng + panel xem nhanh, checkbox bảng + thanh chọn nhiều */
+(function(){
+  'use strict';
+  function fmt(n){return n.toLocaleString('vi-VN')+'đ';}
+  window.admBulk=function(){
+    var bar=document.getElementById('bulk'); if(!bar) return;
+    var rows=[].slice.call(document.querySelectorAll('.tbl--inbox tbody tr')).filter(function(r){var i=r.querySelector('.check i');return i&&i.classList.contains('on');});
+    var n=rows.length,s=0; rows.forEach(function(r){s+=+(r.getAttribute('data-amount')||0);});
+    bar.hidden=n===0;
+    bar.querySelectorAll('[data-n]').forEach(function(e){e.textContent=n;});
+    bar.querySelectorAll('[data-sum]').forEach(function(e){e.textContent=fmt(s);});
+  };
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    var b=t.closest('.tbl__dense-toggle button');
+    if(b){
+      var wrap=b.closest('.tbl-wrap,.card,.demo-row,section,.sheet__s');
+      var tb=wrap&&wrap.querySelector('table.tbl--v2');
+      b.parentElement.querySelectorAll('button').forEach(function(x){x.classList.toggle('is-on',x===b);});
+      if(tb){tb.classList.remove('tbl--xs','tbl--lg'); if(b.getAttribute('data-dense')) tb.classList.add(b.getAttribute('data-dense'));}
+      return;
+    }
+    var r=t.closest('.reason label');
+    if(r){r.parentElement.querySelectorAll('label').forEach(function(x){x.classList.toggle('is-on',x===r);}); var i=r.querySelector('input'); if(i) i.checked=true;}
+    var ct=t.closest('.composer__tabs button');
+    if(ct){var c=ct.closest('.composer'); ct.parentElement.querySelectorAll('button').forEach(function(x){x.classList.toggle('is-on',x===ct);}); if(c) c.classList.toggle('composer--note',ct.classList.contains('is-note'));}
+    var x=t.closest('.qp__x');
+    if(x){var l=x.closest('.qp-layout'); if(l) l.classList.add('is-closed'); return;}
+    var chk=t.closest('.tbl .check');
+    if(chk){var ii=chk.querySelector('i'); if(ii) ii.classList.toggle('on'); window.admBulk(); return;}
+    var row=t.closest('.tbl--inbox tbody tr');
+    if(row&&!t.closest('a,button,[data-open],[data-toast]')){
+      row.parentElement.querySelectorAll('tr').forEach(function(y){y.classList.toggle('is-sel',y===row);});
+      var lay=row.closest('.qp-layout'); if(lay) lay.classList.remove('is-closed');
+    }
+    var un=t.closest('[data-uncheck]');
+    if(un){document.querySelectorAll('.tbl--inbox .check i.on').forEach(function(i){i.classList.remove('on');}); window.admBulk();}
+  });
+  if(document.getElementById('bulk')) window.admBulk();
+})();
+</script>
+
+</body>
+</html>

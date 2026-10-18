@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quản trị · Nội dung · salevề vận hành</title>
+<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="admin-v2.css">
+<style>
+/* Bổ sung riêng cho màn này */
+.tbl--v2 td .badge--sm{height:21px;font-size:11px}
+.tbl--v2 td.acts{white-space:nowrap;text-align:right}
+.tbl--v2 td.acts .btn{height:28px;padding:0 9px;font-size:12.5px}
+.tbl--v2 td.acts .lnk{font:600 12.5px/1 var(--font);color:var(--gach);cursor:pointer;margin-left:8px}
+.tbl--v2 td .toggle{vertical-align:middle}
+.tbl__hd .tabs{margin:0}
+.pv-wrap{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start}
+.drawer .form{grid-template-columns:1fr 1fr}
+</style>
+<script>window.ADM_SCREENS=[["index.html","Mục lục"],["00-he-component.html","00 · Hệ component"],["01-hop-viec.html","01 · Việc cần xử lý · Tất cả"],["02-hop-viec-duyet-chi.html","02 · Việc cần xử lý · Chờ duyệt chi"],["03-ho-so-lenh-chi.html","03 · Hồ sơ lệnh chi RT-2720"],["04-hop-viec-khieu-nai.html","04 · Việc cần xử lý · Khiếu nại"],["05-ho-so-khieu-nai.html","05 · Hồ sơ khiếu nại KN706476"],["06-hop-viec-doi-soat.html","06 · Việc cần xử lý · Đối soát"],["07-ho-so-doi-soat.html","07 · Hồ sơ đối soát DS241010"],["08-hop-viec-gian-lan.html","08 · Việc cần xử lý · Nghi gian lận"],["09-giao-dich-don.html","09 · Giao dịch · Đơn & hoa hồng"],["10-giao-dich-lenh-chi.html","10 · Giao dịch · Lệnh chi"],["12-nguoi-dung.html","12 · Người dùng"],["13-ho-so-nguoi-dung.html","13 · Hồ sơ người dùng"],["14-noi-dung.html","14 · Nội dung"],["15-cau-hinh.html","15 · Cấu hình"],["16-nhat-ky.html","16 · Nhật ký"],["17-trang-thai-phim-tat.html","17 · Trạng thái & phím tắt"],["18-ho-so-don.html","18 · Hồ sơ đơn 2409B58F2"],["19-nhan-vien.html","19 · Nhân viên"],["20-tai-khoan.html","20 · Tài khoản của tôi"],["21-doi-chieu.html","21 · Đối chiếu"]];</script>
+</head>
+<body class="adm" data-role="admin">
+<div class="app">
+<aside class="sb">
+  <a class="sb__brand" href="01-hop-viec.html"><span class="sb__logo">sale<em>về</em></span><span class="sb__tag">vận hành</span></a>
+  <nav class="sb__nav" aria-label="Vận hành">
+    <div class="sb__group">Việc cần xử lý</div>
+    <a class="sb__item sb__item--inbox" data-nav="hop-viec" href="01-hop-viec.html"><svg class="ic"><use href="#i-home"/></svg><span>Tất cả</span><b class="n n--hot" data-role-total>9</b></a>
+    <a class="sb__item sb__item--inbox" data-nav="duyet-chi" data-roles="finance admin" href="02-hop-viec-duyet-chi.html"><svg class="ic"><use href="#i-wallet"/></svg><span>Chờ duyệt chi</span><b class="n n--hot">3</b></a>
+    <a class="sb__item sb__item--inbox" data-nav="khieu-nai" data-roles="ops admin" href="04-hop-viec-khieu-nai.html"><svg class="ic"><use href="#i-support"/></svg><span>Khiếu nại</span><b class="n n--hot">2</b></a>
+    <a class="sb__item sb__item--inbox" data-nav="doi-soat" data-roles="ops admin" href="06-hop-viec-doi-soat.html"><svg class="ic"><use href="#i-unmatched"/></svg><span>Đối soát</span><b class="n n--hot">3</b></a>
+    <a class="sb__item sb__item--inbox" data-nav="gian-lan" data-roles="ops admin" href="08-hop-viec-gian-lan.html"><svg class="ic"><use href="#i-shield"/></svg><span>Nghi gian lận</span><b class="n n--hot">1</b></a>
+    <div class="sb__group">Giao dịch</div>
+    <a class="sb__item" data-nav="don" href="09-giao-dich-don.html"><svg class="ic"><use href="#i-package"/></svg><span>Đơn &amp; hoa hồng</span></a>
+    <a class="sb__item" data-nav="lenh-chi" data-roles="finance admin" href="10-giao-dich-lenh-chi.html"><svg class="ic"><use href="#i-bank"/></svg><span>Lệnh chi</span></a>
+    <a class="sb__item" data-nav="doi-chieu" data-roles="finance admin" href="21-doi-chieu.html"><svg class="ic"><use href="#i-layers"/></svg><span>Đối chiếu</span></a>
+    <div class="sb__group">Tra cứu</div>
+    <a class="sb__item" data-nav="nguoi-dung" href="12-nguoi-dung.html"><svg class="ic"><use href="#i-users"/></svg><span>Người dùng</span></a>
+    <a class="sb__item" data-nav="nhat-ky" data-roles="admin" href="16-nhat-ky.html"><svg class="ic"><use href="#i-history"/></svg><span>Nhật ký</span></a>
+    <div class="sb__group" data-roles="admin">Quản trị</div>
+    <a class="sb__item is-active" data-nav="noi-dung" aria-current="page" data-roles="admin" href="14-noi-dung.html"><svg class="ic"><use href="#i-content"/></svg><span>Nội dung</span></a>
+    <a class="sb__item" data-nav="nhan-vien" data-roles="admin" href="19-nhan-vien.html"><svg class="ic"><use href="#i-users"/></svg><span>Nhân viên</span></a>
+    <a class="sb__item" data-nav="cau-hinh" data-roles="admin" href="15-cau-hinh.html"><svg class="ic"><use href="#i-settings"/></svg><span>Cấu hình</span></a>
+  </nav>
+  <div class="sb__foot">
+    <div class="sb__sync"><i class="dot dot--ok"></i>Đồng bộ sàn 14:30 · ổn</div>
+    <a class="sb__user" href="20-tai-khoan.html"><span class="avatar avatar--staff" data-role-avatar>S</span><div><b data-role-name>Nguyễn Sơn</b><small data-role-mail>Quản trị · admin@saleve.vn</small></div></a>
+    <a class="sb__out" href="#"><svg class="ic ic--xs"><use href="#i-arrow-up-right"/></svg><span>Về trang người dùng</span></a>
+  </div>
+</aside>
+<div class="main">
+  <header class="hd">
+    <div class="hd__crumb"><span>Vận hành</span><i>/</i><span>Quản trị</span><i>/</i><b>Nội dung</b></div>
+    <label class="hd__search"><svg class="ic ic--sm"><use href="#i-search"/></svg><input placeholder="Tìm người dùng, mã KN / DS / RT, mã đơn sàn…"><span class="kbd">⌘K</span></label>
+    <div style="position:relative">
+      <button class="hd__inbox" data-pop="#pop-inbox"><svg class="ic ic--sm"><use href="#i-bell"/></svg><span>Việc cần xử lý</span><b class="n n--hot" data-role-total>9</b></button>
+      <div class="pop" id="pop-inbox">
+        <div class="pop__hd">Việc đang chờ<small>hỏi lại 20 giây/lần · vừa xong</small></div>
+        <a class="pop__i" href="02-hop-viec-duyet-chi.html" data-roles="finance admin"><svg class="ic ic--sm"><use href="#i-wallet"/></svg><span>Chờ duyệt chi · việc cũ nhất từ 22 giờ trước</span><b class="n">3</b></a>
+        <a class="pop__i" href="04-hop-viec-khieu-nai.html" data-roles="ops admin"><svg class="ic ic--sm"><use href="#i-support"/></svg><span>Khiếu nại · 1 quá hạn</span><b class="n">2</b></a>
+        <a class="pop__i" href="06-hop-viec-doi-soat.html" data-roles="ops admin"><svg class="ic ic--sm"><use href="#i-unmatched"/></svg><span>Đối soát · việc cũ nhất từ 2 ngày trước</span><b class="n">3</b></a>
+        <a class="pop__i" href="08-hop-viec-gian-lan.html" data-roles="ops admin"><svg class="ic ic--sm"><use href="#i-shield"/></svg><span>Nghi gian lận · giữ tiền tối đa 7 ngày</span><b class="n">1</b></a>
+      </div>
+    </div>
+    <button class="hd__me" title="Tài khoản"><span class="avatar avatar--staff" data-role-avatar>S</span></button>
+  </header>
+  <main class="pg">
+<div data-roles="admin" class="stack">
+<div class="pg__head">
+  <div><h1>Nội dung</h1></div>
+  <div class="pg__actions"><button class="btn btn--secondary btn--sm" data-open="#dr-tb"><svg class="ic"><use href="#i-megaphone"/></svg>Gửi thông báo…</button><button class="btn btn--primary btn--sm" data-toast="Mở trình soạn bài (ngoài phạm vi mẫu này)"><svg class="ic"><use href="#i-plus"/></svg>Viết bài mới</button><button class="btn btn--ghost btn--sm" data-open="#modal-keys"><svg class="ic"><use href="#i-keyboard"/></svg>Phím tắt</button></div>
+</div>
+
+<div data-tabs class="stack">
+<div class="row row--between row--wrap">
+  <div class="tabs"><span class="tabs__i is-active" data-tab="bai">Bài viết <span class="tabs__n">12</span></span><span class="tabs__i" data-tab="vc">Voucher <span class="tabs__n">8</span></span><span class="tabs__i" data-tab="cd">Chiến dịch <span class="tabs__n">3</span></span><span class="tabs__i" data-tab="tb">Thông báo</span></div>
+  <div class="fbar"><button class="fsel">Trạng thái: <b>Tất cả</b><svg class="ic"><use href="#i-chevron-down"/></svg></button></div>
+</div>
+
+<div class="tbl-wrap" data-panel="bai">
+  <div class="tbl__hd"><b>12 bài viết</b><label class="fsearch"><svg class="ic ic--sm"><use href="#i-search"/></svg><input placeholder="Tiêu đề, mã voucher, chiến dịch"></label></div>
+  <table class="tbl tbl--v2 tbl--compact" id="tbl-bai">
+    <thead class="sort"><tr><th>Tiêu đề</th><th class="sort">Chuyên mục</th><th class="sort">Trạng thái</th><th>Nổi bật</th><th class="sort is-desc">Cập nhật</th><th>Người sửa</th><th class="right">Hành động</th></tr></thead>
+    <tbody>
+      <tr><td><b>Lịch sale 11.11 Shopee</b><span class="sub">/lich-sale-11-11-shopee</span></td><td>Lịch sale</td><td><span class="badge badge--done badge--sm">Đã đăng</span></td><td><span class="toggle on" title="Đang nổi bật"></span></td><td>17:30 · 10/10/2026</td><td>Nguyễn Sơn</td><td class="acts"><button class="btn btn--ghost btn--sm">Sửa</button><span class="lnk" data-open="#m-an">Ẩn…</span></td></tr>
+      <tr><td><b>Cách tính tiền hoàn theo hạng</b><span class="sub">/cach-tinh-tien-hoan</span></td><td>Hướng dẫn</td><td><span class="badge badge--done badge--sm">Đã đăng</span></td><td><span class="toggle on" title="Đang nổi bật"></span></td><td>09:12 · 08/10/2026</td><td>Trần Đức Minh</td><td class="acts"><button class="btn btn--ghost btn--sm">Sửa</button><span class="lnk" data-open="#m-an">Ẩn…</span></td></tr>
+      <tr><td><b>Săn voucher 0h ngày đôi</b><span class="sub">/san-voucher-0h</span></td><td>Mẹo săn sale</td><td><span class="badge badge--off badge--sm">Nháp</span></td><td><span class="toggle" title="Chưa nổi bật"></span></td><td>14:48 · 14/10/2026</td><td>Nguyễn Sơn</td><td class="acts"><button class="btn btn--ghost btn--sm">Sửa</button><button class="btn btn--secondary btn--sm" data-toast="Đã đăng “Săn voucher 0h ngày đôi” · ghi nhật ký">Đăng</button></td></tr>
+      <tr><td><b>Mẹo gộp đơn để được freeship</b><span class="sub">/meo-gop-don-freeship</span></td><td>Mẹo săn sale</td><td><span class="badge badge--done badge--sm">Đã đăng</span></td><td><span class="toggle on" title="Đang nổi bật"></span></td><td>11:05 · 02/10/2026</td><td>Trần Đức Minh</td><td class="acts"><button class="btn btn--ghost btn--sm">Sửa</button><span class="lnk" data-open="#m-an">Ẩn…</span></td></tr>
+      <tr class="is-dim"><td><b>Lịch săn voucher 9.9</b><span class="sub">/lich-san-voucher-9-9 · ẩn 15/09 · lý do: hết chương trình</span></td><td>Lịch sale</td><td><span class="badge badge--lock badge--sm">Đã ẩn</span></td><td><span class="toggle" title="Không áp dụng"></span></td><td>08:00 · 15/09/2026</td><td>Nguyễn Sơn</td><td class="acts"><button class="btn btn--ghost btn--sm" data-toast="Đã hiện lại bài “Lịch săn voucher 9.9” · ghi nhật ký">Hiện lại</button></td></tr>
+      <tr><td><b>Quy định đối soát và khiếu nại</b><span class="sub">/quy-dinh-doi-soat</span></td><td>Hướng dẫn</td><td><span class="badge badge--done badge--sm">Đã đăng</span></td><td><span class="toggle" title="Chưa nổi bật"></span></td><td>16:20 · 20/08/2026</td><td>Nguyễn Sơn</td><td class="acts"><button class="btn btn--ghost btn--sm">Sửa</button><span class="lnk" data-open="#m-an">Ẩn…</span></td></tr>
+    </tbody>
+  </table>
+  <div class="skel" hidden aria-hidden="true"><i style="width:60%"></i><i style="width:85%"></i></div>
+  <div class="empty" hidden><img class="empty__m" src="mascot/xu-chua-co-gi.svg" alt=""><div class="empty__t">Chưa có bài viết</div><div class="empty__d">Bài đầu tiên nên là hướng dẫn cách tính tiền hoàn.</div><button class="btn btn--secondary btn--sm">Viết bài mới</button></div>
+  <div class="errbox" hidden><div class="errbox__t">Không tải được danh sách</div><div class="errbox__d">Mã lỗi ND-503.</div><button class="btn btn--secondary btn--sm">Thử lại</button></div>
+  <div class="pager"><span>1–6 / 12 bài</span><div class="pager__r"><select class="input"><option>25 / trang</option><option>50 / trang</option></select><button class="btn btn--ghost btn--icon" disabled><svg class="ic"><use href="#i-chevron-left"/></svg></button><button class="btn btn--ghost btn--icon"><svg class="ic"><use href="#i-chevron-right"/></svg></button></div></div>
+</div>
+
+<div class="stack" data-panel="vc" hidden>
+<div class="tbl-wrap">
+  <div class="tbl__hd"><b>8 voucher</b><button class="btn btn--secondary btn--sm" style="margin-left:auto" data-toast="Mở form thêm voucher (ngoài phạm vi mẫu này)"><svg class="ic"><use href="#i-plus"/></svg>Thêm voucher</button></div>
+  <table class="tbl tbl--v2 tbl--compact" id="tbl-vc">
+    <thead class="sort"><tr><th>Mã</th><th class="sort">Mô tả</th><th>Sàn</th><th class="sort is-asc">Hạn</th><th>Nguồn</th><th class="sort">Trạng thái</th><th>Hiện với người dùng</th><th class="right">Hành động</th></tr></thead>
+    <tbody>
+      <tr><td class="code">SVFREE50K</td><td>Freeship tối đa 50.000đ đơn từ 0đ<span class="sub">khung 00:00 · 09:00 · 12:00 · 20:00</span></td><td>Shopee</td><td>31/10/2026</td><td><span class="badge badge--info badge--sm">Nhập tay</span></td><td><span class="badge badge--done badge--sm">Đang chạy</span></td><td><span class="badge badge--done badge--sm">Có</span></td><td class="acts"><button class="btn btn--ghost btn--sm">Sửa</button><span class="lnk" data-open="#m-xoa-vc">Xoá…</span></td></tr>
+      <tr><td class="code">SV1111GIAM15</td><td>Giảm 15% tối đa 100.000đ · đơn từ 300.000đ<span class="sub">chiến dịch 11.11 Siêu sale</span></td><td>Shopee</td><td>11/11/2026</td><td><span class="badge badge--info badge--sm">Nhập tay</span></td><td><span class="badge badge--off badge--sm">Chưa bắt đầu</span></td><td><span class="badge badge--off badge--sm">Chưa</span></td><td class="acts"><button class="btn btn--ghost btn--sm">Sửa</button><span class="lnk" data-open="#m-xoa-vc">Xoá…</span></td></tr>
+      <tr><td class="code">SVTECH200</td><td>Giảm 200.000đ điện tử · đơn từ 2.000.000đ</td><td>Shopee</td><td>20/10/2026</td><td><span class="badge badge--info badge--sm">Nhập tay</span></td><td><span class="badge badge--done badge--sm">Đang chạy</span></td><td><span class="badge badge--done badge--sm">Có</span></td><td class="acts"><button class="btn btn--ghost btn--sm">Sửa</button><span class="lnk" data-open="#m-xoa-vc">Xoá…</span></td></tr>
+      <tr class="is-dim"><td class="code">SV1010SALE</td><td>Giảm 10% tối đa 50.000đ · ngày 10.10</td><td>Shopee</td><td>10/10/2026</td><td><span class="badge badge--info badge--sm">Nhập tay</span></td><td><span class="badge badge--off badge--sm">Hết hạn</span></td><td><span class="badge badge--off badge--sm">Không</span></td><td class="acts"><button class="btn btn--ghost btn--sm" data-toast="Đã nhân bản SV1010SALE thành bản nháp mới">Nhân bản</button></td></tr>
+      <tr class="is-dim"><td class="code">SVBEAUTY30</td><td>Giảm 30.000đ mỹ phẩm · đơn từ 150.000đ<span class="sub">xoá mềm 12/10 · Trần Đức Minh · "sàn ngừng mã"</span></td><td>Shopee</td><td>30/10/2026</td><td><span class="badge badge--info badge--sm">Nhập tay</span></td><td><span class="badge badge--fail badge--sm">Đã xoá mềm</span></td><td><span class="badge badge--fail badge--sm" title="Lỗi R-25: API nội dung chưa lọc deleted_at">Còn hiện · lỗi R-25</span></td><td class="acts"><button class="btn btn--ghost btn--sm" data-toast="Đã khôi phục SVBEAUTY30 · ghi nhật ký">Khôi phục</button></td></tr>
+    </tbody>
+  </table>
+  <div class="pager"><span>1–5 / 8 voucher</span><div class="pager__r"><select class="input"><option>25 / trang</option></select><button class="btn btn--ghost btn--icon" disabled><svg class="ic"><use href="#i-chevron-left"/></svg></button><button class="btn btn--ghost btn--icon"><svg class="ic"><use href="#i-chevron-right"/></svg></button></div></div>
+</div>
+</div>
+
+<div class="tbl-wrap" data-panel="cd" hidden>
+  <div class="tbl__hd"><b>3 chiến dịch</b><button class="btn btn--secondary btn--sm" style="margin-left:auto" data-toast="Mở form chiến dịch (ngoài phạm vi mẫu này)"><svg class="ic"><use href="#i-plus"/></svg>Tạo chiến dịch</button></div>
+  <table class="tbl tbl--v2 tbl--compact">
+    <thead class="sort"><tr><th>Tên</th><th class="sort">Thời gian</th><th class="sort">Trạng thái</th><th>Bài liên kết</th><th>Voucher liên kết</th><th class="num sort">Lượt xem</th><th class="right">Hành động</th></tr></thead>
+    <tbody>
+      <tr><td><b>11.11 Siêu sale</b><span class="sub">/su-kien/11-11</span></td><td>01/11 – 11/11/2026</td><td><span class="badge badge--off badge--sm">Nháp</span></td><td>Lịch sale 11.11 Shopee</td><td class="code">SV1111GIAM15</td><td class="num muted">—</td><td class="acts"><button class="btn btn--ghost btn--sm">Sửa</button><button class="btn btn--secondary btn--sm" data-toast="Đã lên lịch “11.11 Siêu sale” từ 01/11 · ghi nhật ký">Lên lịch</button></td></tr>
+      <tr class="is-dim"><td><b>Sale 10.10</b><span class="sub">/su-kien/10-10</span></td><td>05/10 – 10/10/2026</td><td><span class="badge badge--done badge--sm">Đã kết thúc</span></td><td>Săn voucher 0h ngày đôi</td><td class="code">SV1010SALE</td><td class="num">1.284</td><td class="acts"><button class="btn btn--ghost btn--sm">Xem</button></td></tr>
+      <tr><td><b>Tết 2027</b><span class="sub">/su-kien/tet-2027</span></td><td>15/01 – 05/02/2027</td><td><span class="badge badge--off badge--sm">Nháp</span></td><td class="muted">chưa gắn</td><td class="muted">chưa gắn</td><td class="num muted">—</td><td class="acts"><button class="btn btn--ghost btn--sm">Sửa</button></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="tbl-wrap" data-panel="tb" hidden>
+  <div class="tbl__hd"><b>Lịch sử gửi thông báo</b><button class="btn btn--secondary btn--sm" style="margin-left:auto" data-open="#dr-tb"><svg class="ic"><use href="#i-megaphone"/></svg>Gửi thông báo…</button></div>
+  <table class="tbl tbl--v2 tbl--compact">
+    <thead class="sort"><tr><th>Lúc</th><th class="sort">Nhóm nhận</th><th class="sort">Kênh</th><th class="sort">Tiêu đề</th><th class="num sort">Số người</th><th class="sort">Trạng thái</th><th>Người gửi</th></tr></thead>
+    <tbody>
+      <tr><td>09:00 · 15/10/2026</td><td>Có đơn chờ chốt kỳ</td><td>App · Zalo</td><td>Kỳ 09/2026 đã chốt — kiểm tra ví của bạn</td><td class="num">412</td><td><span class="badge badge--done badge--sm">Đã gửi</span></td><td>Hệ thống</td></tr>
+      <tr><td>20:00 · 10/10/2026</td><td>Tất cả</td><td>App · Zalo</td><td>Voucher 10.10 mở lúc 0h — đặt nhắc ngay</td><td class="num">1.284</td><td><span class="badge badge--done badge--sm">Đã gửi</span></td><td>Nguyễn Sơn</td></tr>
+      <tr><td>18:30 · 08/10/2026</td><td>Hạng Vàng</td><td>App</td><td>Cảm ơn bạn — hạng Vàng nhận 85% hoa hồng</td><td class="num">96</td><td><span class="badge badge--done badge--sm">Đã gửi</span></td><td>Trần Đức Minh</td></tr>
+      <tr><td>—</td><td>Tất cả</td><td>App · Zalo</td><td>Lịch sale 11.11 — săn voucher sớm</td><td class="num muted">1.284</td><td><span class="badge badge--off badge--sm">Nháp</span></td><td>Nguyễn Sơn</td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+<div data-roles="ops finance" class="card" style="margin-top:8px"><div class="empty"><img class="empty__m" src="mascot/xu-chua-co-gi.svg" alt=""><div class="empty__t">Vai <span data-role-label-short></span> không xem được mục này</div><div class="empty__d">Cần vai Quản trị.</div><a class="btn btn--secondary btn--sm" href="01-hop-viec.html">Về Việc cần xử lý</a></div></div>
+  </main>
+</div>
+</div>
+<div class="drawer drawer--w" id="dr-tb" role="dialog" aria-labelledby="dr-tb-t">
+  <div class="drawer__hd"><div><div class="drawer__t" id="dr-tb-t">Gửi thông báo</div></div><button class="drawer__x" data-close aria-label="Đóng"><svg class="ic"><use href="#i-x"/></svg></button></div>
+  <div class="drawer__bd">
+    <div class="pv-wrap">
+      <div class="form">
+        <label class="field"><span class="field__l">Nhóm nhận</span><select class="input"><option>Tất cả · 1.284 người</option><option>Hạng Vàng · 96</option><option>Có đơn chờ chốt kỳ · 412</option><option>Chưa có đơn 30 ngày · 530</option></select></label>
+        <label class="field span2"><span class="field__l">Kênh</span><div class="row gap-16" style="height:36px"><label class="check"><i class="on"></i>Thông báo app</label><label class="check"><i class="on"></i>Zalo</label><label class="check"><i></i>Email</label></div></label>
+        <label class="field span2"><span class="field__l">Tiêu đề <em>*</em></span><input class="input" value="Lịch sale 11.11 — săn voucher sớm"></label>
+        <label class="field span2"><span class="field__l">Nội dung <em>*</em></span><textarea class="input" data-min="10">Voucher giảm 15% tối đa 100.000đ mở từ 0h 01/11. Đặt nhắc trong app để không bỏ lỡ.</textarea><div class="counter"></div></label>
+        <label class="field span2"><span class="field__l">Liên kết khi bấm</span><input class="input" value="/su-kien/11-11"></label>
+      </div>
+      <div class="preview"><div class="sec__t">Xem trước trên điện thoại</div><div class="pv-phone"><div class="pv-notif"><span class="avatar avatar--sm">s</span><div><b>Lịch sale 11.11 — săn voucher sớm</b><small>Voucher giảm 15% tối đa 100.000đ mở từ 0h 01/11. Đặt nhắc trong app để không bỏ lỡ.</small></div></div></div></div>
+    </div>
+    <div class="callout callout--neutral small"><svg class="ic"><use href="#i-info"/></svg><div>Người gửi <b data-role-name>Nguyễn Sơn</b> · 16/10/2026.</div></div>
+  </div>
+  <div class="drawer__ft"><span class="grow"></span><button class="btn btn--ghost" data-toast="Đã lưu nháp thông báo">Lưu nháp</button><button class="btn btn--primary" data-open="#m-gui">Gửi cho 1.284 người…</button></div>
+</div>
+<div class="modal-wrap" id="m-gui" role="dialog" aria-labelledby="m-gui-t"><div class="modal">
+  <h2 class="modal__t" id="m-gui-t">Gửi thông báo cho 1.284 người?</h2>
+  <p class="modal__d">App + Zalo · nhóm Tất cả.</p>
+  <div class="callout callout--warn small"><svg class="ic"><use href="#i-alert"/></svg><div>Người thực hiện <b data-role-name>Nguyễn Sơn</b> · 16/10/2026 · <b>không thể hoàn tác</b>.</div></div>
+  <div class="modal__ft"><button class="btn btn--ghost" data-close>Huỷ</button><button class="btn btn--primary" data-toast="Đang gửi cho 1.284 người · theo dõi ở tab Thông báo · ghi nhật ký">Gửi ngay</button></div>
+</div></div>
+<div class="modal-wrap" id="m-an" role="dialog" aria-labelledby="m-an-t"><div class="modal modal--danger">
+  <h2 class="modal__t" id="m-an-t">Ẩn bài viết khỏi trang người dùng?</h2>
+  <p class="modal__d">Bài ẩn ngay khỏi trang chủ và tìm kiếm của người dùng; vẫn tra được ở đây và có thể hiện lại.</p>
+  <label class="field"><span class="field__l">Lý do <em>*</em></span><textarea class="input" data-min="10" placeholder="Vd: hết chương trình, thông tin sai…"></textarea><div class="counter"></div></label>
+  <div class="callout callout--neutral small"><svg class="ic"><use href="#i-info"/></svg><div>Người thực hiện <b data-role-name>Nguyễn Sơn</b> · 16/10/2026.</div></div>
+  <div class="modal__ft"><button class="btn btn--ghost" data-close>Huỷ</button><button class="btn btn--danger-solid" data-toast="Đã ẩn bài · ghi nhật ký">Ẩn bài</button></div>
+</div></div>
+<div class="modal-wrap" id="m-xoa-vc" role="dialog" aria-labelledby="m-xoa-vc-t"><div class="modal modal--danger">
+  <h2 class="modal__t" id="m-xoa-vc-t">Xoá voucher?</h2>
+  <p class="modal__d">Xoá mềm: ẩn ngay khỏi app người dùng và lịch nhắc; giữ bản ghi để tra cứu, khôi phục được trong 30 ngày.</p>
+  <label class="field"><span class="field__l">Lý do <em>*</em></span><textarea class="input" data-min="10" placeholder="Vd: sàn ngừng mã, nhập sai điều kiện…"></textarea><div class="counter"></div></label>
+  <div class="callout callout--neutral small"><svg class="ic"><use href="#i-info"/></svg><div>Người thực hiện <b data-role-name>Nguyễn Sơn</b> · 16/10/2026.</div></div>
+  <div class="modal__ft"><button class="btn btn--ghost" data-close>Huỷ</button><button class="btn btn--danger-solid" data-toast="Đã xoá mềm voucher · ẩn khỏi app · ghi nhật ký">Xoá voucher</button></div>
+</div></div>
+<div class="modal-wrap" id="modal-keys" role="dialog" aria-label="Phím tắt"><div class="modal" style="width:560px">
+  <h2 class="modal__t">Phím tắt</h2>
+  <div class="keys--v2">
+    <div><span><span class="kbd">J</span> <span class="kbd">K</span></span><span>việc sau / trước</span></div><div><span class="kbd">Enter</span><span>mở hồ sơ</span></div>
+    <div><span class="kbd">A</span><span>nhận việc</span></div><div><span class="kbd">/</span><span>tìm trong trang</span></div>
+    <div><span class="kbd">⌘K</span><span>tìm toàn hệ</span></div><div><span class="kbd">Esc</span><span>đóng bảng bên / hộp thoại</span></div>
+    <div><span><span class="kbd">1</span>…<span class="kbd">5</span></span><span>lọc theo trạng thái</span></div><div><span class="kbd">?</span><span>bảng này</span></div>
+  </div>
+  <div class="modal__ft"><button class="btn btn--primary" data-close>Đóng</button></div>
+</div></div>
+<script src="admin.js"></script>
+<script>
+/* hành vi chung V2: mật độ bảng, chọn hàng + panel, kết luận/mã lý do, composer 2 tab */
+(function(){
+  document.querySelectorAll('.tbl__dense-toggle').forEach(function(g){g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+    g.querySelectorAll('button').forEach(function(x){x.classList.toggle('is-on',x===b)});
+    var t=document.querySelector(g.getAttribute('data-dense'));if(t)t.classList.toggle('tbl--xs',b.textContent.indexOf('Dày')===0);});});
+  document.querySelectorAll('th.th-plat').forEach(function(th){var i=[].indexOf.call(th.parentElement.children,th);var cg=th.closest('table').querySelector('colgroup');if(cg&&cg.children[i])cg.children[i].classList.add('c-plat');});
+  document.querySelectorAll('.tbl--v2 tbody tr.is-click').forEach(function(tr){tr.addEventListener('click',function(e){if(e.target.closest('a,button,.check,[data-open],[data-toast]'))return;
+    var tb=tr.closest('tbody');tb.querySelectorAll('tr').forEach(function(x){x.classList.toggle('is-sel',x===tr)});
+    var lay=tr.closest('.qp-layout');if(lay)lay.classList.remove('is-closed');});});
+  /* bảng bên: hàng có nội dung dựng sẵn thì hiện bản đầy đủ; hàng khác hiện tóm tắt lấy từ chính hàng (không hiện nhầm việc khác) */
+  (function(){var qp=document.querySelector('.qp-layout .qp');if(!qp)return;var full=qp.innerHTML,lay=qp.closest('.qp-layout'),tb=lay.querySelector('.tbl--v2 tbody');if(!tb)return;
+    var key=(qp.querySelector('.qp__hd h3')||{}).textContent||'';key=(key.match(/[A-Z]{2}[-A-Z0-9]{3,}|\d{4}[A-Z0-9]{4,}/)||[''])[0];
+    var heads=[].map.call(lay.querySelectorAll('.tbl--v2 thead th'),function(h){return h.textContent.trim();});
+    var openHref=(qp.querySelector('.qp__ft a.btn')||{}).getAttribute?qp.querySelector('.qp__ft a.btn').getAttribute('href'):null;
+    tb.addEventListener('click',function(e){var tr=e.target.closest('tr');if(!tr||e.target.closest('a,button,.check'))return;
+      var txt=tr.textContent;if(key&&txt.indexOf(key)>=0){qp.innerHTML=full;return;}
+      var c=tr.cells,rows='';for(var i=0;i<c.length;i++){var h=heads[i],v=c[i].innerHTML.trim();if(!h||!c[i].textContent.trim()||c[i].querySelector('.check'))continue;rows+='<dt>'+h.charAt(0)+h.slice(1).toLowerCase()+'</dt><dd>'+v+'</dd>';}
+      var title=(c[0].querySelector('.mono,.sub.mono')||c[0]).textContent.trim();
+      qp.innerHTML='<div class="qp__hd"><div><h3>'+title+'</h3></div><button class="qp__x" title="Đóng" aria-label="Đóng"><svg class="ic ic--sm"><use href="#i-x"/></svg></button></div><div class="qp__bd"><dl class="kv kv--tight">'+rows+'</dl></div><div class="qp__ft"><span class="btn btn--secondary btn--sm is-disabled" title="Mở hồ sơ">Mở hồ sơ</span></div>';
+      qp.querySelector('.qp__x').addEventListener('click',function(){lay.classList.add('is-closed');});},true);})();
+  document.querySelectorAll('.qp__x').forEach(function(x){x.addEventListener('click',function(){var lay=x.closest('.qp-layout');if(lay)lay.classList.add('is-closed');});});
+  document.querySelectorAll('.qp__open').forEach(function(x){x.addEventListener('click',function(){var lay=document.querySelector('.qp-layout');if(lay)lay.classList.remove('is-closed');});});
+  document.querySelectorAll('.reason').forEach(function(r){r.addEventListener('click',function(e){var l=e.target.closest('label');if(!l)return;
+    r.querySelectorAll('label').forEach(function(x){x.classList.toggle('is-on',x===l);var m=x.getAttribute('data-more');if(m){var p=document.querySelector(m);if(p)p.hidden=(x!==l);}});});});
+  document.querySelectorAll('.composer').forEach(function(cp){cp.querySelectorAll('[data-cp]').forEach(function(b){b.addEventListener('click',function(){var note=b.getAttribute('data-cp')==='note';
+    cp.querySelectorAll('[data-cp]').forEach(function(x){x.classList.toggle('is-on',x===b);x.classList.toggle('is-note',x===b&&note)});cp.classList.toggle('composer--note',note);
+    var u=cp.querySelector('[data-cp-user]'),n=cp.querySelector('[data-cp-note]');if(u)u.hidden=note;if(n)n.hidden=!note;
+    var h=cp.querySelector('[data-cp-hint]');if(h)h.textContent=note?'Chỉ nhân viên thấy · không gửi cho khách · ghi nhật ký':'Gửi nguyên văn cho khách qua thông báo app + Zalo · ghi nhật ký';
+    cp.querySelectorAll('[data-cp-only]').forEach(function(x){x.hidden=(x.getAttribute('data-cp-only')==='note')!==note;});});});});
+  document.querySelectorAll('.reason label[data-submit]').forEach(function(l){l.addEventListener('click',function(){var b=document.getElementById('kl-submit');if(!b||l.classList.contains('is-off'))return;b.textContent=l.getAttribute('data-submit');b.setAttribute('data-open',l.getAttribute('data-modal'));});});
+})();
+</script>
+<script>
+/* sắp xếp khi bấm tiêu đề cột (bản mẫu: sắp ngay trên trình duyệt) */
+(function(){
+  function dur(m){var n=+m[1];return m[2]==='phút'?n:m[2]==='giờ'?n*60:n*1440;}
+  function key(td){
+    if(td.hasAttribute('data-sort')&&/^\d+$/.test(td.getAttribute('data-sort')))return +td.getAttribute('data-sort');var t=(td.getAttribute('data-sort')||td.textContent||'').replace(/\s+/g,' ').trim(), m, d;
+    if((/^[−-]\s*\d/.test(t)||/^quá hạn/i.test(t))&&/(phút|giờ|ngày)/.test(t)){m=t.match(/(\d+)\s*(phút|giờ|ngày)/);return -dur(m);}
+    if(/^còn\s/.test(t)){m=t.match(/(\d+)\s*(phút|giờ|ngày)/);return m?dur(m):1e9;}
+    if(/^(đã xử lý|không hạn|tạm dừng|giữ còn)/.test(t)){m=t.match(/(\d+)\s*(phút|giờ|ngày)/);return m?dur(m)+1e6:1e12;}
+    d=t.match(/(\d{2})\/(\d{2})(?:\/(\d{4}))?/); m=t.match(/(\d{2}):(\d{2})/);
+    if(d){return ((d[3]?+d[3]:2026)*10000+(+d[2])*100+(+d[1]))*10000+(m?(+m[1])*100+(+m[2]):0);}
+    var num=t.replace(/\s/g,'');
+    if(/^[+−-]?[\d.]+(đ|%)?$/.test(num)){return parseFloat(num.replace(/[^\d−-]/g,'').replace('−','-'))||0;}
+    return t.toLowerCase();
+  }
+  document.querySelectorAll('.tbl th.sort').forEach(function(th){
+    th.addEventListener('click',function(){
+      var table=th.closest('table'),tr=th.parentElement,idx=[].indexOf.call(tr.children,th);
+      var asc=!th.classList.contains('is-asc');
+      tr.querySelectorAll('th').forEach(function(x){x.classList.remove('is-asc','is-desc');});
+      th.classList.add(asc?'is-asc':'is-desc');
+      var tb=table.tBodies[0],rows=[].slice.call(tb.rows);
+      rows.sort(function(a,b){var ka=key(a.cells[idx]),kb=key(b.cells[idx]);
+        if(typeof ka==='number'&&typeof kb==='number')return asc?ka-kb:kb-ka;
+        ka=String(ka);kb=String(kb);return asc?ka.localeCompare(kb,'vi'):kb.localeCompare(ka,'vi');});
+      rows.forEach(function(r){tb.appendChild(r);});
+    });
+  });
+  /* sắp ngay khi mở trang theo cột đang đánh dấu */
+  document.querySelectorAll('.tbl th.sort.is-asc, .tbl th.sort.is-desc').forEach(function(th){var asc=th.classList.contains('is-asc');th.classList.toggle('is-asc',!asc);th.classList.toggle('is-desc',asc);th.click();});
+  /* giữ ?role= và ?clean= khi bấm link nội bộ */
+  var q=location.search.replace(/^\?/,'');if(q){document.querySelectorAll('a[href]').forEach(function(a){var h=a.getAttribute('href');if(/^[0-9a-z_-]+\.html$/i.test(h))a.setAttribute('href',h+'?'+q);});}
+})();
+</script>
+</body>
+</html>
