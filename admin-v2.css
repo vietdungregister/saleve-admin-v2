@@ -371,3 +371,27 @@ body.is-clean .theme-sw{display:none}
 html:not([data-multi-platform]) .th-plat,html:not([data-multi-platform]) td.plat,html:not([data-multi-platform]) col.c-plat,html:not([data-multi-platform]) .fsel--plat{display:none!important}
 .sla--ok{background:transparent;color:var(--muc-2);padding-left:0}
 .sla--ok::before{display:none}
+
+/* ---------- Khuôn hồ sơ việc (REV-005 #26, 18/10) ---------- */
+.rec2{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:18px;align-items:start}
+.rec2__main{display:flex;flex-direction:column;gap:14px;min-width:0}
+.rec2__side{display:flex;flex-direction:column;gap:12px;position:sticky;top:calc(var(--hd-h) + 16px)}
+.calc{display:flex;align-items:center;gap:14px;min-height:64px;padding:12px 20px;background:#fff;border-radius:var(--r);flex-wrap:wrap}
+.calc__i{display:flex;flex-direction:column;gap:4px}
+.calc__i small{font:600 11px/1 var(--font);color:var(--phu);text-transform:uppercase;letter-spacing:.06em}
+.calc__i b{font:800 20px/1 var(--display);font-variant-numeric:tabular-nums}
+.calc__op{font:700 18px/1 var(--font);color:var(--phu-2)}
+.calc__i--res b{color:var(--reu)}
+.decide{background:#fff;border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px;border:1.5px solid var(--muc)}
+.decide__t{font:700 14px/1.2 var(--font)}
+.decide .opt-l{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--vien-3);border-radius:10px;cursor:pointer;font:500 13px/1.35 var(--font)}
+.decide .opt-l.is-on{border-color:var(--muc);background:var(--sand-2)}
+.decide .opt-l small{display:block;color:var(--phu);font-size:12px;margin-top:2px}
+.decide .opt-l input{margin-top:2px}
+.decide .more{display:flex;flex-direction:column;gap:8px}
+.decide .btn{width:100%;justify-content:center;height:40px}
+.facts{display:grid;grid-template-columns:96px minmax(0,1fr);gap:6px 10px;font-size:13px;margin:0}
+.facts dt{color:var(--phu)}.facts dd{margin:0;font-weight:500}
+.rec2 .composer textarea{min-height:110px}
+@media (max-width:1366px){.rec2{grid-template-columns:minmax(0,1fr) 330px}}
+.qp .kv dt{text-transform:none}

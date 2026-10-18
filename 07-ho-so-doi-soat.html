@@ -7,29 +7,6 @@
 <title>Hồ sơ đối soát DS241010 · salevề vận hành</title>
 <link rel="stylesheet" href="admin.css">
 <link rel="stylesheet" href="admin-v2.css">
-<style>
-/* Bổ sung riêng cho màn này */
-.rec__hd h1 .sla{font-size:12px;height:24px}
-.rec__nav .sep-v{width:1px;height:18px;background:var(--vien-3)}
-.msg__hd .avatar{width:22px;height:22px;font-size:10px}
-.reason--3{grid-template-columns:repeat(3,minmax(0,1fr))}
-.reason label b{display:block;font-weight:700;margin-bottom:2px}
-.reason label.is-off{opacity:.55;cursor:not-allowed}
-.reason__more{margin-top:10px;padding:12px 14px;border-radius:10px;background:var(--sand-2);display:flex;flex-direction:column;gap:10px}
-.kv2{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px}
-.kv2 .kv{grid-template-columns:120px minmax(0,1fr)}
-.side-user{display:flex;gap:10px;align-items:flex-start}
-.rec__side .wallet3{gap:6px}
-.rec__side .wallet3__i{padding:10px 10px}
-.rec__side .wallet3__v{font-size:15px}
-.rec__side .wallet3__l{font-size:10px;margin-bottom:6px}
-.rec__side .wallet3__s{font-size:11px}
-.rec__side .feed__i{padding:8px 0;grid-template-columns:44px minmax(0,1fr);font-size:12.5px}
-.rec__side .feed__i:first-child{border-top:0}
-.lock{white-space:nowrap}
-.card__head .link,.sec__t .link{white-space:nowrap}
-.rec__main .tbl--v2 td.num{font-weight:600}
-</style>
 <script>window.ADM_SCREENS=[["index.html","Mục lục"],["00-he-component.html","00 · Hệ component"],["01-hop-viec.html","01 · Việc cần xử lý · Tất cả"],["02-hop-viec-duyet-chi.html","02 · Việc cần xử lý · Chờ duyệt chi"],["03-ho-so-lenh-chi.html","03 · Hồ sơ lệnh chi RT-2720"],["04-hop-viec-khieu-nai.html","04 · Việc cần xử lý · Khiếu nại"],["05-ho-so-khieu-nai.html","05 · Hồ sơ khiếu nại KN706476"],["06-hop-viec-doi-soat.html","06 · Việc cần xử lý · Đối soát"],["07-ho-so-doi-soat.html","07 · Hồ sơ đối soát DS241010"],["08-hop-viec-gian-lan.html","08 · Việc cần xử lý · Nghi gian lận"],["09-giao-dich-don.html","09 · Giao dịch · Đơn & hoa hồng"],["10-giao-dich-lenh-chi.html","10 · Giao dịch · Lệnh chi"],["12-nguoi-dung.html","12 · Người dùng"],["13-ho-so-nguoi-dung.html","13 · Hồ sơ người dùng"],["14-noi-dung.html","14 · Nội dung"],["15-cau-hinh.html","15 · Cấu hình"],["16-nhat-ky.html","16 · Nhật ký"],["17-trang-thai-phim-tat.html","17 · Trạng thái & phím tắt"],["18-ho-so-don.html","18 · Hồ sơ đơn 2409B58F2"],["19-nhan-vien.html","19 · Nhân viên"],["20-tai-khoan.html","20 · Tài khoản của tôi"],["21-doi-chieu.html","21 · Đối chiếu"]];</script>
 </head>
 <body class="adm" data-role="admin">
@@ -80,130 +57,75 @@
   <main class="pg">
 <div data-roles="ops admin" class="stack">
 <div class="rec__hd">
-  <div><h1>DS241010 <span class="badge badge--off">Không tìm thấy đơn</span> <span class="badge badge--blue">Đang điều tra</span> <span class="sla sla--ok">còn 1 ngày</span></h1><p class="pg__sub">Yêu cầu đối soát · Trần Thị Bích · gửi 09:48 · 14/10/2026 · Trần Đức Minh nhận · hạn 2 ngày làm việc → 09:48 · 16/10</p></div>
-  <div class="rec__nav">
-    <a class="btn btn--ghost btn--sm" href="06-hop-viec-doi-soat.html" title="DS241012 · quá hạn −1 giờ">← Việc trước</a><span>2 / 2</span><a class="btn btn--ghost btn--sm is-disabled" href="06-hop-viec-doi-soat.html">Việc sau →</a>
-    <i class="sep-v"></i>
-    <a class="btn btn--ghost btn--sm" href="07-ho-so-doi-soat.html" target="_blank" rel="noopener"><svg class="ic"><use href="#i-external"/></svg>Mở trong tab mới</a>
-    <button class="btn btn--secondary btn--sm" data-toast="Bạn đã nhận lại DS241010 từ Trần Đức Minh · ghi nhật ký">Nhận việc này</button>
-  </div>
+  <div><h1>DS241010 <span class="badge badge--off">Không tìm thấy đơn</span></h1><p class="pg__sub">Trần Thị Bích · đơn 2410C11Q8 · gửi 09:48 · 14/10</p></div>
+  <div class="rec__nav"><a class="btn btn--ghost btn--sm" href="06-hop-viec-doi-soat.html">‹</a><span>2 / 2</span><a class="btn btn--ghost btn--sm is-disabled">›</a></div>
 </div>
-
-<div class="rec">
-<div class="rec__main">
-  <div class="card">
-    <div class="card__head"><div class="card__t">Yêu cầu</div><span class="badge badge--off">Không tìm thấy đơn</span></div>
-    <div class="card__body kv2">
-      <dl class="kv"><dt>Mã đơn sàn</dt><dd class="mono b">2410C11Q8 <span class="muted" style="font-family:var(--font);font-weight:400">· Shopee</span></dd><dt>Mua lúc</dt><dd>09:15 · 05/10/2026</dd><dt>Giá trị</dt><dd>189.000đ</dd><dt>Sản phẩm (khách ghi)</dt><dd>Serum B5 Hyaluronic 30ml</dd></dl>
-      <dl class="kv"><dt>Khách báo</dt><dd>15.120đ <span class="muted">(80% × 18.900đ, ước tính 10%)</span></dd><dt>Quét báo cáo sàn</dt><dd>3 lần · 06/10, 09/10, 13/10 · không thấy mã</dd><dt>Đơn không khớp cùng mã</dt><dd>Không có</dd><dt>Click hợp lệ</dt><dd><span class="badge badge--done badge--sm">Có</span> 2 click trong 24 giờ trước khi mua</dd></dl>
-    </div>
+<div class="calc">
+  <div class="calc__i"><small>Khách báo</small><b>15.120đ</b></div><span class="calc__op">·</span>
+  <div class="calc__i"><small>Shopee báo</small><b>Chưa có đơn</b></div><span class="calc__op">·</span>
+  <div class="calc__i"><small>Click trước khi mua</small><b>2 lần</b></div>
+</div>
+<div class="rec2">
+<div class="rec2__main">
+  <div class="card card--pad stack" style="gap:10px">
+    <div class="sec__t">Khách viết</div>
+    <div>Mình mua serum ngày 05/10 qua link trong app, đến giờ vẫn không thấy đơn trong mục Đang chờ. Gửi kèm ảnh đơn Shopee đã giao thành công.</div>
+    <div class="msg__att"><div class="thumb thumb--img"></div></div>
   </div>
-
-  <div class="card card--pad stack" style="gap:12px">
-    <div class="sec__t">Dòng thời gian</div>
-    <div class="thread">
-      <div class="msg msg--user">
-        <div class="msg__hd"><span class="avatar avatar--sm">B</span>Trần Thị Bích <span class="muted" style="font-weight:400">· khách</span><time>09:48 · 14/10/2026</time></div>
-        Mình mua serum ngày 05/10 qua link trong app, đến giờ (9 ngày) vẫn không thấy đơn trong mục Đang chờ. Gửi kèm ảnh đơn Shopee đã giao thành công.
-        <div class="msg__att"><div class="thumb thumb--img" title="Đơn Shopee 2410C11Q8 · đã giao"></div></div>
-      </div>
-      <div class="msg msg--sys">
-        <div class="msg__hd">Hệ thống<time>09:48</time></div>
-        Đã quét báo cáo sàn 3 lần (06/10, 09/10, 13/10): không có mã <span class="mono">2410C11Q8</span>. Không có đơn không khớp cùng mã hoặc cùng sub-ID. Đặt loại ngoại lệ <b>Không tìm thấy đơn</b>. hạn 2 ngày làm việc.
-      </div>
-      <div class="msg msg--note">
-        <div class="msg__hd"><span class="avatar avatar--sm avatar--staff">M</span>Trần Đức Minh<time>11:20 · 14/10</time></div>
-        Khách có 2 click cùng sản phẩm trong 24 giờ trước khi mua, sub-ID hợp lệ. Nghi sàn chưa gửi báo cáo cho đơn này (ngành mỹ phẩm hay chốt chậm). Đề xuất chờ sàn 7 ngày rồi quét lại, chưa đóng.
-      </div>
-    </div>
-  </div>
-
   <div class="card">
-    <div class="card__head"><div class="card__t">Click của người dùng quanh thời điểm mua</div><a class="link small" href="13-ho-so-nguoi-dung.html">Hồ sơ ↗</a></div>
+    <div class="card__head"><div class="card__t">Bằng chứng</div></div>
+    <div class="card__body"><dl class="facts"><dt>Mã đơn</dt><dd class="mono">2410C11Q8 · Shopee</dd><dt>Mua lúc</dt><dd>09:15 · 05/10/2026 · 189.000đ</dd><dt>Sản phẩm</dt><dd>Serum B5 Hyaluronic 30ml</dd><dt>Quét Shopee</dt><dd>3 lần (06/10, 09/10, 13/10) · không thấy mã</dd></dl></div>
     <table class="tbl tbl--v2 tbl--compact">
-      <thead class="sort"><tr><th>Lúc</th><th>Sản phẩm</th><th>Sub-ID</th><th>Thiết bị</th><th class="num">Trước lúc mua</th></tr></thead>
+      <thead><tr><th>Click lúc</th><th>Sản phẩm</th><th>Thiết bị</th><th class="num">Trước lúc mua</th></tr></thead>
       <tbody>
-        <tr><td>21:10 · 04/10</td><td>Serum B5 Hyaluronic 30ml<span class="sub">cùng cửa hàng với đơn khách báo</span></td><td class="mono">sv_bich3k1</td><td>iPhone · Safari</td><td class="num">12 giờ</td></tr>
-        <tr><td>09:02 · 05/10</td><td>Serum B5 Hyaluronic 30ml<span class="sub">click lại từ thông báo app</span></td><td class="mono">sv_bich3k2</td><td>iPhone · app salevề</td><td class="num">13 phút</td></tr>
+        <tr><td>21:10 · 04/10</td><td>Serum B5 Hyaluronic 30ml</td><td>iPhone · Safari</td><td class="num">12 giờ</td></tr>
+        <tr><td>09:02 · 05/10</td><td>Serum B5 Hyaluronic 30ml</td><td>iPhone · app salevề</td><td class="num">13 phút</td></tr>
       </tbody>
     </table>
-    <div class="card__body"></div>
   </div>
-
-  <div class="card card--pad stack" style="gap:12px">
-    <div class="sec__t">Kết luận</div>
-    <div class="reason reason--3" id="kl">
-      <label class="is-off" title="Không có đơn không khớp cùng mã hoặc cùng sub-ID" data-more="#kl-gan"><input type="radio" name="kl" disabled><span><b>Gán tay từ đơn không khớp</b><small>Không tìm thấy đơn nào · bật khi sàn báo đơn về</small></span></label>
-      <label class="is-on" data-more="#kl-cho" data-submit="Chờ sàn thêm 7 ngày" data-modal="#m-cho"><input type="radio" name="kl" checked><span><b>Chờ sàn thêm 7 ngày</b><small>Quét lại hằng ngày tới 22/10 · hạn tạm dừng</small></span></label>
-      <label data-more="#kl-dong" data-submit="Đóng không hợp lệ" data-modal="#m-dong"><input type="radio" name="kl"><span><b>Đóng không hợp lệ</b><small>Bắt buộc mã lý do + ghi chú</small></span></label>
+  <div class="card card--pad stack" style="gap:10px">
+    <div class="sec__t">Dòng thời gian</div>
+    <div class="thread">
+      <div class="msg msg--sys"><div class="msg__hd">Hệ thống<time>09:48 · 14/10</time></div>Quét Shopee 3 lần không thấy mã đơn, không có đơn không khớp cùng mã.</div>
+      <div class="msg msg--note"><div class="msg__hd">Trần Đức Minh<time>11:20 · 14/10</time></div>Click hợp lệ, có thể Shopee báo trễ (mỹ phẩm hay chậm). Đề xuất chờ thêm.</div>
     </div>
-    <div class="reason__more" id="kl-gan" hidden></div>
-    <div class="reason__more" id="kl-cho">
-      <label class="check"><i class="on"></i>Báo khách là đang chờ sàn (dùng tin trả lời bên dưới)</label>
-    </div>
-    <div class="reason__more" id="kl-dong" hidden>
-      <div class="form">
-        <label class="field"><span class="field__l">Mã lý do <em>*</em></span><select class="input"><option>Chọn mã lý do…</option><option>Không có click qua salevề</option><option>Mua ngoài cửa sổ 7 ngày</option><option>Ghi cho kênh khác</option><option>Khác</option></select></label>
-        <label class="field span2"><span class="field__l">Ghi chú <em>*</em></span><textarea class="input" data-min="10" placeholder="Nêu bằng chứng ngắn gọn…"></textarea><div class="counter"></div></label>
-      </div>
-      <div class="callout callout--warn"><svg class="ic"><use href="#i-alert"/></svg><div>Khách có click hợp lệ trong cửa sổ 7 ngày — đóng không hợp lệ lúc này sẽ bị người thứ hai hỏi lại. Cân nhắc chờ sàn trước.</div></div>
-    </div>
-    <div class="row" style="justify-content:flex-end"><button class="btn btn--primary" id="kl-submit" data-open="#m-cho">Chờ sàn thêm 7 ngày</button></div>
   </div>
-
   <div class="composer" id="cp">
     <div class="composer__tabs"><button class="is-on" data-cp="user">Trả lời khách</button><button data-cp="note">Ghi chú nội bộ</button></div>
-    <textarea data-cp-user>Chào Bích, đơn 2410C11Q8 chưa xuất hiện trong báo cáo Shopee gửi về salevề. Bạn đã có click hợp lệ nên tụi mình giữ yêu cầu và quét lại mỗi ngày tới 22/10; có kết quả tụi mình báo ngay qua app.</textarea>
-    <textarea data-cp-note hidden placeholder="Ghi chú chỉ nội bộ thấy · nền vàng · không gửi cho khách"></textarea>
-    <div class="composer__ft">
-      <button class="btn btn--ghost btn--sm" data-cp-only="user" data-toast="Đã lưu nháp phản hồi">Lưu nháp</button>
-      <button class="btn btn--primary btn--sm" data-cp-only="user" data-toast="Đã gửi phản hồi cho Bích · ghi nhật ký">Gửi phản hồi</button>
-      <button class="btn btn--primary btn--sm" data-cp-only="note" hidden data-toast="Đã lưu ghi chú nội bộ · ghi nhật ký">Lưu ghi chú nội bộ</button>
+    <textarea data-cp-user id="reply">Chọn kết luận để có tin trả lời soạn sẵn.</textarea>
+    <textarea data-cp-note hidden placeholder="Chỉ nhân viên thấy"></textarea>
+    <div class="composer__ft"><span class="grow"></span>
+      <button class="btn btn--secondary btn--sm" data-cp-only="user" data-toast="Đã gửi tin cho Bích · việc vẫn mở · ghi nhật ký">Chỉ gửi tin</button>
+      <button class="btn btn--secondary btn--sm" data-cp-only="note" hidden data-toast="Đã lưu ghi chú nội bộ · ghi nhật ký">Lưu ghi chú</button>
     </div>
   </div>
 </div>
-
-<aside class="rec__side">
-  <div class="card card--pad stack" style="gap:12px">
-    <div class="sec__t">Người dùng <a class="link" href="13-ho-so-nguoi-dung.html">Hồ sơ ↗</a></div>
-    <div class="side-user"><span class="avatar">B</span><div class="grow"><b>Trần Thị Bích</b> <span class="badge badge--info badge--sm">Vàng</span><div class="small muted">0987 •••• 210 · bich.tran@gmail.com</div><div class="small muted">Techcombank <span class="acct">•••• 0193</span><span class="acct__reveal" data-roles="finance admin" data-open="#m-stk">Hiện số đầy đủ</span></div></div></div>
-    <div class="wallet3">
-      <div class="wallet3__i"><div class="wallet3__l">Chờ sàn duyệt</div><div class="wallet3__v">258.900đ</div><div class="wallet3__s">sàn chưa duyệt</div></div>
-      <div class="wallet3__i wallet3__i--avail"><div class="wallet3__l">Có thể rút</div><div class="wallet3__v">2.310.000đ</div><div class="wallet3__s">có thể rút ngay</div></div>
-    </div>
-    <div class="small">41 đơn · 1 DS trước: <a class="link" href="06-hop-viec-doi-soat.html">DS240922</a> đã khớp 24/09 (sàn báo trễ 11 ngày) · 1 KN đang mở: <a class="link" href="04-hop-viec-khieu-nai.html">KN706470</a></div>
+<aside class="rec2__side">
+  <div class="decide">
+    <div class="decide__t">Kết luận</div>
+    <label class="opt-l" data-k="cho"><input type="radio" name="kl"><span><b>Chờ Shopee thêm 7 ngày</b><small>sau 22/10 việc tự quay lại mục Đối soát</small></span></label>
+    <label class="opt-l" data-k="them"><input type="radio" name="kl"><span><b>Cần thêm thông tin</b><small>hỏi khách ảnh chi tiết đơn</small></span></label>
+    <label class="opt-l" data-k="dong"><input type="radio" name="kl"><span><b>Đóng không hợp lệ</b><small>chọn lý do</small></span></label>
+    <div class="more" id="kl-tc" hidden><select class="input"><option>Chọn lý do…</option><option>Không có click qua salevề</option><option>Mua ngoài 7 ngày sau click</option><option>Shopee ghi cho kênh khác</option></select></div>
+    <button class="btn btn--primary" id="kl-submit" disabled>Chọn kết luận</button>
   </div>
-
+  <div class="card card--pad"><dl class="facts"><dt>Trạng thái</dt><dd>Đang điều tra</dd><dt>Phụ trách</dt><dd>Trần Đức Minh</dd><dt>Hạn</dt><dd><span class="sla sla--ok">Còn 1 ngày</span></dd></dl></div>
   <div class="card card--pad stack" style="gap:10px">
-    <div class="sec__t">Đơn trong hệ thống</div>
-    <div class="small muted">Chưa có đơn nào mang mã <span class="mono">2410C11Q8</span>.</div>
-    <span class="badge badge--off">Chưa thấy ở sàn</span>
-    <div class="row row--between"><span class="small muted">Ước tính nếu khớp: 15.120đ</span><span class="lock"><svg class="ic"><use href="#i-clock"/></svg>quét lại 02:00 hằng ngày</span></div>
+    <div class="sec__t">Người dùng <a class="link" href="12-nguoi-dung.html">Danh sách ↗</a></div>
+    <div><b>Trần Thị Bích</b> <span class="badge badge--info badge--sm">Vàng · 85%</span><div class="small muted">41 đơn · 1 đối soát trước đã khớp</div></div>
+    <div class="wallet3"><div class="wallet3__i"><div class="wallet3__l">Chờ sàn duyệt</div><div class="wallet3__v">258.900đ</div></div><div class="wallet3__i wallet3__i--avail"><div class="wallet3__l">Có thể rút</div><div class="wallet3__v">2.310.000đ</div></div></div>
   </div>
 </aside>
 </div>
 </div>
-<div data-roles="finance" class="card" style="margin-top:8px"><div class="empty"><img class="empty__m" src="mascot/xu-chua-co-gi.svg" alt=""><div class="empty__t">Vai <span data-role-label-short></span> không xem được hồ sơ này</div><div class="empty__d">Cần vai Vận hành hoặc Quản trị.</div><a class="btn btn--secondary btn--sm" href="01-hop-viec.html">Về Việc cần xử lý</a></div></div>
+<div data-roles="finance" class="card" style="margin-top:8px"><div class="empty"><img class="empty__m" src="mascot/xu-chua-co-gi.svg" alt=""><div class="empty__t">Vai <span data-role-label-short></span> không xem được hồ sơ này</div><div class="empty__d">Cần vai Vận hành hoặc Quản trị.</div></div></div>
   </main>
 </div>
 </div>
-<div class="modal-wrap" id="m-dong" role="dialog" aria-labelledby="m-dong-t"><div class="modal modal--danger">
-  <h2 class="modal__t" id="m-dong-t">Đóng DS241010 là không hợp lệ?</h2>
-  <p class="modal__d">Khách nhận thông báo kèm mã lý do; yêu cầu không mở lại được.</p>
-  <div class="callout callout--bad small"><svg class="ic"><use href="#i-alert"/></svg><div>Người thực hiện <b data-role-name>Nguyễn Sơn</b> · 16/10/2026 · <b>không thể hoàn tác</b>.</div></div>
-  <div class="modal__ft"><button class="btn btn--ghost" data-close>Quay lại</button><button class="btn btn--danger-solid" data-toast="DS241010 đã đóng · không hợp lệ · ghi nhật ký">Đóng không hợp lệ</button></div>
-</div></div>
-<div class="modal-wrap" id="m-cho" role="dialog" aria-labelledby="m-cho-t"><div class="modal">
-  <h2 class="modal__t" id="m-cho-t">Chờ sàn thêm 7 ngày cho DS241010?</h2>
-  <p class="modal__d">hạn tạm dừng tới 22/10/2026.</p>
-  <div class="callout callout--neutral small"><svg class="ic"><use href="#i-info"/></svg><div>Người thực hiện <b data-role-name>Nguyễn Sơn</b> · 15/10/2026 15:24.</div></div>
-  <div class="modal__ft"><button class="btn btn--ghost" data-close>Huỷ</button><button class="btn btn--primary" data-toast="Đã gửi trả lời · DS241010 chuyển Chờ sàn tới 22/10 · ghi nhật ký">Gửi &amp; chờ sàn 7 ngày</button></div>
-</div></div>
-<div class="modal-wrap" id="m-stk" role="dialog" aria-labelledby="m-stk-t"><div class="modal">
-  <h2 class="modal__t" id="m-stk-t">Hiện số tài khoản đầy đủ?</h2>
-  <p class="modal__d">Số hiện 60 giây trên màn này, không vào CSV hay tooltip.</p>
-  <label class="field"><span class="field__l">Lý do <em>*</em></span><select class="input"><option>Đối chiếu tên chủ tài khoản với khách</option><option>Khách yêu cầu xác nhận số nhận tiền</option><option>Điều tra nghi gian lận</option><option>Khác</option></select></label>
-  <div class="modal__ft"><button class="btn btn--ghost" data-close>Huỷ</button><button class="btn btn--primary" data-toast="Đã hiện số 60 giây · ghi nhật ký: Nguyễn Sơn · lý do đối chiếu">Hiện 60 giây</button></div>
+<div class="modal-wrap" id="m-kl" role="dialog"><div class="modal">
+  <h2 class="modal__t" id="m-kl-t"></h2><p class="modal__d" id="m-kl-d"></p>
+  <div class="callout callout--neutral small"><svg class="ic"><use href="#i-info"/></svg><div>Người thực hiện <b data-role-name>Nguyễn Sơn</b> · 18/10/2026.</div></div>
+  <div class="modal__ft"><button class="btn btn--ghost" data-close>Quay lại</button><button class="btn btn--primary" id="m-kl-ok" data-toast="">Xác nhận</button></div>
 </div></div>
 <script src="admin.js"></script>
 <script>
@@ -223,8 +145,8 @@
     var openHref=(qp.querySelector('.qp__ft a.btn')||{}).getAttribute?qp.querySelector('.qp__ft a.btn').getAttribute('href'):null;
     tb.addEventListener('click',function(e){var tr=e.target.closest('tr');if(!tr||e.target.closest('a,button,.check'))return;
       var txt=tr.textContent;if(key&&txt.indexOf(key)>=0){qp.innerHTML=full;return;}
-      var c=tr.cells,rows='';for(var i=0;i<c.length;i++){var h=heads[i],v=c[i].innerHTML.trim();if(!h||!c[i].textContent.trim()||c[i].querySelector('.check'))continue;rows+='<dt>'+h.charAt(0)+h.slice(1).toLowerCase()+'</dt><dd>'+v+'</dd>';}
-      var title=(c[0].querySelector('.mono,.sub.mono')||c[0]).textContent.trim();
+      var c=tr.cells,rows='',title='';function val(td){var parts=[].map.call(td.children.length?td.children:[td],function(n){return n.textContent.replace(/\s+/g,' ').trim();}).filter(Boolean);var own=[].filter.call(td.childNodes,function(n){return n.nodeType===3&&n.textContent.trim();}).map(function(n){return n.textContent.trim();});return own.concat(td.children.length?parts:[]).join(' · ')||td.textContent.trim();}
+      for(var i=0;i<c.length;i++){var h=heads[i];if(!h||getComputedStyle(c[i]).display==='none'||!c[i].textContent.trim()||c[i].querySelector('.check'))continue;var v=val(c[i]);if(i===0){title=v.split(' · ')[0]==='Khiếu nại'||v.split(' · ')[0]==='Đối soát'||v.split(' · ')[0]==='Duyệt chi'||v.split(' · ')[0]==='Gian lận'?v:v.split(' · ')[0];continue;}rows+='<dt>'+h+'</dt><dd>'+v+'</dd>';}
       qp.innerHTML='<div class="qp__hd"><div><h3>'+title+'</h3></div><button class="qp__x" title="Đóng" aria-label="Đóng"><svg class="ic ic--sm"><use href="#i-x"/></svg></button></div><div class="qp__bd"><dl class="kv kv--tight">'+rows+'</dl></div><div class="qp__ft"><span class="btn btn--secondary btn--sm is-disabled" title="Mở hồ sơ">Mở hồ sơ</span></div>';
       qp.querySelector('.qp__x').addEventListener('click',function(){lay.classList.add('is-closed');});},true);})();
   document.querySelectorAll('.qp__x').forEach(function(x){x.addEventListener('click',function(){var lay=x.closest('.qp-layout');if(lay)lay.classList.add('is-closed');});});
@@ -244,7 +166,7 @@
 (function(){
   function dur(m){var n=+m[1];return m[2]==='phút'?n:m[2]==='giờ'?n*60:n*1440;}
   function key(td){
-    if(td.hasAttribute('data-sort')&&/^\d+$/.test(td.getAttribute('data-sort')))return +td.getAttribute('data-sort');var t=(td.getAttribute('data-sort')||td.textContent||'').replace(/\s+/g,' ').trim(), m, d;
+    if(td.hasAttribute('data-sort')&&/^\d+$/.test(td.getAttribute('data-sort')))return +td.getAttribute('data-sort');var t=(td.getAttribute('data-sort')||td.textContent||'').replace(/\\s+/g,' ').trim(), m, d;
     if((/^[−-]\s*\d/.test(t)||/^quá hạn/i.test(t))&&/(phút|giờ|ngày)/.test(t)){m=t.match(/(\d+)\s*(phút|giờ|ngày)/);return -dur(m);}
     if(/^còn\s/.test(t)){m=t.match(/(\d+)\s*(phút|giờ|ngày)/);return m?dur(m):1e9;}
     if(/^(đã xử lý|không hạn|tạm dừng|giữ còn)/.test(t)){m=t.match(/(\d+)\s*(phút|giờ|ngày)/);return m?dur(m)+1e6:1e12;}
@@ -271,6 +193,20 @@
   document.querySelectorAll('.tbl th.sort.is-asc, .tbl th.sort.is-desc').forEach(function(th){var asc=th.classList.contains('is-asc');th.classList.toggle('is-asc',!asc);th.classList.toggle('is-desc',asc);th.click();});
   /* giữ ?role= và ?clean= khi bấm link nội bộ */
   var q=location.search.replace(/^\?/,'');if(q){document.querySelectorAll('a[href]').forEach(function(a){var h=a.getAttribute('href');if(/^[0-9a-z_-]+\.html$/i.test(h))a.setAttribute('href',h+'?'+q);});}
+})();
+</script>
+<script>
+(function(){
+  var K={cho:{btn:'Chờ Shopee thêm 7 ngày',t:'Chờ Shopee thêm 7 ngày?',d:'Hệ thống quét lại hằng ngày; có đơn thì tự gán, sau 22/10 việc quay lại mục Đối soát.',ok:'DS241010 chờ Shopee tới 22/10 · gửi tin cho Bích',msg:'Chào Bích, đơn 2410C11Q8 chưa có trong báo cáo Shopee gửi về. Bạn có click hợp lệ nên tụi mình giữ yêu cầu và kiểm lại mỗi ngày tới 22/10.'},
+         them:{btn:'Hỏi thêm thông tin',t:'Hỏi khách thêm thông tin?',d:'Việc chuyển sang Chờ khách; hạn tạm dừng.',ok:'Đã hỏi Bích thêm thông tin · việc chờ khách',msg:'Chào Bích, bạn gửi giúp tụi mình ảnh trang chi tiết đơn 2410C11Q8 (có mã đơn và thời gian đặt) nhé.'},
+         dong:{btn:'Đóng không hợp lệ',t:'Đóng DS241010 là không hợp lệ?',d:'Gửi lý do cho khách; yêu cầu không mở lại được.',ok:'DS241010 đã đóng · gửi lý do cho Bích',msg:'Chào Bích, tụi mình rất tiếc không ghi nhận được đơn 2410C11Q8 vì lý do bên dưới.'}};
+  var b=document.getElementById('kl-submit'),rp=document.getElementById('reply');
+  document.querySelectorAll('.decide .opt-l').forEach(function(l){l.addEventListener('click',function(){
+    document.querySelectorAll('.decide .opt-l').forEach(function(x){x.classList.toggle('is-on',x===l);});
+    var key=l.getAttribute('data-k'),k=K[key];document.getElementById('kl-tc').hidden=key!=='dong';
+    b.disabled=false;b.textContent=k.btn;b.setAttribute('data-open','#m-kl');rp.value=k.msg;
+    document.getElementById('m-kl-t').textContent=k.t;document.getElementById('m-kl-d').textContent=k.d;document.getElementById('m-kl-ok').setAttribute('data-toast',k.ok);
+    document.getElementById('m-kl').querySelector('.modal').classList.toggle('modal--danger',key==='dong');});});
 })();
 </script>
 </body>

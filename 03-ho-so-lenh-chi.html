@@ -8,31 +8,6 @@
 <link rel="stylesheet" href="admin.css">
 <link rel="stylesheet" href="admin-v2.css">
 <script>window.ADM_SCREENS=[["index.html","Mục lục"],["00-he-component.html","00 · Hệ component"],["01-hop-viec.html","01 · Việc cần xử lý · Tất cả"],["02-hop-viec-duyet-chi.html","02 · Việc cần xử lý · Chờ duyệt chi"],["03-ho-so-lenh-chi.html","03 · Hồ sơ lệnh chi RT-2720"],["04-hop-viec-khieu-nai.html","04 · Việc cần xử lý · Khiếu nại"],["05-ho-so-khieu-nai.html","05 · Hồ sơ khiếu nại KN706476"],["06-hop-viec-doi-soat.html","06 · Việc cần xử lý · Đối soát"],["07-ho-so-doi-soat.html","07 · Hồ sơ đối soát DS241010"],["08-hop-viec-gian-lan.html","08 · Việc cần xử lý · Nghi gian lận"],["09-giao-dich-don.html","09 · Giao dịch · Đơn & hoa hồng"],["10-giao-dich-lenh-chi.html","10 · Giao dịch · Lệnh chi"],["12-nguoi-dung.html","12 · Người dùng"],["13-ho-so-nguoi-dung.html","13 · Hồ sơ người dùng"],["14-noi-dung.html","14 · Nội dung"],["15-cau-hinh.html","15 · Cấu hình"],["16-nhat-ky.html","16 · Nhật ký"],["17-trang-thai-phim-tat.html","17 · Trạng thái & phím tắt"],["18-ho-so-don.html","18 · Hồ sơ đơn 2409B58F2"],["19-nhan-vien.html","19 · Nhân viên"],["20-tai-khoan.html","20 · Tài khoản của tôi"],["21-doi-chieu.html","21 · Đối chiếu"]];</script>
-<style>
-/* Bổ sung riêng cho màn này */
-/* màn 03: số dư ví dạng cột trong sidebar 340, bảng lệnh gần đây gọn */
-.wallet3--col{grid-template-columns:1fr;gap:6px}
-.wallet3--col .wallet3__i{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:9px 12px}
-.wallet3--col .wallet3__l{margin:0}
-.wallet3--col .wallet3__v{font-size:16px}
-.wallet3--col .wallet3__s{display:none}
-.rec__side .card .tbl--v2 td{height:34px;padding:4px 12px;font-size:12.5px}
-.rec__side .card .tbl--v2 td.code{font-size:12px}
-.rec__side .feed__i{grid-template-columns:72px minmax(0,1fr);padding:8px 16px;font-size:12.5px}
-.rec__side .card__head{padding:14px 16px 8px}
-.rec__side .card__body{padding:4px 16px 16px}
-.rec__hd .pg__sub{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
-.rec__nav .btn{height:30px}
-.chk dt{color:var(--phu)}
-.chk dd .badge{margin-right:6px}
-.kq{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.kq .hint{margin-left:auto}
-.approve .badge{margin-left:auto}
-@media (max-width:1366px){ .rec{grid-template-columns:minmax(0,1fr) 320px} }
-.checks-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.rec__hd .pg__sub span[data-roles]{color:var(--muc-2)}
-.rec__side .tbl--v2 td{white-space:normal}
-</style>
 </head>
 <body class="adm" data-role="admin">
 <div class="app">
@@ -65,7 +40,7 @@
 </aside>
 <div class="main">
   <header class="hd">
-    <div class="hd__crumb"><span>Vận hành</span><i>/</i><a href="01-hop-viec.html">Việc cần xử lý</a><i>/</i><a href="02-hop-viec-duyet-chi.html">Chờ duyệt chi</a><i>/</i><b>RT-2720</b></div>
+    <div class="hd__crumb"><span>Vận hành</span><i>/</i><span>Việc cần xử lý</span><i>/</i><a href="02-hop-viec-duyet-chi.html">Chờ duyệt chi</a><i>/</i><b>RT-2720</b></div>
     <label class="hd__search"><svg class="ic ic--sm"><use href="#i-search"/></svg><input placeholder="Tìm người dùng, mã KN / DS / RT, mã đơn sàn…"><span class="kbd">⌘K</span></label>
     <div style="position:relative">
       <button class="hd__inbox" data-pop="#pop-inbox"><svg class="ic ic--sm"><use href="#i-bell"/></svg><span>Việc cần xử lý</span><b class="n n--hot" data-role-total>9</b></button>
@@ -73,98 +48,71 @@
         <div class="pop__hd">Việc đang chờ<small>hỏi lại 20 giây/lần · vừa xong</small></div>
         <a class="pop__i" href="02-hop-viec-duyet-chi.html" data-roles="finance admin"><svg class="ic ic--sm"><use href="#i-wallet"/></svg><span>Chờ duyệt chi · việc cũ nhất từ 22 giờ trước</span><b class="n">3</b></a>
         <a class="pop__i" href="04-hop-viec-khieu-nai.html" data-roles="ops admin"><svg class="ic ic--sm"><use href="#i-support"/></svg><span>Khiếu nại · 1 quá hạn</span><b class="n">2</b></a>
-        <a class="pop__i" href="06-hop-viec-doi-soat.html" data-roles="ops admin"><svg class="ic ic--sm"><use href="#i-unmatched"/></svg><span>Đối soát · việc cũ nhất 2 ngày trước</span><b class="n">3</b></a>
+        <a class="pop__i" href="06-hop-viec-doi-soat.html" data-roles="ops admin"><svg class="ic ic--sm"><use href="#i-unmatched"/></svg><span>Đối soát · việc cũ nhất từ 2 ngày trước</span><b class="n">3</b></a>
         <a class="pop__i" href="08-hop-viec-gian-lan.html" data-roles="ops admin"><svg class="ic ic--sm"><use href="#i-shield"/></svg><span>Nghi gian lận · giữ tiền tối đa 7 ngày</span><b class="n">1</b></a>
       </div>
     </div>
     <button class="hd__me" title="Tài khoản"><span class="avatar avatar--staff" data-role-avatar>S</span></button>
   </header>
   <main class="pg">
+<div class="stack">
 <div class="rec__hd">
-  <div>
-    <h1>RT-2720 <span class="badge badge--pending"><i class="dot"></i>Chờ duyệt lần hai</span></h1>
-    <p class="pg__sub"><span>1.200.000đ · tạo 09:40 · 12/10/2026 · lô <span class="mono">15/10-01</span></span><span class="sla sla--warn">còn 2 giờ</span><span data-roles="admin">Lê Thu Hà đã duyệt 14:05 · cần bạn duyệt lần hai</span><span data-roles="finance">Bạn đã duyệt 14:05 · chờ người khác</span></p>
+  <div><h1>RT-2720 <span class="badge badge--pending">Chờ duyệt lần hai</span></h1><p class="pg__sub">Nguyễn Văn An · tạo 09:40 · 12/10/2026 · chuyển khoản</p></div>
+  <div class="rec__nav"><a class="btn btn--ghost btn--sm" href="02-hop-viec-duyet-chi.html">‹</a><span>1 / 4</span><a class="btn btn--ghost btn--sm" href="02-hop-viec-duyet-chi.html">›</a></div>
+</div>
+<div class="calc">
+  <div class="calc__i"><small>Số tiền</small><b>1.200.000đ</b></div><span class="calc__op">→</span>
+  <div class="calc__i"><small>Vietcombank</small><b>•••• 4821</b></div><span class="calc__op">·</span>
+  <div class="calc__i"><small>Chủ tài khoản</small><b>NGUYEN VAN AN</b></div>
+</div>
+<div class="rec2">
+<div class="rec2__main">
+  <div class="card card--pad stack" style="gap:10px">
+    <div class="sec__t">Kiểm tra tự động</div>
+    <div class="row row--wrap gap-4">
+      <span class="badge badge--done badge--sm" title="5/5 lệnh trước thành công">Lệnh trước ổn</span>
+      <span class="badge badge--done badge--sm" title="Không trùng thiết bị, IP, số tài khoản">Không nghi vấn</span>
+      <span class="badge badge--done badge--sm" title="Đổi tài khoản lần cuối 02/09/2026">Tài khoản không mới đổi</span>
+      <span class="badge badge--done badge--sm" title="Lê Thu Hà đối chiếu 14:02">Tên chủ TK khớp</span>
+      <span class="badge badge--done badge--sm" title="Từ đơn đã về ví">Tiền từ đơn đã về ví</span>
+    </div>
   </div>
-  <div class="rec__nav">
-    <a class="btn btn--ghost btn--sm" href="#" data-toast="Việc trước · RT-2716"><svg class="ic ic--sm"><use href="#i-arrow-left"/></svg>Việc trước</a>
-    <a class="btn btn--ghost btn--sm" href="#" data-toast="Việc sau · RT-2715">Việc sau<svg class="ic ic--sm"><use href="#i-arrow-right"/></svg></a>
-    <span class="hd__sep"></span>
-    <a class="btn btn--secondary btn--sm" href="03-ho-so-lenh-chi.html" target="_blank" rel="noopener">Mở tab mới<svg class="ic ic--xs"><use href="#i-external"/></svg></a>
+  <div class="card card--pad stack" style="gap:10px">
+    <div class="sec__t">Dòng thời gian</div>
+    <div class="thread">
+      <div class="msg msg--sys"><div class="msg__hd">Người dùng tạo lệnh<time>09:40 · 12/10</time></div>Rút 1.200.000đ về Vietcombank •••• 4821 · giữ 1.200.000đ khỏi Có thể rút.</div>
+      <div class="msg msg--note"><div class="msg__hd">Lê Thu Hà<time>14:02 hôm nay</time></div>Đã đối chiếu tên chủ tài khoản với ngân hàng, khớp.</div>
+      <div class="msg msg--sys"><div class="msg__hd">Lê Thu Hà duyệt lần một<time>14:05 hôm nay</time></div>Chờ người thứ hai.</div>
+    </div>
+  </div>
+  <div class="composer composer--note" id="cp">
+    <div class="composer__tabs"><button class="is-on is-note" data-cp="note">Ghi chú nội bộ</button></div>
+    <textarea data-cp-note placeholder="Chỉ nhân viên thấy"></textarea>
+    <div class="composer__ft"><span class="grow"></span><button class="btn btn--secondary btn--sm" data-toast="Đã lưu ghi chú nội bộ · ghi nhật ký">Lưu ghi chú</button></div>
   </div>
 </div>
-
-<div class="rec">
-  <div class="rec__main">
-    <div class="card card--pad">
-      <div class="checks-row"><span class="sec__t" style="margin-right:6px">Kiểm tra tự động</span>
-        <span class="badge badge--done badge--sm" title="5/5 lệnh trước thành công · gần nhất RT-2713 cùng tài khoản">Lệnh trước ổn</span>
-        <span class="badge badge--done badge--sm" title="Không trùng thiết bị, IP, số tài khoản với tài khoản khác">Không nghi vấn</span>
-        <span class="badge badge--done badge--sm" title="Đổi tài khoản lần cuối 02/09/2026">Tài khoản không mới đổi</span>
-        <span class="badge badge--done badge--sm" title="NGUYEN VAN AN · Lê Thu Hà đối chiếu 14:02">Tên chủ TK khớp</span>
-        <span class="badge badge--done badge--sm" title="Hoa hồng của 9 đơn đã có thể chi">Tiền từ đơn đã chốt</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card__head"><h2 class="card__t">Dòng thời gian</h2></div>
-      <div class="card__body">
-        <div class="thread">
-          <div class="msg msg--sys"><div class="msg__hd"><svg class="ic ic--xs"><use href="#i-user"/></svg>Hệ thống · người dùng tạo lệnh<time>09:40 · 12/10/2026</time></div>Nguyễn Văn An tạo lệnh rút 1.200.000đ về Vietcombank <span class="acct">•••• 4821</span> (app, iOS 17).</div>
-          <div class="msg msg--sys"><div class="msg__hd"><svg class="ic ic--xs"><use href="#i-lock"/></svg>Hệ thống · giữ tiền<time>09:40 · 12/10/2026</time></div>Giữ 1.200.000đ khỏi phần Có thể rút (2.440.000đ → 1.240.000đ) · gom vào lô <span class="mono">15/10-01</span> lúc 10:15 · 13/10.</div>
-          <div class="msg msg--note"><div class="msg__hd">Lê Thu Hà<time>14:02 hôm nay</time></div>Đã đối chiếu tên chủ TK với ngân hàng (NGUYEN VAN AN), ok. Lệnh thứ 6 của An, 5 lệnh trước đều về đúng tài khoản này.</div>
-          <div class="msg msg--sys"><div class="msg__hd"><svg class="ic ic--xs"><use href="#i-check-circle"/></svg>Lê Thu Hà duyệt lần một<time>14:05 hôm nay</time></div>Chờ người thứ hai.</div>
-        </div>
-        <div class="composer composer--note mt-12">
-          <div class="composer__tabs"><button type="button" class="is-note is-on">Ghi chú nội bộ</button><button type="button">Nhắn người dùng</button></div>
-          <textarea placeholder="Ghi chú cho người duyệt sau hoặc kế toán · không gửi cho người dùng"></textarea>
-          <div class="composer__ft"><button class="btn btn--secondary btn--sm" data-toast="Đã lưu ghi chú nội bộ · ghi nhật ký">Lưu ghi chú</button></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card card--pad">
-      <div class="eyebrow">Kết luận</div>
-      <div class="kq mt-12">
-        <button class="btn btn--primary" data-open="#m-duyet" data-roles="admin">Duyệt chi 1.200.000đ</button>
-        <button class="btn btn--danger" data-open="#m-tu-choi" data-roles="admin">Từ chối…</button>
-        <span class="badge badge--second" data-roles="finance">Bạn đã duyệt · chờ người khác</span><span class="badge badge--off" data-roles="ops">Cần vai Kế toán hoặc Quản trị để duyệt</span>
-        <button class="btn btn--soft" data-toast="Đã giữ RT-2720 thêm 24 giờ · hạn mới 14:32 · 16/10/2026 · ghi nhật ký">Giữ lại 24 giờ</button>
-        
-      </div>
-    </div>
+<aside class="rec2__side">
+  <div class="decide" data-roles="admin">
+    <div class="decide__t">Kết luận</div>
+    <div class="small muted">Lê Thu Hà đã duyệt lần một · cần bạn duyệt lần hai</div>
+    <button class="btn btn--primary" data-open="#m-duyet">Duyệt chi 1.200.000đ</button>
+    <button class="btn btn--danger" data-open="#m-tu-choi">Từ chối…</button>
   </div>
-
-  <aside class="rec__side">
-    <div class="card">
-      <div class="card__head"><h2 class="card__t">Người nhận</h2><a class="link small" href="13-ho-so-nguoi-dung.html">Hồ sơ ↗</a></div>
-      <div class="card__body stack" style="gap:10px">
-        <div class="row gap-12"><span class="avatar avatar--lg">A</span><div class="grow"><b>Nguyễn Văn An</b> <span class="badge badge--info badge--sm">Bạc</span><div class="small muted">0912 •••• 482 · tham gia 03/2026 · 27 đơn · 2 khiếu nại trước</div></div></div>
-        <dl class="kv kv--tight"><dt>Ngân hàng</dt><dd>Vietcombank <span class="acct">•••• 4821</span><a class="acct__reveal" data-open="#m-reveal">Hiện số đầy đủ</a></dd><dt>Chủ TK</dt><dd>NGUYEN VAN AN</dd></dl>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card__head"><h2 class="card__t">Ví</h2></div>
-      <div class="card__body"><div class="wallet3 wallet3--col">
-        <div class="wallet3__i"><div class="wallet3__l">Chờ sàn duyệt</div><div class="wallet3__v">485.612đ</div></div>
-        <div class="wallet3__i wallet3__i--avail"><div class="wallet3__l">Có thể rút</div><div class="wallet3__v">1.240.000đ</div></div>
-      </div></div>
-    </div>
-    <div class="card">
-      <div class="card__head"><h2 class="card__t">Lệnh gần đây</h2><a class="link small" href="10-giao-dich-lenh-chi.html">Tất cả ↗</a></div>
-      <table class="tbl tbl--v2"><tbody>
-        <tr><td class="code">RT-2713</td><td class="num">800.000đ</td><td><span class="badge badge--done badge--sm">Đã chi</span></td><td class="age">14/10</td></tr>
-        <tr><td class="code">RT-2698</td><td class="num">500.000đ</td><td><span class="badge badge--done badge--sm">Đã chi</span></td><td class="age">28/09</td></tr>
-        <tr><td class="code">RT-2650</td><td class="num">300.000đ</td><td><span class="badge badge--done badge--sm">Đã chi</span></td><td class="age">10/09</td></tr>
-      </tbody></table>
-    </div>
+  <div class="decide" data-roles="finance"><div class="decide__t">Kết luận</div><span class="badge badge--second">Bạn đã duyệt · chờ người khác</span></div>
+  <div class="decide" data-roles="ops"><div class="decide__t">Kết luận</div><span class="badge badge--off">Cần vai Kế toán hoặc Quản trị để duyệt</span></div>
+  <div class="card card--pad"><dl class="facts"><dt>Trạng thái</dt><dd>Chờ duyệt lần hai</dd><dt>Phụ trách</dt><dd>Bạn</dd><dt>Hạn</dt><dd><span class="sla sla--warn">Còn 2 giờ</span></dd></dl></div>
+  <div class="card card--pad stack" style="gap:10px">
+    <div class="sec__t">Người nhận <a class="link" href="13-ho-so-nguoi-dung.html">Hồ sơ ↗</a></div>
+    <div><b>Nguyễn Văn An</b> <span class="badge badge--info badge--sm">Bạc</span><div class="small muted">Vietcombank <span class="acct">•••• 4821</span> <span class="acct__reveal" data-roles="finance admin" data-open="#m-reveal">Hiện số đầy đủ</span></div></div>
+    <div class="wallet3"><div class="wallet3__i"><div class="wallet3__l">Chờ sàn duyệt</div><div class="wallet3__v">485.612đ</div></div><div class="wallet3__i wallet3__i--avail"><div class="wallet3__l">Có thể rút</div><div class="wallet3__v">1.240.000đ</div></div></div>
+    <div class="small muted">Lệnh trước: RT-2713 800.000đ · RT-2698 500.000đ · RT-2650 300.000đ, đều đã chi</div>
+  </div>
 </aside>
 </div>
-
+</div>
   </main>
 </div>
 </div>
-<div class="scrim" data-close></div>
-
 <div class="modal-wrap" id="m-duyet" role="dialog" aria-labelledby="m-duyet-t"><div class="modal">
   <h2 class="modal__t" id="m-duyet-t">Duyệt chi 1.200.000đ cho Nguyễn Văn An?</h2>
   <p class="modal__d">Bạn là người duyệt thứ hai.</p>
@@ -172,7 +120,6 @@
   <div class="callout callout--warn"><svg class="ic"><use href="#i-alert"/></svg><div><b>Không thể hoàn tác.</b> Sai sót sau này sửa bằng Điều chỉnh số dư.</div></div>
   <div class="modal__ft"><button class="btn btn--ghost" data-close>Quay lại</button><button class="btn btn--primary" data-toast="RT-2720 · đã duyệt đủ · 1.200.000đ vào lô chờ chuyển · ghi nhật ký">Duyệt chi 1.200.000đ</button></div>
 </div></div>
-
 <div class="modal-wrap" id="m-tu-choi" role="dialog" aria-labelledby="m-tu-choi-t"><div class="modal modal--danger">
   <h2 class="modal__t" id="m-tu-choi-t">Từ chối lệnh RT-2720?</h2>
   <p class="modal__d">1.200.000đ trả lại phần Có thể rút của Nguyễn Văn An ngay.</p>
@@ -188,7 +135,6 @@
   <dl class="kv kv--tight"><dt>Người thực hiện</dt><dd><b data-role-name>Nguyễn Sơn</b> · 14:32 · 15/10/2026</dd></dl>
   <div class="modal__ft"><button class="btn btn--ghost" data-close>Quay lại</button><button class="btn btn--danger-solid" data-toast="Đã từ chối RT-2720 · 1.200.000đ về phần Có thể rút · người dùng được báo">Từ chối lệnh</button></div>
 </div></div>
-
 <div class="modal-wrap" id="m-reveal" role="dialog" aria-labelledby="m-reveal-t"><div class="modal">
   <h2 class="modal__t" id="m-reveal-t">Hiện số tài khoản đầy đủ?</h2>
   <p class="modal__d">Vietcombank <span class="acct">•••• 4821</span> của Nguyễn Văn An.</p>
@@ -197,63 +143,73 @@
   <dl class="kv kv--tight"><dt>Người xem</dt><dd><b data-role-name>Nguyễn Sơn</b> · 14:32 · 15/10/2026</dd></dl>
   <div class="modal__ft"><button class="btn btn--ghost" data-close>Huỷ</button><button class="btn btn--primary" data-toast="Đã ghi nhật ký · số hiện trong 60 giây (prototype không hiện số)">Hiện trong 60 giây</button></div>
 </div></div>
-
-<div class="modal-wrap" id="modal-keys" role="dialog" aria-label="Phím tắt"><div class="modal" style="width:560px">
-  <h2 class="modal__t">Phím tắt</h2>
-  <div class="keys--v2">
-    <div><span>Tìm trong trang</span><span class="kbd">/</span></div><div><span>Tìm toàn hệ</span><span class="kbd">⌘K</span></div>
-    <div><span>Việc sau / việc trước</span><span><span class="kbd">J</span> <span class="kbd">K</span></span></div><div><span>Mở hồ sơ việc đang chọn</span><span class="kbd">Enter</span></div>
-    <div><span>Đóng bảng bên / hộp thoại</span><span class="kbd">Esc</span></div><div><span>Nhận việc về mình</span><span class="kbd">A</span></div>
-    <div><span>Duyệt (mở xác nhận)</span><span class="kbd">D</span></div><div><span>Từ chối (mở lý do)</span><span class="kbd">X</span></div>
-    <div><span>Ghi chú nội bộ · Trả lời</span><span><span class="kbd">N</span> <span class="kbd">R</span></span></div><div><span>Xác nhận trong hộp thoại</span><span class="kbd">⌘↵</span></div>
-    <div><span>Đi: Việc cần xử lý · Duyệt chi · Khiếu nại</span><span><span class="kbd">G</span> <span class="kbd">I</span> / <span class="kbd">P</span> / <span class="kbd">K</span></span></div><div><span>Bảng này</span><span class="kbd">?</span></div>
-  </div>
-  <div class="modal__ft"><button class="btn btn--primary" data-close>Đóng</button></div>
-</div></div>
-
 <script src="admin.js"></script>
 <script>
-/* Hook bổ sung cho prototype V2 (chưa có trong admin.js): mật độ bảng, mã lý do, tab composer, chọn hàng + panel xem nhanh, checkbox bảng + thanh chọn nhiều */
+/* hành vi chung V2: mật độ bảng, chọn hàng + panel, kết luận/mã lý do, composer 2 tab */
 (function(){
-  'use strict';
-  function fmt(n){return n.toLocaleString('vi-VN')+'đ';}
-  window.admBulk=function(){
-    var bar=document.getElementById('bulk'); if(!bar) return;
-    var rows=[].slice.call(document.querySelectorAll('.tbl--inbox tbody tr')).filter(function(r){var i=r.querySelector('.check i');return i&&i.classList.contains('on');});
-    var n=rows.length,s=0; rows.forEach(function(r){s+=+(r.getAttribute('data-amount')||0);});
-    bar.hidden=n===0;
-    bar.querySelectorAll('[data-n]').forEach(function(e){e.textContent=n;});
-    bar.querySelectorAll('[data-sum]').forEach(function(e){e.textContent=fmt(s);});
-  };
-  document.addEventListener('click',function(e){
-    var t=e.target;
-    var b=t.closest('.tbl__dense-toggle button');
-    if(b){
-      var wrap=b.closest('.tbl-wrap,.card,.demo-row,section,.sheet__s');
-      var tb=wrap&&wrap.querySelector('table.tbl--v2');
-      b.parentElement.querySelectorAll('button').forEach(function(x){x.classList.toggle('is-on',x===b);});
-      if(tb){tb.classList.remove('tbl--xs','tbl--lg'); if(b.getAttribute('data-dense')) tb.classList.add(b.getAttribute('data-dense'));}
-      return;
-    }
-    var r=t.closest('.reason label');
-    if(r){r.parentElement.querySelectorAll('label').forEach(function(x){x.classList.toggle('is-on',x===r);}); var i=r.querySelector('input'); if(i) i.checked=true;}
-    var ct=t.closest('.composer__tabs button');
-    if(ct){var c=ct.closest('.composer'); ct.parentElement.querySelectorAll('button').forEach(function(x){x.classList.toggle('is-on',x===ct);}); if(c) c.classList.toggle('composer--note',ct.classList.contains('is-note'));}
-    var x=t.closest('.qp__x');
-    if(x){var l=x.closest('.qp-layout'); if(l) l.classList.add('is-closed'); return;}
-    var chk=t.closest('.tbl .check');
-    if(chk){var ii=chk.querySelector('i'); if(ii) ii.classList.toggle('on'); window.admBulk(); return;}
-    var row=t.closest('.tbl--inbox tbody tr');
-    if(row&&!t.closest('a,button,[data-open],[data-toast]')){
-      row.parentElement.querySelectorAll('tr').forEach(function(y){y.classList.toggle('is-sel',y===row);});
-      var lay=row.closest('.qp-layout'); if(lay) lay.classList.remove('is-closed');
-    }
-    var un=t.closest('[data-uncheck]');
-    if(un){document.querySelectorAll('.tbl--inbox .check i.on').forEach(function(i){i.classList.remove('on');}); window.admBulk();}
-  });
-  if(document.getElementById('bulk')) window.admBulk();
+  document.querySelectorAll('.tbl__dense-toggle').forEach(function(g){g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+    g.querySelectorAll('button').forEach(function(x){x.classList.toggle('is-on',x===b)});
+    var t=document.querySelector(g.getAttribute('data-dense'));if(t)t.classList.toggle('tbl--xs',b.textContent.indexOf('Dày')===0);});});
+  document.querySelectorAll('th.th-plat').forEach(function(th){var i=[].indexOf.call(th.parentElement.children,th);var cg=th.closest('table').querySelector('colgroup');if(cg&&cg.children[i])cg.children[i].classList.add('c-plat');});
+  document.querySelectorAll('.tbl--v2 tbody tr.is-click').forEach(function(tr){tr.addEventListener('click',function(e){if(e.target.closest('a,button,.check,[data-open],[data-toast]'))return;
+    var tb=tr.closest('tbody');tb.querySelectorAll('tr').forEach(function(x){x.classList.toggle('is-sel',x===tr)});
+    var lay=tr.closest('.qp-layout');if(lay)lay.classList.remove('is-closed');});});
+  /* bảng bên: hàng có nội dung dựng sẵn thì hiện bản đầy đủ; hàng khác hiện tóm tắt lấy từ chính hàng (không hiện nhầm việc khác) */
+  (function(){var qp=document.querySelector('.qp-layout .qp');if(!qp)return;var full=qp.innerHTML,lay=qp.closest('.qp-layout'),tb=lay.querySelector('.tbl--v2 tbody');if(!tb)return;
+    var key=(qp.querySelector('.qp__hd h3')||{}).textContent||'';key=(key.match(/[A-Z]{2}[-A-Z0-9]{3,}|\d{4}[A-Z0-9]{4,}/)||[''])[0];
+    var heads=[].map.call(lay.querySelectorAll('.tbl--v2 thead th'),function(h){return h.textContent.trim();});
+    var openHref=(qp.querySelector('.qp__ft a.btn')||{}).getAttribute?qp.querySelector('.qp__ft a.btn').getAttribute('href'):null;
+    tb.addEventListener('click',function(e){var tr=e.target.closest('tr');if(!tr||e.target.closest('a,button,.check'))return;
+      var txt=tr.textContent;if(key&&txt.indexOf(key)>=0){qp.innerHTML=full;return;}
+      var c=tr.cells,rows='',title='';function val(td){var parts=[].map.call(td.children.length?td.children:[td],function(n){return n.textContent.replace(/\s+/g,' ').trim();}).filter(Boolean);var own=[].filter.call(td.childNodes,function(n){return n.nodeType===3&&n.textContent.trim();}).map(function(n){return n.textContent.trim();});return own.concat(td.children.length?parts:[]).join(' · ')||td.textContent.trim();}
+      for(var i=0;i<c.length;i++){var h=heads[i];if(!h||getComputedStyle(c[i]).display==='none'||!c[i].textContent.trim()||c[i].querySelector('.check'))continue;var v=val(c[i]);if(i===0){title=v.split(' · ')[0]==='Khiếu nại'||v.split(' · ')[0]==='Đối soát'||v.split(' · ')[0]==='Duyệt chi'||v.split(' · ')[0]==='Gian lận'?v:v.split(' · ')[0];continue;}rows+='<dt>'+h+'</dt><dd>'+v+'</dd>';}
+      qp.innerHTML='<div class="qp__hd"><div><h3>'+title+'</h3></div><button class="qp__x" title="Đóng" aria-label="Đóng"><svg class="ic ic--sm"><use href="#i-x"/></svg></button></div><div class="qp__bd"><dl class="kv kv--tight">'+rows+'</dl></div><div class="qp__ft"><span class="btn btn--secondary btn--sm is-disabled" title="Mở hồ sơ">Mở hồ sơ</span></div>';
+      qp.querySelector('.qp__x').addEventListener('click',function(){lay.classList.add('is-closed');});},true);})();
+  document.querySelectorAll('.qp__x').forEach(function(x){x.addEventListener('click',function(){var lay=x.closest('.qp-layout');if(lay)lay.classList.add('is-closed');});});
+  document.querySelectorAll('.qp__open').forEach(function(x){x.addEventListener('click',function(){var lay=document.querySelector('.qp-layout');if(lay)lay.classList.remove('is-closed');});});
+  document.querySelectorAll('.reason').forEach(function(r){r.addEventListener('click',function(e){var l=e.target.closest('label');if(!l)return;
+    r.querySelectorAll('label').forEach(function(x){x.classList.toggle('is-on',x===l);var m=x.getAttribute('data-more');if(m){var p=document.querySelector(m);if(p)p.hidden=(x!==l);}});});});
+  document.querySelectorAll('.composer').forEach(function(cp){cp.querySelectorAll('[data-cp]').forEach(function(b){b.addEventListener('click',function(){var note=b.getAttribute('data-cp')==='note';
+    cp.querySelectorAll('[data-cp]').forEach(function(x){x.classList.toggle('is-on',x===b);x.classList.toggle('is-note',x===b&&note)});cp.classList.toggle('composer--note',note);
+    var u=cp.querySelector('[data-cp-user]'),n=cp.querySelector('[data-cp-note]');if(u)u.hidden=note;if(n)n.hidden=!note;
+    var h=cp.querySelector('[data-cp-hint]');if(h)h.textContent=note?'Chỉ nhân viên thấy · không gửi cho khách · ghi nhật ký':'Gửi nguyên văn cho khách qua thông báo app + Zalo · ghi nhật ký';
+    cp.querySelectorAll('[data-cp-only]').forEach(function(x){x.hidden=(x.getAttribute('data-cp-only')==='note')!==note;});});});});
+  document.querySelectorAll('.reason label[data-submit]').forEach(function(l){l.addEventListener('click',function(){var b=document.getElementById('kl-submit');if(!b||l.classList.contains('is-off'))return;b.textContent=l.getAttribute('data-submit');b.setAttribute('data-open',l.getAttribute('data-modal'));});});
 })();
 </script>
-
+<script>
+/* sắp xếp khi bấm tiêu đề cột (bản mẫu: sắp ngay trên trình duyệt) */
+(function(){
+  function dur(m){var n=+m[1];return m[2]==='phút'?n:m[2]==='giờ'?n*60:n*1440;}
+  function key(td){
+    if(td.hasAttribute('data-sort')&&/^\d+$/.test(td.getAttribute('data-sort')))return +td.getAttribute('data-sort');var t=(td.getAttribute('data-sort')||td.textContent||'').replace(/\\s+/g,' ').trim(), m, d;
+    if((/^[−-]\s*\d/.test(t)||/^quá hạn/i.test(t))&&/(phút|giờ|ngày)/.test(t)){m=t.match(/(\d+)\s*(phút|giờ|ngày)/);return -dur(m);}
+    if(/^còn\s/.test(t)){m=t.match(/(\d+)\s*(phút|giờ|ngày)/);return m?dur(m):1e9;}
+    if(/^(đã xử lý|không hạn|tạm dừng|giữ còn)/.test(t)){m=t.match(/(\d+)\s*(phút|giờ|ngày)/);return m?dur(m)+1e6:1e12;}
+    d=t.match(/(\d{2})\/(\d{2})(?:\/(\d{4}))?/); m=t.match(/(\d{2}):(\d{2})/);
+    if(d){return ((d[3]?+d[3]:2026)*10000+(+d[2])*100+(+d[1]))*10000+(m?(+m[1])*100+(+m[2]):0);}
+    var num=t.replace(/\s/g,'');
+    if(/^[+−-]?[\d.]+(đ|%)?$/.test(num)){return parseFloat(num.replace(/[^\d−-]/g,'').replace('−','-'))||0;}
+    return t.toLowerCase();
+  }
+  document.querySelectorAll('.tbl th.sort').forEach(function(th){
+    th.addEventListener('click',function(){
+      var table=th.closest('table'),tr=th.parentElement,idx=[].indexOf.call(tr.children,th);
+      var asc=!th.classList.contains('is-asc');
+      tr.querySelectorAll('th').forEach(function(x){x.classList.remove('is-asc','is-desc');});
+      th.classList.add(asc?'is-asc':'is-desc');
+      var tb=table.tBodies[0],rows=[].slice.call(tb.rows);
+      rows.sort(function(a,b){var ka=key(a.cells[idx]),kb=key(b.cells[idx]);
+        if(typeof ka==='number'&&typeof kb==='number')return asc?ka-kb:kb-ka;
+        ka=String(ka);kb=String(kb);return asc?ka.localeCompare(kb,'vi'):kb.localeCompare(ka,'vi');});
+      rows.forEach(function(r){tb.appendChild(r);});
+    });
+  });
+  /* sắp ngay khi mở trang theo cột đang đánh dấu */
+  document.querySelectorAll('.tbl th.sort.is-asc, .tbl th.sort.is-desc').forEach(function(th){var asc=th.classList.contains('is-asc');th.classList.toggle('is-asc',!asc);th.classList.toggle('is-desc',asc);th.click();});
+  /* giữ ?role= và ?clean= khi bấm link nội bộ */
+  var q=location.search.replace(/^\?/,'');if(q){document.querySelectorAll('a[href]').forEach(function(a){var h=a.getAttribute('href');if(/^[0-9a-z_-]+\.html$/i.test(h))a.setAttribute('href',h+'?'+q);});}
+})();
+</script>
 </body>
 </html>
