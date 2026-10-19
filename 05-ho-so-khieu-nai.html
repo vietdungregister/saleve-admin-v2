@@ -75,8 +75,8 @@
   <div class="card">
     <div class="card__head"><div class="card__t">Đối chiếu đơn <a class="link mono" href="18-ho-so-don.html">2409B58F2</a></div></div>
     <table class="tbl tbl--v2 tbl--compact">
-      <colgroup><col style="min-width:220px"><col style="width:110px"><col style="width:120px"><col style="width:150px"><col style="width:110px"></colgroup>
-      <thead><tr><th>Sản phẩm</th><th class="num">Giá</th><th class="num">HH Shopee</th><th>Qua link salevề</th><th class="num">Hoàn</th></tr></thead>
+      <colgroup><col style="min-width:220px"><col style="width:110px"><col style="width:132px"><col style="width:150px"><col style="width:110px"></colgroup>
+      <thead><tr><th>Sản phẩm</th><th class="num">Giá</th><th class="num">HH sàn</th><th>Qua link salevề</th><th class="num">Hoàn</th></tr></thead>
       <tbody>
         <tr><td>Máy hút bụi cầm tay mini</td><td class="num">259.000đ</td><td class="num">10.000đ</td><td><span class="badge badge--done badge--sm">Có</span></td><td class="num">8.000đ</td></tr>
         <tr><td>Bộ đầu hút + lọc HEPA</td><td class="num">259.000đ</td><td class="num muted">0đ</td><td><span class="badge badge--off badge--sm">Không</span></td><td class="num muted">0đ</td></tr>
@@ -113,7 +113,7 @@
   <div class="card card--pad"><dl class="facts"><dt>Trạng thái</dt><dd>Mới</dd><dt>Phụ trách</dt><dd>Chưa ai · <a class="link" data-toast="Bạn đã nhận KN706476 · ghi nhật ký">Nhận việc</a></dd><dt>Hạn</dt><dd><span class="sla sla--warn">Còn 2 giờ</span></dd></dl></div>
   <div class="card card--pad stack" style="gap:10px">
     <div class="sec__t">Người dùng <a class="link" href="13-ho-so-nguoi-dung.html">Hồ sơ ↗</a></div>
-    <div><b>Nguyễn Văn An</b> <span class="badge badge--info badge--sm">Bạc · 80%</span><div class="small muted">27 đơn · 2 khiếu nại trước</div></div>
+    <div><b>Nguyễn Văn An</b><div class="small muted">27 đơn · 2 khiếu nại trước</div></div>
     <div class="wallet3"><div class="wallet3__i"><div class="wallet3__l">Chờ sàn duyệt</div><div class="wallet3__v">485.612đ</div></div><div class="wallet3__i wallet3__i--avail"><div class="wallet3__l">Có thể rút</div><div class="wallet3__v">1.240.000đ</div></div></div>
   </div>
 </aside>
@@ -148,7 +148,7 @@
     tb.addEventListener('click',function(e){var tr=e.target.closest('tr');if(!tr||e.target.closest('a,button,.check'))return;
       var txt=tr.textContent;if(key&&txt.indexOf(key)>=0){qp.innerHTML=full;return;}
       var c=tr.cells,rows='',title='';function val(td){var parts=[].map.call(td.children.length?td.children:[td],function(n){return n.textContent.replace(/\s+/g,' ').trim();}).filter(Boolean);var own=[].filter.call(td.childNodes,function(n){return n.nodeType===3&&n.textContent.trim();}).map(function(n){return n.textContent.trim();});return own.concat(td.children.length?parts:[]).join(' · ')||td.textContent.trim();}
-      for(var i=0;i<c.length;i++){var h=heads[i];if(!h||getComputedStyle(c[i]).display==='none'||!c[i].textContent.trim()||c[i].querySelector('.check'))continue;var v=val(c[i]);if(i===0){title=v;continue;}rows+='<dt>'+h.charAt(0)+h.slice(1).toLowerCase()+'</dt><dd>'+v+'</dd>';}
+      for(var i=0;i<c.length;i++){var h=heads[i];if(!h||getComputedStyle(c[i]).display==='none'||!c[i].textContent.trim()||c[i].querySelector('.check'))continue;var v=val(c[i]);if(i===0){title=v.split(' · ')[0]==='Khiếu nại'||v.split(' · ')[0]==='Đối soát'||v.split(' · ')[0]==='Duyệt chi'||v.split(' · ')[0]==='Gian lận'?v:v.split(' · ')[0];continue;}rows+='<dt>'+h+'</dt><dd>'+v+'</dd>';}
       qp.innerHTML='<div class="qp__hd"><div><h3>'+title+'</h3></div><button class="qp__x" title="Đóng" aria-label="Đóng"><svg class="ic ic--sm"><use href="#i-x"/></svg></button></div><div class="qp__bd"><dl class="kv kv--tight">'+rows+'</dl></div><div class="qp__ft"><span class="btn btn--secondary btn--sm is-disabled" title="Mở hồ sơ">Mở hồ sơ</span></div>';
       qp.querySelector('.qp__x').addEventListener('click',function(){lay.classList.add('is-closed');});},true);})();
   document.querySelectorAll('.qp__x').forEach(function(x){x.addEventListener('click',function(){var lay=x.closest('.qp-layout');if(lay)lay.classList.add('is-closed');});});

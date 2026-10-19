@@ -1,4 +1,4 @@
-/* salevề admin prototype · admin.js · Claude Design 13/10/2026
+/* salevề admin prototype · admin.js · 13/10/2026
    Chỉ phục vụ xem mẫu: sprite icon, thanh demo, mở/đóng drawer-modal-popover, tab, toast, phím tắt.
    Không phải code sản phẩm. */
 (function () { try { if (!/[?&]clean=/.test(location.search)) history.replaceState(null, '', location.pathname + (location.search ? location.search + '&' : '?') + 'clean=1' + location.hash); } catch (e) {}

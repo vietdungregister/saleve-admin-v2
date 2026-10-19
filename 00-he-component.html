@@ -98,7 +98,7 @@
   </header>
   <main class="pg">
 <div class="pg__head">
-  <div><div class="eyebrow">Hệ component · 18/10/2026</div><h1 style="margin-top:6px">Hệ component V2</h1><p class="pg__sub">Phần mới so với gói 13/10: việc cần xử lý có hạn xử lý, trạng thái ba cột, số dư ví, panel xem nhanh, trang hồ sơ, ghi chú nội bộ nền vàng, mã lý do, duyệt hai người, số tài khoản che. Token và component cũ (nút, ô nhập, drawer) giữ nguyên ở <span class="mono">admin.css</span>; phần mới ở <span class="mono">admin-v2.css</span>. Mỗi mục có một dòng “khi nào dùng”. Số liệu là ví dụ.</p></div>
+  <div><div class="eyebrow">Hệ component · 18/10/2026</div><h1 style="margin-top:6px">Hệ component V2</h1><p class="pg__sub">Phần mới so với gói 13/10: việc cần xử lý có hạn xử lý, trạng thái đơn một nhãn, số dư ví, panel xem nhanh, trang hồ sơ, ghi chú nội bộ nền vàng, mã lý do, duyệt theo vai, số tài khoản che. Token và component cũ (nút, ô nhập, drawer) giữ nguyên ở <span class="mono">admin.css</span>; phần mới ở <span class="mono">admin-v2.css</span>. Mỗi mục có một dòng “khi nào dùng”. Số liệu là ví dụ.</p></div>
   <div class="pg__actions"><a class="btn btn--secondary btn--sm" href="01-hop-viec.html">Xem Việc cần xử lý →</a><a class="btn btn--secondary btn--sm" href="03-ho-so-lenh-chi.html">Xem hồ sơ →</a></div>
 </div>
 <div class="sheet">
@@ -133,10 +133,10 @@
 <section class="sheet__s">
   <div class="sheet__h"><span class="eyebrow">02</span><h2>Badge trạng thái · 6 tone + bảng nhãn tiếng Việt</h2><span>Luôn có chữ · nhãn “Chờ / Chưa / Đang / Đã + động từ” · mã thô chỉ ở tooltip hoặc cột mono</span></div>
   <div class="card card--pad">
-    <div class="tone"><b>Chờ · đào</b><div><span class="badge badge--pending"><i class="dot"></i>Chờ duyệt lần hai</span> <span class="badge badge--pending"><i class="dot"></i>Chờ sàn duyệt</span> <span class="badge badge--pending"><i class="dot"></i>Chờ gom lô</span></div><span class="mono">badge--pending</span></div>
+    <div class="tone"><b>Chờ · đào</b><div><span class="badge badge--pending"><i class="dot"></i>Chờ duyệt</span> <span class="badge badge--pending"><i class="dot"></i>Chờ sàn duyệt</span> <span class="badge badge--pending"><i class="dot"></i>Chờ gom lô</span></div><span class="mono">badge--pending</span></div>
     <div class="tone"><b>Đang · lam</b><div><span class="badge badge--blue">Đang chuyển (PayOS)</span> <span class="badge badge--pending">Chờ sàn duyệt</span> <span class="badge badge--blue">Đang điều tra</span></div><span class="mono">badge--blue · MỚI</span></div>
-    <div class="tone"><b>Đã xong · rêu</b><div><span class="badge badge--done"><i class="dot"></i>Đã chi</span> <span class="badge badge--done"><i class="dot"></i>Đã duyệt đủ</span> <span class="badge badge--done"><i class="dot"></i>Có thể rút</span></div><span class="mono">badge--done</span></div>
-    <div class="tone"><b>Xấu · gạch</b><div><span class="badge badge--fail"><i class="dot"></i>Thất bại · tiền đã về ví</span> <span class="badge badge--fail"><i class="dot"></i>Từ chối · gian lận</span> <span class="badge badge--fail"><i class="dot"></i>Sổ cái lệch</span></div><span class="mono">badge--fail</span></div>
+    <div class="tone"><b>Đã xong · rêu</b><div><span class="badge badge--done"><i class="dot"></i>Đã chi</span> <span class="badge badge--done"><i class="dot"></i>Đã duyệt</span> <span class="badge badge--done"><i class="dot"></i>Có thể rút</span></div><span class="mono">badge--done</span></div>
+    <div class="tone"><b>Xấu · gạch</b><div><span class="badge badge--fail"><i class="dot"></i>Thất bại · tiền đã về ví</span> <span class="badge badge--fail"><i class="dot"></i>Từ chối · gian lận</span> <span class="badge badge--fail"><i class="dot"></i>Số dư lệch</span></div><span class="mono">badge--fail</span></div>
     <div class="tone"><b>Đóng · sand</b><div><span class="badge badge--off"><i class="dot"></i>Không hợp lệ</span> <span class="badge badge--off"><i class="dot"></i>Hết hạn duyệt</span> <span class="badge badge--off"><i class="dot"></i>Nháp</span></div><span class="mono">badge--off</span></div>
     <div class="tone"><b>Ngoại lệ · tím</b><div><span class="badge badge--purple">Tìm thấy đơn gần giống</span> <span class="badge badge--purple">Lệch ngày</span> <span class="badge badge--purple">Cần người thứ hai</span></div><span class="mono">badge--purple · MỚI</span></div>
     <div class="tone"><b>Khoá · bổ sung</b><div><span class="badge badge--lock"><i class="dot"></i>Đã khoá</span> <span class="badge badge--lock"><i class="dot"></i>Đã khoá sửa</span> </div><span class="mono">badge--lock · badge--second</span></div>
@@ -144,35 +144,37 @@
   <div class="tbl-wrap"><table class="tbl tbl--v2">
     <thead><tr><th>Nhóm</th><th>Mã thô</th><th>Nhãn hiển thị</th><th>Badge</th></tr></thead>
     <tbody>
-      <tr><td rowspan="7">Lệnh chi <span class="mono">withdrawal.status</span></td><td class="mono">pending_review</td><td>Chờ duyệt x/y</td><td><span class="badge badge--pending badge--sm">Chờ duyệt lần hai</span></td></tr>
-      <tr><td class="mono">approved · batch</td><td>Đã duyệt · chờ gom lô / Trong lô · chờ chuyển</td><td><span class="badge badge--done badge--sm">Đã duyệt</span> <span class="badge badge--pending badge--sm">Chờ gom lô</span></td></tr>
-      <tr><td class="mono">processing · payos</td><td>Đang chuyển (PayOS)</td><td><span class="badge badge--blue badge--sm">Đang chuyển</span></td></tr>
+      <tr><td rowspan="9">Lệnh chi <span class="mono">withdrawal.status</span></td><td class="mono">pending_review</td><td>Chờ duyệt</td><td><span class="badge badge--pending badge--sm">Chờ duyệt</span></td></tr>
+      <tr><td class="mono">approved · batch</td><td>Đã duyệt · chờ gom lô</td><td><span class="badge badge--done badge--sm">Đã duyệt</span> <span class="badge badge--pending badge--sm">Chờ gom lô</span></td></tr>
+      <tr><td class="mono">processing</td><td>Đang chuyển (PayOS) / Trong lô · chờ chuyển</td><td><span class="badge badge--blue badge--sm">Đang chuyển</span></td></tr>
       <tr><td class="mono">paid</td><td>Đã chi</td><td><span class="badge badge--done badge--sm">Đã chi</span></td></tr>
-      <tr><td class="mono">failed</td><td>Thất bại · tiền đã về ví (kèm <span class="mono">failure_code</span>)</td><td><span class="badge badge--fail badge--sm">Thất bại</span></td></tr>
+      <tr><td class="mono">failed</td><td>Thất bại · đã hoàn ví (kèm <span class="mono">failure_code</span>)</td><td><span class="badge badge--fail badge--sm">Thất bại · đã hoàn ví</span></td></tr>
+      <tr><td class="mono">on_hold</td><td>Tạm giữ · nghi vấn</td><td><span class="badge badge--lock badge--sm">Tạm giữ · nghi vấn</span></td></tr>
       <tr><td class="mono">rejected</td><td>Từ chối · mã lý do</td><td><span class="badge badge--fail badge--sm">Từ chối</span></td></tr>
-      <tr><td class="mono">expired</td><td>Hết hạn duyệt</td><td><span class="badge badge--off badge--sm">Hết hạn</span></td></tr>
-      <tr><td rowspan="7">Hoa hồng <span class="mono">commission.status</span></td><td class="mono">recorded</td><td>Đã ghi nhận</td><td><span class="badge badge--off badge--sm">Đã ghi nhận</span></td></tr>
-      <tr><td class="mono">pending</td><td>Chờ sàn duyệt</td><td><span class="badge badge--pending badge--sm">Chờ sàn duyệt</span></td></tr>
-      <tr><td class="mono">confirmed</td><td>Chờ sàn duyệt (sàn chốt, chưa có tiền)</td><td><span class="badge badge--pending badge--sm">Chờ sàn duyệt</span></td></tr>
-      <tr><td class="mono">available</td><td>Có thể rút (sàn đã chốt kỳ)</td><td><span class="badge badge--done badge--sm">Đã về ví</span></td></tr>
-      <tr><td class="mono">paid · credited</td><td>Đã chi / Đã cộng ví</td><td><span class="badge badge--done badge--sm">Đã cộng ví</span></td></tr>
-      <tr><td class="mono">rejected</td><td>Từ chối · lý do (huỷ, kênh khác, ngành loại trừ…)</td><td><span class="badge badge--fail badge--sm">Từ chối</span></td></tr>
-      <tr><td class="mono">locked (lock_at)</td><td>Đã khoá sửa từ dd/mm</td><td><span class="badge badge--lock badge--sm">Đã khoá sửa</span></td></tr>
+      <tr><td class="mono">cancelled</td><td>Đã huỷ (người dùng huỷ trước khi duyệt)</td><td><span class="badge badge--off badge--sm">Đã huỷ</span></td></tr>
+      <tr><td class="mono">expired</td><td>Hết hạn duyệt · tiền về ví</td><td><span class="badge badge--off badge--sm">Hết hạn</span></td></tr>
+      <tr><td rowspan="6">Đơn <span class="mono">order.status</span></td><td class="mono">pending</td><td>Chờ sàn duyệt</td><td><span class="badge badge--pending badge--sm">Chờ sàn duyệt</span></td></tr>
+      <tr><td class="mono">credited</td><td>Đã về ví (vào phần Có thể rút)</td><td><span class="badge badge--done badge--sm">Đã về ví</span></td></tr>
+      <tr><td class="mono">rejected</td><td>Bị từ chối · lý do (huỷ, đổi trả, kênh khác…)</td><td><span class="badge badge--fail badge--sm">Bị từ chối</span></td></tr>
+      <tr><td class="mono">unmatched</td><td>Không khớp (chưa gắn được người dùng)</td><td><span class="badge badge--purple badge--sm">Không khớp</span></td></tr>
+      <tr><td class="mono">date_mismatch</td><td>Lệch ngày</td><td><span class="badge badge--purple badge--sm">Lệch ngày</span></td></tr>
+      <tr><td class="mono">lock_at</td><td>Đã khoá sửa từ dd/mm</td><td><span class="badge badge--lock badge--sm">Đã khoá sửa</span></td></tr>
       <tr><td rowspan="6">Việc KN / DS <span class="mono">ticket.state</span></td><td class="mono">new</td><td>Mới</td><td><span class="badge badge--pending badge--sm">Mới</span></td></tr>
       <tr><td class="mono">needs_reply</td><td>Cần phản hồi</td><td><span class="badge badge--pending badge--sm">Cần phản hồi</span></td></tr>
       <tr><td class="mono">investigating</td><td>Đang điều tra</td><td><span class="badge badge--blue badge--sm">Đang điều tra</span></td></tr>
-      <tr><td class="mono">waiting_user</td><td>Chờ người dùng</td><td><span class="badge badge--off badge--sm">Chờ người dùng</span></td></tr>
-      <tr><td class="mono">on_hold</td><td>Tạm dừng</td><td><span class="badge badge--lock badge--sm">Tạm dừng</span></td></tr>
-      <tr><td class="mono">done · invalid</td><td>Đã xong / Không hợp lệ (kết quả tách khỏi trạng thái việc)</td><td><span class="badge badge--done badge--sm">Đã xong</span> <span class="badge badge--off badge--sm">Không hợp lệ</span></td></tr>
-      <tr><td rowspan="3">Gian lận <span class="mono">risk.action</span></td><td class="mono">hold</td><td>Đang giữ · 7 ngày</td><td><span class="badge badge--purple badge--sm">Đang giữ</span></td></tr>
-      <tr><td class="mono">escalated</td><td>Đã leo thang</td><td><span class="badge badge--blue badge--sm">Đã leo thang</span></td></tr>
+      <tr><td class="mono">waiting_user</td><td>Chờ khách</td><td><span class="badge badge--off badge--sm">Chờ khách</span></td></tr>
+      <tr><td class="mono">waiting_platform</td><td>Chờ sàn (đối soát, tự quay lại sau hạn)</td><td><span class="badge badge--off badge--sm">Chờ sàn</span></td></tr>
+      <tr><td class="mono">done</td><td>Xong (kết luận lưu riêng: bù / không bù / từ chối)</td><td><span class="badge badge--done badge--sm">Xong</span></td></tr>
+      <tr><td rowspan="4">Gian lận <span class="mono">risk.state</span></td><td class="mono">hold</td><td>Đang giữ tiền</td><td><span class="badge badge--lock badge--sm">Đang giữ</span></td></tr>
+      <tr><td class="mono">escalated</td><td>Chờ quản trị</td><td><span class="badge badge--second badge--sm">Chờ quản trị</span></td></tr>
       <tr><td class="mono">locked</td><td>Đã khoá tài khoản</td><td><span class="badge badge--fail badge--sm">Đã khoá</span></td></tr>
+      <tr><td class="mono">cleared</td><td>Đã gỡ đánh dấu</td><td><span class="badge badge--off badge--sm">Đã gỡ đánh dấu</span></td></tr>
       <tr><td rowspan="3">Vai nhân viên <span class="mono">staff_role</span></td><td class="mono">ops</td><td>Vận hành</td><td><span class="role role--ops">Vận hành</span></td></tr>
       <tr><td class="mono">finance</td><td>Kế toán</td><td><span class="role role--finance">Kế toán</span></td></tr>
       <tr><td class="mono">admin</td><td>Quản trị</td><td><span class="role role--admin">Quản trị</span></td></tr>
-      <tr><td>Hạng · kênh</td><td class="mono">silver · gold · payos · batch</td><td>Bạc · Vàng · PayOS · Lô thủ công</td><td><span class="badge badge--info badge--sm">Bạc</span> <span class="badge badge--info badge--sm">Vàng</span> <span class="muted small">kênh: chữ thường, không badge</span></td></tr>
+      <tr><td>Kênh chi</td><td class="mono">payos · batch</td><td>PayOS · Chuyển khoản</td><td> <span class="muted small">kênh: chữ thường, không badge</span></td></tr>
     </tbody></table></div>
-  <p class="spec"><b>Khi nào dùng:</b> một badge cho một trường; không ghép hai trạng thái vào một badge trừ tiến độ duyệt “x/y”. Dev giữ bảng nhãn trong một file hằng số; mã thô không bao giờ lên giao diện.</p>
+  <p class="spec"><b>Khi nào dùng:</b> một badge cho một trường; không ghép hai trạng thái vào một badge. Dev giữ bảng nhãn trong một file hằng số; mã thô không bao giờ lên giao diện.</p>
 </section>
 
 <!-- 03 hạn xử lý -->
@@ -186,9 +188,9 @@
     <span class="sla sla--ok">còn nhiều</span><span>Thời gian còn lại <b>trên ngưỡng cảnh báo</b> của loại việc.</span>
     <span class="sla sla--warn">sắp tới hạn</span><span>Còn <b>≤ 15 phút</b> (mốc Zendesk) <b>hoặc</b> dưới ngưỡng cảnh báo của loại việc: mặc định khiếu nại / duyệt chi 2 giờ, đối soát 4 giờ, gian lận 1 ngày — <b>ngưỡng tự quyết</b>, cấu hình được, chưa có bằng chứng ngoài 15 phút.</span>
     <span class="sla sla--late">quá hạn</span><span>Hết hạn: hiện <b>số âm</b> (“−3 giờ”), lên đầu danh sách, đếm vào tile “quá hạn”. Tie-break theo ngày tạo.</span>
-    <span class="sla sla--none">không hạn</span><span>Việc không có hạn (lệnh chờ gom lô đã duyệt đủ, hồ sơ chỉ đọc). Vẫn hiện x ngày trước.</span>
+    <span class="sla sla--none">không hạn</span><span>Việc không có hạn (lệnh đã duyệt chờ gom lô, hồ sơ chỉ đọc). Vẫn hiện x ngày trước.</span>
   </div></div>
-  <p class="spec"><b>Khi nào dùng:</b> mọi hàng ở bốn việc cần xử lý và tab Tất cả. Danh sách máy (Giao dịch › Đơn, Lệnh chi, Sổ cái) không có hạn. Tooltip badge liệt kê các mốc khác (phản hồi đầu, giải quyết).</p>
+  <p class="spec"><b>Khi nào dùng:</b> mọi hàng ở bốn việc cần xử lý và tab Tất cả. Danh sách máy (Giao dịch › Đơn, Lệnh chi) không có hạn. Tooltip badge liệt kê các mốc khác (phản hồi đầu, giải quyết).</p>
 </section>
 
 <!-- 04 TRẠNG THÁI 3 CỘT + VÒNG ĐỜI -->
@@ -199,7 +201,7 @@
 
 <!-- 05 VÍ 3 Ô -->
 <section class="sheet__s">
-  <div class="sheet__h"><span class="eyebrow">05</span><h2>Số dư ví</h2><span>Chờ sàn duyệt · Chờ sàn duyệt · Có thể rút · chỉ duyệt chi khi Có thể rút đủ</span></div>
+  <div class="sheet__h"><span class="eyebrow">05</span><h2>Số dư ví</h2><span>Chờ sàn duyệt · Có thể rút · chỉ duyệt chi khi Có thể rút đủ</span></div>
   <div class="wallet3 wallet3--full">
     <div class="wallet3__i"><div class="wallet3__l">Chờ sàn duyệt</div><div class="wallet3__v">485.612đ</div><div class="wallet3__s">sàn chưa duyệt</div></div>
     <div class="wallet3__i wallet3__i--avail"><div class="wallet3__l">Có thể rút</div><div class="wallet3__v">1.240.000đ</div><div class="wallet3__s">Có thể rút · đã trừ 1.200.000đ đang giữ cho RT-2720</div></div>
@@ -215,10 +217,10 @@
     <div class="tbl__hd"><b>Lệnh chờ duyệt</b></div>
     <table class="tbl tbl--v2 tbl--inbox">
       <colgroup><col style="width:36px"><col style="width:100px"><col style="width:96px"><col><col style="width:110px"><col style="width:150px"><col style="width:90px"></colgroup>
-      <thead><tr><th class="w-check"><span class="check"><i class="on"></i></span></th><th>Hạn</th><th>Mã</th><th>Người nhận</th><th class="num">Số tiền</th><th>Bước duyệt</th><th>Tạo lúc</th></tr></thead>
+      <thead><tr><th class="w-check"><span class="check"><i class="on"></i></span></th><th>Hạn</th><th>Mã</th><th>Người nhận</th><th class="num">Số tiền</th><th>Trạng thái</th><th>Tạo lúc</th></tr></thead>
       <tbody>
-        <tr class="is-click is-sel" data-amount="1200000"><td class="w-check"><span class="check"><i class="on"></i></span></td><td><span class="sla sla--warn">còn 2 giờ</span></td><td class="code">RT-2720</td><td class="u">Nguyễn Văn An · VCB <span class="acct">•••• 4821</span></td><td class="num">1.200.000đ</td><td><span class="approve__p"><i class="is-done">✓</i><i class="is-you">2</i></span> <span class="small muted">chờ bạn duyệt lần hai</span></td><td class="age">09:40 · 12/10</td></tr>
-        <tr class="is-click" data-amount="1500000"><td class="w-check"><span class="check"><i class="on"></i></span></td><td><span class="sla sla--ok">còn 5 giờ</span></td><td class="code">RT-2715</td><td class="u">Trần Thị Bích · TCB <span class="acct">•••• 0193</span></td><td class="num">1.500.000đ</td><td><span class="approve__p"><i class="is-done">✓</i><i class="is-you">2</i></span> <span class="small muted">chờ bạn duyệt lần hai</span></td><td class="age">08:15 · 12/10</td></tr>
+        <tr class="is-click is-sel" data-amount="1200000"><td class="w-check"><span class="check"><i class="on"></i></span></td><td><span class="sla sla--warn">còn 2 giờ</span></td><td class="code">RT-2720</td><td class="u">Nguyễn Văn An<span class="sub">VCB</span></td><td class="num">1.200.000đ</td><td><span class="badge badge--pending"><i class="dot"></i>Chờ bạn duyệt</span></td><td class="age">09:40 · 12/10</td></tr>
+        <tr class="is-click" data-amount="1500000"><td class="w-check"><span class="check"><i class="on"></i></span></td><td><span class="sla sla--ok">còn 5 giờ</span></td><td class="code">RT-2715</td><td class="u">Trần Thị Bích<span class="sub">TCB</span></td><td class="num">1.500.000đ</td><td><span class="badge badge--pending"><i class="dot"></i>Chờ bạn duyệt</span></td><td class="age">08:15 · 12/10</td></tr>
       </tbody>
     </table>
     <div class="pager"><span>1–3 / 3 lệnh</span><div class="pager__r"><select class="input" aria-label="Số hàng mỗi trang"><option>25 / trang</option><option>50 / trang</option></select><button class="btn btn--ghost btn--icon" disabled><svg class="ic"><use href="#i-chevron-left"/></svg></button><button class="btn btn--ghost btn--icon" disabled><svg class="ic"><use href="#i-chevron-right"/></svg></button></div></div>
@@ -240,11 +242,11 @@
 
 <!-- 08 TRANG HỒ SƠ -->
 <section class="sheet__s">
-  <div class="sheet__h"><span class="eyebrow">08</span><h2>Trang hồ sơ hai cột · có URL</h2><span>Trái: dòng thời gian, bằng chứng, kết luận · Phải 340: ngữ cảnh · đầu trang: ← Việc trước · Việc sau → · Mở tab mới</span></div>
+  <div class="sheet__h"><span class="eyebrow">08</span><h2>Trang hồ sơ hai cột · có URL</h2><span>Đầu trang: mã + một nhãn + tối đa ba dữ kiện + ‹ n/m › · dải phép tính · trái: nội dung · phải: Kết luận</span></div>
   <div class="lbl-grid">
-    <div class="mini mini--rec" style="grid-template-rows:auto 1fr"><div class="box" style="grid-column:1/-1;flex-direction:row;align-items:center;gap:8px;padding:6px 8px"><span>RT-2720 · badge · ← → · tab mới</span></div><div class="lines"><span>Chính</span><i style="height:22px;background:var(--dao-nhat);border-color:var(--cam)"></i><i style="height:34px"></i><i style="height:34px"></i><i style="height:40px;background:var(--vang-nhat);border-color:var(--vang-vien)"></i><i style="height:26px;background:var(--muc)"></i></div><div class="lines"><span>Ngữ cảnh</span><i style="height:36px"></i><i style="height:30px"></i><i style="height:30px"></i><i style="height:30px"></i></div></div>
+    <div class="mini mini--rec" style="grid-template-rows:auto 1fr"><div class="box" style="grid-column:1/-1;flex-direction:row;align-items:center;gap:8px;padding:6px 8px"><span>RT-2720 · nhãn · ‹ n/m ›</span></div><div class="lines"><span>Chính</span><i style="height:22px;background:var(--dao-nhat);border-color:var(--cam)"></i><i style="height:34px"></i><i style="height:34px"></i><i style="height:40px;background:var(--vang-nhat);border-color:var(--vang-vien)"></i><i style="height:26px;background:var(--muc)"></i></div><div class="lines"><span>Ngữ cảnh</span><i style="height:36px"></i><i style="height:30px"></i><i style="height:30px"></i><i style="height:30px"></i></div></div>
     <div class="card card--pad stack" style="gap:8px">
-      <dl class="kv kv--tight"><dt>URL</dt><dd><span class="mono">/lenh-chi/RT-2720</span> · <span class="mono">/kn/KN706476</span> · <span class="mono">/ds/DS241010</span> · <span class="mono">/nguoi-dung/{id}</span> — gửi được link, trỏ từ nhật ký</dd><dt>Cột chính</dt><dd>Khối duyệt (x/y) → trước/sau → kiểm tra nhanh → dòng thời gian + composer → <b>kết luận</b> (nút có số tiền · từ chối có mã lý do)</dd><dt>Cột phải</dt><dd>Người dùng + số dư ví → đơn ba trạng thái → lệnh / khiếu nại gần đây → nhật ký đối tượng</dd><dt>Sau khi xong</dt><dd>“” nhảy sang hồ sơ kế trong cùng hộp; “Gửi phản hồi” về bảng</dd></dl>
+      <dl class="kv kv--tight"><dt>URL</dt><dd><span class="mono">/lenh-chi/RT-2720</span> · <span class="mono">/kn/KN706476</span> · <span class="mono">/ds/DS241010</span> · <span class="mono">/nguoi-dung/{id}</span> — gửi được link, trỏ từ nhật ký</dd><dt>Dưới đầu trang</dt><dd>Dải phép tính (ví dụ: giá × tỷ lệ hoa hồng × 80% = tiền hoàn) khi việc liên quan số tiền</dd><dt>Cột trái</dt><dd>Khách viết → đối chiếu / bằng chứng → dòng thời gian → ô soạn hai chế độ tách hẳn: Trả lời khách · Ghi chú nội bộ</dd><dt>Cột phải</dt><dd><b>Kết luận</b> trên cùng: không chọn sẵn, một nút chính đổi tên theo lựa chọn, tin trả khách soạn sẵn theo kết luận; vai không được làm thấy lý do thay nút → thẻ Việc (trạng thái, phụ trách, hạn) → Người dùng + ví hai phần</dd><dt>Sau khi xong</dt><dd>Sang việc kế tiếp trong cùng mục bằng ‹ ›</dd></dl>
     </div>
   </div>
   <p class="spec"><b>Khi nào dùng:</b> khiếu nại, đối soát, lệnh chi, người dùng, đơn. Mỗi hồ sơ là một trang để người khác mở được từ link; không xử lý hồ sơ trong drawer.</p>
@@ -252,7 +254,7 @@
 
 <!-- 09 DÒNG THỜI GIAN + COMPOSER -->
 <section class="sheet__s">
-  <div class="sheet__h"><span class="eyebrow">09</span><h2>Dòng thời gian · khách / nội bộ vàng / hệ thống · composer hai tab</h2><span>Trả lời khách nền trắng · ghi chú nội bộ nền vàng có nhãn · hệ thống nền sand · “Gửi phản hồi” / “”</span></div>
+  <div class="sheet__h"><span class="eyebrow">09</span><h2>Dòng thời gian · khách / nội bộ vàng / hệ thống · composer hai tab</h2><span>Trả lời khách nền trắng · ghi chú nội bộ nền vàng có nhãn · hệ thống nền sand · “Gửi &amp; đóng” / “Gửi &amp; mở kế tiếp”</span></div>
   <div class="lbl-grid">
     <div class="thread">
       <div class="msg msg--user"><div class="msg__hd"><span class="avatar avatar--sm">A</span>Nguyễn Văn An · người dùng<time>13:36 hôm nay</time></div>Em mua máy hút bụi cầm tay 259.000đ qua link app, app báo 17.600đ nhưng sàn chỉ ghi 10.000đ. Em gửi 4 ảnh đơn và trang hoa hồng.<div class="msg__att"><span class="thumb thumb--img"></span><span class="thumb thumb--img v2"></span><span class="thumb thumb--img v3"></span><span class="thumb thumb--img v4"></span></div></div>
@@ -266,7 +268,7 @@
         <textarea placeholder="Trả lời gửi cho người dùng qua app · giọng ngắn, nêu rõ số tiền và bước tiếp theo"></textarea>
         <div class="composer__ft"><span class="hint">Đổi sang tab Nội bộ → nền vàng, không gửi cho người dùng · cảnh báo khi chuyển ngược</span><button class="btn btn--secondary btn--sm" data-toast="Đã gửi · hồ sơ đóng · về bảng">Gửi phản hồi</button><button class="btn btn--primary btn--sm" data-toast="Đã gửi · mở KN706470 (việc kế tiếp)"></button></div>
       </div>
-      <div class="card card--pad"><div class="demo-lbl">Quy tắc</div><ul class="small" style="margin:8px 0 0;padding-left:18px;line-height:1.75"><li>Ghi chú nội bộ không bao giờ gửi cho người dùng; nhãn NỘI BỘ và nền vàng ở cả dòng thời gian lẫn composer.</li><li>Mục hệ thống nhỏ hơn, nền sand: đổi trạng thái, nhận việc, giữ tiền, duyệt x/y.</li><li>Ảnh bằng chứng gắn theo tin nhắn và gom lại ở khối “Bằng chứng” của hồ sơ.</li><li>Hành vi sau khi gửi (đóng / mở kế tiếp / ở lại) là tuỳ chọn cá nhân.</li></ul></div>
+      <div class="card card--pad"><div class="demo-lbl">Quy tắc</div><ul class="small" style="margin:8px 0 0;padding-left:18px;line-height:1.75"><li>Ghi chú nội bộ không bao giờ gửi cho người dùng; nhãn NỘI BỘ và nền vàng ở cả dòng thời gian lẫn composer.</li><li>Mục hệ thống nhỏ hơn, nền sand: đổi trạng thái, nhận việc, giữ tiền, duyệt.</li><li>Ảnh bằng chứng gắn theo tin nhắn và gom lại ở khối “Bằng chứng” của hồ sơ.</li><li>Hành vi sau khi gửi (đóng / mở kế tiếp / ở lại) là tuỳ chọn cá nhân.</li></ul></div>
     </div>
   </div>
   <p class="spec"><b>Khi nào dùng:</b> hồ sơ khiếu nại, đối soát, gian lận (có hội thoại). Hồ sơ lệnh chi chỉ có ghi chú nội bộ + mục hệ thống.</p>
@@ -304,16 +306,16 @@
   <p class="spec"><b>Khi nào dùng:</b> mọi kết luận hồ sơ và mọi hành động tiền/xoá. Tiêu đề modal là câu hỏi có đối tượng + số tiền; nút gọi đúng hành động (không “OK”); Huỷ bên trái; hành động xấu dùng <span class="mono">modal--danger</span> và bắt buộc lý do. Hành động hoàn tác được thì dùng toast có “Hoàn tác”, không modal.</p>
 </section>
 
-<!-- 11 DUYỆT 2 NGƯỜI -->
+<!-- 11 DUYỆT -->
 <section class="sheet__s">
-  <div class="sheet__h"><span class="eyebrow">11</span><h2>Duyệt hai người · tiến độ x/y</h2><span>Ngưỡng tiền → số bước duyệt · server chặn trùng người</span></div>
+  <div class="sheet__h"><span class="eyebrow">11</span><h2>Duyệt lệnh chi và điều chỉnh</h2><span>Hệ thống quyết định cần duyệt hay không · người tạo không tự duyệt</span></div>
   <div class="card card--pad stack" style="gap:10px">
-    <div class="approve"><span class="approve__p"><i>1</i><i>2</i></span><div class="approve__t"><b>0/2 · chưa ai duyệt</b><small>Lệnh 1.200.000đ ≥ ngưỡng 1.000.000đ → cần hai người · vào hộp của mọi kế toán/quản trị</small></div><span class="badge badge--pending"><i class="dot"></i>Chờ duyệt</span></div>
-    <div class="approve"><span class="approve__p"><i class="is-done">✓</i><i class="is-you">2</i></span><div class="approve__t"><b>Lê Thu Hà đã duyệt 14:05 · bạn là người thứ hai</b><small>Bạn thấy diff trước/sau, kiểm tra nhanh, rồi “Duyệt chi 1.200.000đ” hoặc “Từ chối…”</small></div><span class="badge badge--second"><i class="dot"></i>Chờ bạn</span></div>
-    <div class="approve" style="border-style:solid;border-color:var(--reu);background:var(--reu-nhat)"><span class="approve__p"><i class="is-done">✓</i><i class="is-done">✓</i></span><div class="approve__t"><b>Lê Thu Hà 14:05 · Nguyễn Sơn 14:32</b><small>Ghi sổ chờ chuyển · kế toán tải CSV lô · đánh dấu đã chi sau khi chuyển</small></div><span class="badge badge--done"><i class="dot"></i>Đã duyệt đủ</span></div>
-    <div class="approve" style="border-style:solid;background:#fff"><span class="approve__p"><i class="is-you">1</i></span><div class="approve__t"><b>0/1 · chờ duyệt</b><small>Đánh dấu đã chi ngoài hệ thống / điều chỉnh số dư do bạn tạo: không có nút duyệt, chỉ có badge</small></div></div>
+    <div class="approve" style="border-style:solid;background:#fff"><span class="approve__p"><i class="is-done">✓</i></span><div class="approve__t"><b>Tự chuyển · không cần duyệt</b><small>PayOS tự chuyển, không vào Việc cần xử lý</small></div><span class="badge badge--blue">Đang chuyển (PayOS)</span></div>
+    <div class="approve"><span class="approve__p"><i class="is-you">1</i></span><div class="approve__t"><b>Chờ bạn duyệt</b><small>Kế toán hoặc quản trị duyệt một lần</small></div><span class="badge badge--pending"><i class="dot"></i>Chờ duyệt</span></div>
+    <div class="approve" style="border-style:solid;border-color:var(--reu);background:var(--reu-nhat)"><span class="approve__p"><i class="is-done">✓</i></span><div class="approve__t"><b>Lê Thu Hà 14:05</b><small>PayOS chuyển, hoặc vào lô chuyển khoản</small></div><span class="badge badge--done"><i class="dot"></i>Đã duyệt</span></div>
+    <div class="approve"><span class="approve__p"><i>1</i></span><div class="approve__t"><b>Cần người thứ hai</b><small>Điều chỉnh số dư do bạn tạo: bạn không thấy nút duyệt</small></div><span class="badge badge--purple">Cần người thứ hai</span></div>
   </div>
-  <p class="spec"><b>Khi nào dùng:</b> lệnh rút ≥ ngưỡng (<span class="mono">approval_threshold</span>, mặc định 1.000.000đ — cấu hình), điều chỉnh số dư, đánh dấu đã chi ngoài hệ thống. Lệnh 500.000đ–1.000.000đ: 1/1. Dưới ngưỡng tự động: 0 bước, PayOS tự chi. Hết hạn duyệt → “Hết hạn”, tiền về ví.</p>
+  <p class="spec"><b>Khi nào dùng:</b> lệnh rút dưới <span class="mono">withdraw_auto_max</span> (500.000đ) và trong <span class="mono">withdraw_auto_daily_count</span> (2 lệnh/ngày) → tự chuyển. Từ 500.000đ hoặc từ lệnh thứ ba trong ngày → một người duyệt. Bù khiếu nại trong <span class="mono">complaint_self_credit_max</span> → một người, cộng ngay. Điều chỉnh khác → người thứ hai, khác người tạo. Hệ thống trả sẵn trạng thái và nút được phép; giao diện không ghi ngưỡng. Hết hạn duyệt → “Hết hạn”, tiền về ví.</p>
 </section>
 
 <!-- 12 STK CHE -->

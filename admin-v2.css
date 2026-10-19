@@ -350,7 +350,7 @@ html[data-theme="sang"] .sb__tag{background:#F6F4F1}
 .theme-sw button.is-on{background:var(--sand);color:var(--muc)}
 @media print{.theme-sw{display:none}}
 
-/* ---------- REV-005 (18/10) ---------- */
+/* ---------- (18/10) ---------- */
 :root{--phu-2:#74695E}                         /* 4,6:1 trên trắng (trước 3,9:1) */
 .input,.fsel,.fsearch{border-color:#CFC4B6}     /* viền ô nhập đủ thấy */
 .bulk--v2 .btn--danger{background:transparent;color:#FFD4C2;border-color:#FFD4C2}
@@ -372,7 +372,7 @@ html:not([data-multi-platform]) .th-plat,html:not([data-multi-platform]) td.plat
 .sla--ok{background:transparent;color:var(--muc-2);padding-left:0}
 .sla--ok::before{display:none}
 
-/* ---------- Khuôn hồ sơ việc (REV-005 #26, 18/10) ---------- */
+/* ---------- Khuôn hồ sơ việc #26, 18/10) ---------- */
 .rec2{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:18px;align-items:start}
 .rec2__main{display:flex;flex-direction:column;gap:14px;min-width:0}
 .rec2__side{display:flex;flex-direction:column;gap:12px;position:sticky;top:calc(var(--hd-h) + 16px)}
@@ -395,3 +395,6 @@ html:not([data-multi-platform]) .th-plat,html:not([data-multi-platform]) td.plat
 .rec2 .composer textarea{min-height:110px}
 @media (max-width:1366px){.rec2{grid-template-columns:minmax(0,1fr) 330px}}
 .qp .kv dt{text-transform:none}
+
+/* 19/10: hàng ô số tự chia theo số ô (Đối chiếu có 4 ô) */
+.health--row{grid-template-columns:repeat(auto-fit,minmax(0,1fr))}

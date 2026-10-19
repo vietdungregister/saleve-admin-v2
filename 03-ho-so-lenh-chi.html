@@ -57,7 +57,7 @@
   <main class="pg">
 <div class="stack">
 <div class="rec__hd">
-  <div><h1>RT-2720 <span class="badge badge--pending">Chờ duyệt lần hai</span></h1><p class="pg__sub">Nguyễn Văn An · tạo 09:40 · 12/10/2026 · chuyển khoản</p></div>
+  <div><h1>RT-2720 <span class="badge badge--pending">Chờ duyệt</span></h1><p class="pg__sub">Nguyễn Văn An · tạo 09:40 · 12/10/2026 · chuyển khoản</p></div>
   <div class="rec__nav"><a class="btn btn--ghost btn--sm" href="02-hop-viec-duyet-chi.html">‹</a><span>1 / 4</span><a class="btn btn--ghost btn--sm" href="02-hop-viec-duyet-chi.html">›</a></div>
 </div>
 <div class="calc">
@@ -82,7 +82,6 @@
     <div class="thread">
       <div class="msg msg--sys"><div class="msg__hd">Người dùng tạo lệnh<time>09:40 · 12/10</time></div>Rút 1.200.000đ về Vietcombank •••• 4821 · giữ 1.200.000đ khỏi Có thể rút.</div>
       <div class="msg msg--note"><div class="msg__hd">Lê Thu Hà<time>14:02 hôm nay</time></div>Đã đối chiếu tên chủ tài khoản với ngân hàng, khớp.</div>
-      <div class="msg msg--sys"><div class="msg__hd">Lê Thu Hà duyệt lần một<time>14:05 hôm nay</time></div>Chờ người thứ hai.</div>
     </div>
   </div>
   <div class="composer composer--note" id="cp">
@@ -92,18 +91,16 @@
   </div>
 </div>
 <aside class="rec2__side">
-  <div class="decide" data-roles="admin">
+  <div class="decide" data-roles="finance admin">
     <div class="decide__t">Kết luận</div>
-    <div class="small muted">Lê Thu Hà đã duyệt lần một · cần bạn duyệt lần hai</div>
     <button class="btn btn--primary" data-open="#m-duyet">Duyệt chi 1.200.000đ</button>
     <button class="btn btn--danger" data-open="#m-tu-choi">Từ chối…</button>
   </div>
-  <div class="decide" data-roles="finance"><div class="decide__t">Kết luận</div><span class="badge badge--second">Bạn đã duyệt · chờ người khác</span></div>
   <div class="decide" data-roles="ops"><div class="decide__t">Kết luận</div><span class="badge badge--off">Cần vai Kế toán hoặc Quản trị để duyệt</span></div>
-  <div class="card card--pad"><dl class="facts"><dt>Trạng thái</dt><dd>Chờ duyệt lần hai</dd><dt>Phụ trách</dt><dd>Bạn</dd><dt>Hạn</dt><dd><span class="sla sla--warn">Còn 2 giờ</span></dd></dl></div>
+  <div class="card card--pad"><dl class="facts"><dt>Trạng thái</dt><dd>Chờ duyệt</dd><dt>Phụ trách</dt><dd>Bạn</dd><dt>Hạn</dt><dd><span class="sla sla--warn">Còn 2 giờ</span></dd></dl></div>
   <div class="card card--pad stack" style="gap:10px">
     <div class="sec__t">Người nhận <a class="link" href="13-ho-so-nguoi-dung.html">Hồ sơ ↗</a></div>
-    <div><b>Nguyễn Văn An</b> <span class="badge badge--info badge--sm">Bạc</span><div class="small muted">Vietcombank <span class="acct">•••• 4821</span> <span class="acct__reveal" data-roles="finance admin" data-open="#m-reveal">Hiện số đầy đủ</span></div></div>
+    <div><b>Nguyễn Văn An</b><div class="small muted">Vietcombank <span class="acct">•••• 4821</span> <span class="acct__reveal" data-roles="finance admin" data-open="#m-reveal">Hiện số đầy đủ</span></div></div>
     <div class="wallet3"><div class="wallet3__i"><div class="wallet3__l">Chờ sàn duyệt</div><div class="wallet3__v">485.612đ</div></div><div class="wallet3__i wallet3__i--avail"><div class="wallet3__l">Có thể rút</div><div class="wallet3__v">1.240.000đ</div></div></div>
     <div class="small muted">Lệnh trước: RT-2713 800.000đ · RT-2698 500.000đ · RT-2650 300.000đ, đều đã chi</div>
   </div>
@@ -115,10 +112,10 @@
 </div>
 <div class="modal-wrap" id="m-duyet" role="dialog" aria-labelledby="m-duyet-t"><div class="modal">
   <h2 class="modal__t" id="m-duyet-t">Duyệt chi 1.200.000đ cho Nguyễn Văn An?</h2>
-  <p class="modal__d">Bạn là người duyệt thứ hai.</p>
+  <p class="modal__d"></p>
   <dl class="kv"><dt>Lệnh</dt><dd><span class="code">RT-2720</span> · lô <span class="mono">15/10-01</span></dd><dt>Người nhận</dt><dd>Nguyễn Văn An · Vietcombank <span class="acct">•••• 4821</span> · NGUYEN VAN AN</dd><dt>Đã duyệt trước</dt><dd>Lê Thu Hà · 14:05 · 15/10/2026</dd><dt>Người thực hiện</dt><dd><b data-role-name>Nguyễn Sơn</b> · 14:32 · 15/10/2026</dd></dl>
   <div class="callout callout--warn"><svg class="ic"><use href="#i-alert"/></svg><div><b>Không thể hoàn tác.</b> Sai sót sau này sửa bằng Điều chỉnh số dư.</div></div>
-  <div class="modal__ft"><button class="btn btn--ghost" data-close>Quay lại</button><button class="btn btn--primary" data-toast="RT-2720 · đã duyệt đủ · 1.200.000đ vào lô chờ chuyển · ghi nhật ký">Duyệt chi 1.200.000đ</button></div>
+  <div class="modal__ft"><button class="btn btn--ghost" data-close>Quay lại</button><button class="btn btn--primary" data-toast="RT-2720 · đã duyệt · 1.200.000đ vào lô chờ chuyển · ghi nhật ký">Duyệt chi 1.200.000đ</button></div>
 </div></div>
 <div class="modal-wrap" id="m-tu-choi" role="dialog" aria-labelledby="m-tu-choi-t"><div class="modal modal--danger">
   <h2 class="modal__t" id="m-tu-choi-t">Từ chối lệnh RT-2720?</h2>

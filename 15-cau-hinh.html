@@ -95,24 +95,24 @@
   <div class="pg__actions"><a class="btn btn--ghost btn--sm" href="16-nhat-ky.html"><svg class="ic"><use href="#i-history"/></svg>Lịch sử thay đổi</a><button class="btn btn--ghost btn--sm" data-open="#modal-keys"><svg class="ic"><use href="#i-keyboard"/></svg>Phím tắt</button></div>
 </div>
 
-<div class="toolbar"><div class="counts"><button class="counts__i is-on">Tất cả <b>19</b></button><button class="counts__i">Đã sửa <b>3</b></button><button class="counts__i">Công khai <b>9</b></button></div><div class="fbar"><label class="fsearch"><svg class="ic ic--sm"><use href="#i-search"/></svg><input placeholder="Tìm cài đặt"></label></div></div>
+<div class="toolbar"><div class="counts"><button class="counts__i is-on">Tất cả <b>18</b></button><button class="counts__i">Đã sửa <b>3</b></button><button class="counts__i">Công khai <b>9</b></button></div><div class="fbar"><label class="fsearch"><svg class="ic ic--sm"><use href="#i-search"/></svg><input placeholder="Tìm cài đặt"></label></div></div>
 
 <div class="card">
-  <div class="card__head"><h2 class="card__t">Rút tiền &amp; duyệt chi</h2><span class="card__meta">5 tham số</span></div>
+  <div class="card__head"><h2 class="card__t">Rút tiền &amp; duyệt chi</h2><span class="card__meta">6 tham số</span></div>
   <div class="set is-dirty">
     <div><div class="set__k">Ngưỡng rút tối thiểu<code>withdraw_min</code></div><div class="set__d">Lệnh nhỏ hơn bị chặn ngay lúc tạo.</div><div class="row row--wrap mt-8 small"><span class="badge badge--pending badge--sm">Chưa lưu</span><span class="chg"><s>30.000đ</s> → <b>50.000đ</b></span><a class="link" data-toast="Đã hoàn tác · ngưỡng rút giữ 30.000đ">Hoàn tác</a></div></div>
-    <div class="set__v"><div class="input-wrap"><input class="input input--money" value="50.000" aria-label="withdraw_min"><span class="input__sfx">đ</span></div></div>
+    <div class="set__v"><div class="input-wrap"><input class="input input--money" value="50.000"><span class="input__sfx">đ</span></div></div>
     <div class="set__m"><span class="badge badge--info badge--sm">Công khai</span></div>
   </div>
   <div class="set">
-    <div><div class="set__k">Mức chi tự động qua PayOS<code>withdraw_auto_max</code></div><div class="set__d">Đến mức này: PayOS chuyển ngay, không cần người duyệt.</div></div>
-    <div class="set__v"><div class="input-wrap"><input class="input input--money" value="500.000" aria-label="withdraw_auto_max"><span class="input__sfx">đ</span></div></div>
-    <div class="set__m"></div>
+    <div><div class="set__k">Mức cần duyệt<code>withdraw_auto_max</code></div><div class="set__d">Dưới mức này PayOS chuyển ngay; từ mức này trở lên cần một người duyệt.</div></div>
+    <div class="set__v"><div class="input-wrap"><input class="input input--money" value="500.000"><span class="input__sfx">đ</span></div></div>
+    <div class="set__m"><span class="badge badge--info badge--sm">Công khai</span></div>
   </div>
   <div class="set">
-    <div><div class="set__k">Ngưỡng cần hai người duyệt<code>approval_two_person_min</code></div><div class="set__d">Lệnh chi từ mức này trở lên cần hai người.</div></div>
-    <div class="set__v"><div class="input-wrap"><input class="input input--money" value="1.000.000" aria-label="approval_two_person_min"><span class="input__sfx">đ</span></div></div>
-    <div class="set__m"><span class="badge badge--yellow badge--sm demo-only">Chưa chốt</span></div>
+    <div><div class="set__k">Số lệnh tự động mỗi ngày<code>withdraw_auto_daily_count</code></div><div class="set__d">Từ lệnh thứ ba trong ngày của một người, lệnh phải chờ duyệt dù số tiền nhỏ.</div></div>
+    <div class="set__v"><div class="input-wrap"><input class="input input--sfx" value="2"><span class="input__sfx">lệnh</span></div></div>
+    <div class="set__m"></div>
   </div>
   <div class="set">
     <div><div class="set__k">Mức tự bù khiếu nại<code>complaint_self_credit_max</code></div><div class="set__d">Bù theo khiếu nại trong mức này cộng ngay; vượt mức hoặc điều chỉnh khác cần người thứ hai.</div></div>
@@ -121,36 +121,31 @@
   </div>
   <div class="set">
     <div><div class="set__k">Khoá rút sau khi đổi ngân hàng<code>bank_lock_hours</code></div><div class="set__d">Tính từ lúc thêm hoặc đổi tài khoản nhận tiền.</div></div>
-    <div class="set__v"><div class="input-wrap"><input class="input input--sfx" value="24" aria-label="bank_lock_hours"><span class="input__sfx">giờ</span></div></div>
+    <div class="set__v"><div class="input-wrap"><input class="input input--sfx" value="24"><span class="input__sfx">giờ</span></div></div>
     <div class="set__m"><span class="badge badge--info badge--sm">Công khai</span></div>
   </div>
   <div class="set">
-    <div><div class="set__k">Giờ gom lô tay<code>payout_batch_time</code></div><div class="set__d">Kế toán gom các lệnh đã duyệt thành lô một lần mỗi ngày làm việc.</div></div>
-    <div class="set__v"><input class="input" value="16:00" aria-label="payout_batch_time"></div>
+    <div><div class="set__k">Giờ gom lô chuyển khoản<code>payout_batch_time</code></div><div class="set__d">Lệnh đã duyệt đi chuyển khoản được gom thành lô một lần mỗi ngày làm việc.</div></div>
+    <div class="set__v"><input class="input" value="16:00"></div>
     <div class="set__m"></div>
   </div>
 </div>
 
 <div class="card">
-  <div class="card__head"><h2 class="card__t">Tiền hoàn &amp; hạng</h2><span class="card__meta">5 tham số</span></div>
+  <div class="card__head"><h2 class="card__t">Tiền hoàn &amp; mời bạn</h2><span class="card__meta">4 tham số</span></div>
   <div class="set">
-    <div><div class="set__k">Tỷ lệ chia theo hạng<code>tier_share_bp</code></div><div class="set__d">Phần hoa hồng sàn trả mà người dùng nhận.</div></div>
-    <div class="set__v"><div class="tiers"><label>Bạc<div class="input-wrap"><input class="input input--sfx" value="80"><span class="input__sfx">%</span></div></label><label>Vàng<div class="input-wrap"><input class="input input--sfx" value="85"><span class="input__sfx">%</span></div></label><label>Kim cương<div class="input-wrap"><input class="input input--sfx" placeholder="—" disabled><span class="input__sfx">%</span></div></label></div></div>
+    <div><div class="set__k">Tỷ lệ hoàn cho người dùng<code>user_share_bp</code></div><div class="set__d">Phần hoa hồng Shopee trả mà người dùng nhận; một tỷ lệ cho mọi người.</div></div>
+    <div class="set__v"><div class="input-wrap"><input class="input input--sfx" value="80"><span class="input__sfx">%</span></div></div>
     <div class="set__m"><span class="badge badge--info badge--sm">Công khai</span></div>
-  </div>
-  <div class="set">
-    <div><div class="set__k">Quy tắc lên hạng<code>tier_rules</code></div><div class="set__d">Giá trị đơn đã cộng ví để lên hạng Vàng.</div></div>
-    <div class="set__v"><div class="input-wrap"><input class="input input--money" value="5.000.000"><span class="input__sfx">đ</span></div></div>
-    <div class="set__m"><span class="badge badge--yellow badge--sm demo-only">Chưa chốt</span><span class="badge badge--info badge--sm">Công khai</span></div>
   </div>
   <div class="set">
     <div><div class="set__k">Cửa sổ click hợp lệ<code>click_window_days</code></div><div class="set__d">Đơn mua trong khoảng này sau click qua salevề mới được gắn cho người dùng.</div></div>
-    <div class="set__v"><div class="input-wrap"><input class="input input--sfx" value="7" aria-label="click_window_days"><span class="input__sfx">ngày</span></div></div>
+    <div class="set__v"><div class="input-wrap"><input class="input input--sfx" value="7"><span class="input__sfx">ngày</span></div></div>
     <div class="set__m"><span class="badge badge--info badge--sm">Công khai</span></div>
   </div>
   <div class="set">
-    <div><div class="set__k">Số ngày dự kiến sàn chốt<code>eta_days_default</code></div><div class="set__d">Chỉ dùng nội bộ để ước tính, không hiện cho người dùng.</div></div>
-    <div class="set__v"><div class="input-wrap"><input class="input input--sfx" value="35" aria-label="eta_days_default"><span class="input__sfx">ngày</span></div></div>
+    <div><div class="set__k">Số ngày ước tính Shopee duyệt<code>eta_days_default</code></div><div class="set__d">Chỉ dùng nội bộ để ước tính, không hiện cho người dùng.</div></div>
+    <div class="set__v"><div class="input-wrap"><input class="input input--sfx" value="35"><span class="input__sfx">ngày</span></div></div>
     <div class="set__m"></div>
   </div>
   <div class="set">
@@ -208,8 +203,8 @@
   <div class="integ">
     <div class="integ__i"><b><i class="dot dot--ok"></i>Shopee Affiliate <span class="badge badge--done badge--sm">Đang chạy</span></b><small>Đồng bộ báo cáo 14:30 · 128 đơn · không lỗi · cửa sổ 3 ngày · lần tới 14:45.</small><div class="row gap-4"><button class="btn btn--ghost btn--sm" data-toast="Đã xếp lịch đồng bộ · ghi nhật ký">Đồng bộ ngay</button></div></div>
     <div class="integ__i"><b><i class="dot dot--warn"></i>PayOS <span class="badge badge--pending badge--sm demo-only">Chờ client</span></b><small>Chi tự động dưới ngưỡng. Đang thử nghiệm, chưa chuyển tiền thật. Cần client cung cấp khoá kết nối (xem tài liệu kỹ thuật).</small></div>
-    <div class="integ__i"><b><i class="dot dot--warn"></i>Zalo OA / ZNS <span class="badge badge--pending badge--sm demo-only">Chờ client</span></b><small>Gửi thông báo và mã OTP cho người dùng qua Zalo. Cần client đăng ký Zalo OA và mẫu tin ZNS.</small></div>
-    <div class="integ__i"><b><i class="dot"></i>SMS <span class="badge badge--off badge--sm">Chưa bật</span></b><small>Dự phòng khi người dùng không dùng Zalo.</small></div>
+    <div class="integ__i"><b><i class="dot dot--warn"></i>SMS Brandname <span class="badge badge--pending badge--sm demo-only">Chờ client</span></b><small>Gửi mã đăng nhập cho người dùng. Client đang đăng ký qua nhà cung cấp.</small></div>
+    <div class="integ__i"><b><i class="dot"></i>Zalo OA / ZNS <span class="badge badge--off badge--sm">Chưa bật</span></b><small>Gửi thông báo cho người dùng qua Zalo.</small></div>
   </div>
 </div>
 
@@ -262,7 +257,7 @@
     tb.addEventListener('click',function(e){var tr=e.target.closest('tr');if(!tr||e.target.closest('a,button,.check'))return;
       var txt=tr.textContent;if(key&&txt.indexOf(key)>=0){qp.innerHTML=full;return;}
       var c=tr.cells,rows='',title='';function val(td){var parts=[].map.call(td.children.length?td.children:[td],function(n){return n.textContent.replace(/\s+/g,' ').trim();}).filter(Boolean);var own=[].filter.call(td.childNodes,function(n){return n.nodeType===3&&n.textContent.trim();}).map(function(n){return n.textContent.trim();});return own.concat(td.children.length?parts:[]).join(' · ')||td.textContent.trim();}
-      for(var i=0;i<c.length;i++){var h=heads[i];if(!h||getComputedStyle(c[i]).display==='none'||!c[i].textContent.trim()||c[i].querySelector('.check'))continue;var v=val(c[i]);if(i===0){title=v;continue;}rows+='<dt>'+h.charAt(0)+h.slice(1).toLowerCase()+'</dt><dd>'+v+'</dd>';}
+      for(var i=0;i<c.length;i++){var h=heads[i];if(!h||getComputedStyle(c[i]).display==='none'||!c[i].textContent.trim()||c[i].querySelector('.check'))continue;var v=val(c[i]);if(i===0){title=v.split(' · ')[0]==='Khiếu nại'||v.split(' · ')[0]==='Đối soát'||v.split(' · ')[0]==='Duyệt chi'||v.split(' · ')[0]==='Gian lận'?v:v.split(' · ')[0];continue;}rows+='<dt>'+h+'</dt><dd>'+v+'</dd>';}
       qp.innerHTML='<div class="qp__hd"><div><h3>'+title+'</h3></div><button class="qp__x" title="Đóng" aria-label="Đóng"><svg class="ic ic--sm"><use href="#i-x"/></svg></button></div><div class="qp__bd"><dl class="kv kv--tight">'+rows+'</dl></div><div class="qp__ft"><span class="btn btn--secondary btn--sm is-disabled" title="Mở hồ sơ">Mở hồ sơ</span></div>';
       qp.querySelector('.qp__x').addEventListener('click',function(){lay.classList.add('is-closed');});},true);})();
   document.querySelectorAll('.qp__x').forEach(function(x){x.addEventListener('click',function(){var lay=x.closest('.qp-layout');if(lay)lay.classList.add('is-closed');});});

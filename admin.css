@@ -1,8 +1,7 @@
 /* ============================================================
-   salevề · trang vận hành (admin) · admin.css
-   Claude Design · 13/10/2026 · gói ADM-001
+   salevề · trang vận hành (admin) · admin.css · 13/10/2026
    Dùng chung cho mọi màn trong gói. Token ở :root là nguồn duy nhất;
-   README-ADMIN.md giải thích vai trò từng token.
+   Bảng token xem 00-he-component.html.
    ============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');
 
