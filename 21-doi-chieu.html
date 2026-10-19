@@ -12,7 +12,7 @@
 .tbl--v2 td.num b{font-weight:700}
 .tbl--v2 tr.tot td{background:var(--sand-2);font-weight:700}
 </style>
-<script>window.ADM_SCREENS=[["index.html","Mục lục"],["00-he-component.html","00 · Hệ component"],["01-hop-viec.html","01 · Việc cần xử lý · Tất cả"],["02-hop-viec-duyet-chi.html","02 · Việc cần xử lý · Chờ duyệt chi"],["03-ho-so-lenh-chi.html","03 · Hồ sơ lệnh chi RT-2720"],["04-hop-viec-khieu-nai.html","04 · Việc cần xử lý · Khiếu nại"],["05-ho-so-khieu-nai.html","05 · Hồ sơ khiếu nại KN706476"],["06-hop-viec-doi-soat.html","06 · Việc cần xử lý · Đối soát"],["07-ho-so-doi-soat.html","07 · Hồ sơ đối soát DS241010"],["08-hop-viec-gian-lan.html","08 · Việc cần xử lý · Nghi gian lận"],["09-giao-dich-don.html","09 · Giao dịch · Đơn & hoa hồng"],["10-giao-dich-lenh-chi.html","10 · Giao dịch · Lệnh chi"],["12-nguoi-dung.html","12 · Người dùng"],["13-ho-so-nguoi-dung.html","13 · Hồ sơ người dùng"],["14-noi-dung.html","14 · Nội dung"],["15-cau-hinh.html","15 · Cấu hình"],["16-nhat-ky.html","16 · Nhật ký"],["17-trang-thai-phim-tat.html","17 · Trạng thái & phím tắt"],["18-ho-so-don.html","18 · Hồ sơ đơn 2409B58F2"],["19-nhan-vien.html","19 · Nhân viên"],["20-tai-khoan.html","20 · Tài khoản của tôi"],["21-doi-chieu.html","21 · Đối chiếu"]];</script>
+<script>window.ADM_SCREENS=[["index.html","Mục lục"],["00-he-component.html","00 · Hệ component"],["01-hop-viec.html","01 · Việc cần xử lý · Tất cả"],["02-hop-viec-duyet-chi.html","02 · Việc cần xử lý · Chờ duyệt chi"],["03-ho-so-lenh-chi.html","03 · Hồ sơ lệnh chi RT-2720"],["04-hop-viec-khieu-nai.html","04 · Việc cần xử lý · Khiếu nại"],["05-ho-so-khieu-nai.html","05 · Hồ sơ khiếu nại KN706476"],["06-hop-viec-doi-soat.html","06 · Việc cần xử lý · Đối soát"],["07-ho-so-doi-soat.html","07 · Hồ sơ đối soát DS241010"],["08-hop-viec-gian-lan.html","08 · Việc cần xử lý · Nghi gian lận"],["09-giao-dich-don.html","09 · Giao dịch · Đơn & hoa hồng"],["10-giao-dich-lenh-chi.html","10 · Giao dịch · Lệnh chi"],["12-nguoi-dung.html","12 · Người dùng"],["13-ho-so-nguoi-dung.html","13 · Hồ sơ người dùng"],["14-noi-dung.html","14 · Nội dung"],["15-cau-hinh.html","15 · Cấu hình"],["16-nhat-ky.html","16 · Nhật ký"],["17-trang-thai-phim-tat.html","17 · Trạng thái & phím tắt"],["18-ho-so-don.html","18 · Hồ sơ đơn 2409B58F2"],["19-nhan-vien.html","19 · Nhân viên"],["20-tai-khoan.html","20 · Tài khoản của tôi"],["21-doi-chieu.html","21 · Đối chiếu"],["22-chot-hoa-hong.html","22 · Chốt hoa hồng"]];</script>
 </head>
 <body class="adm" data-role="admin">
 <div class="app">
@@ -28,6 +28,7 @@
     <div class="sb__group">Giao dịch</div>
     <a class="sb__item" data-nav="don" href="09-giao-dich-don.html"><svg class="ic"><use href="#i-package"/></svg><span>Đơn &amp; hoa hồng</span></a>
     <a class="sb__item" data-nav="lenh-chi" data-roles="finance admin" href="10-giao-dich-lenh-chi.html"><svg class="ic"><use href="#i-bank"/></svg><span>Lệnh chi</span></a>
+    <a class="sb__item" data-nav="chot-hh" data-roles="finance admin" href="22-chot-hoa-hong.html"><svg class="ic"><use href="#i-check-circle"/></svg><span>Chốt hoa hồng</span></a>
     <a class="sb__item is-active" data-nav="doi-chieu" aria-current="page" data-roles="finance admin" href="21-doi-chieu.html"><svg class="ic"><use href="#i-layers"/></svg><span>Đối chiếu</span></a>
     <div class="sb__group">Tra cứu</div>
     <a class="sb__item" data-nav="nguoi-dung" href="12-nguoi-dung.html"><svg class="ic"><use href="#i-users"/></svg><span>Người dùng</span></a>
@@ -76,7 +77,7 @@
   <div class="tbl__hd"><b>Đối chiếu theo tháng</b></div>
   <table class="tbl tbl--v2 tbl--inbox">
     <colgroup><col style="width:110px"><col><col><col><col><col><col style="width:150px"></colgroup>
-    <thead><tr><th>Tháng</th><th class="num">HH Shopee duyệt</th><th class="num">Về ví khách</th><th class="num">Bù · thưởng</th><th class="num">Đã chi</th><th class="num">Nợ cuối tháng</th><th>Đối chiếu</th></tr></thead>
+    <thead><tr><th>Tháng</th><th class="num">HH Shopee chốt</th><th class="num">Về ví khách</th><th class="num">Bù · thưởng</th><th class="num">Đã chi</th><th class="num">Nợ cuối tháng</th><th>Đối chiếu</th></tr></thead>
     <tbody>
       <tr><td><b>10/2026</b><span class="sub">đến 15/10</span></td><td class="num">8.420.000đ</td><td class="num">6.736.000đ</td><td class="num">+1.102.900đ</td><td class="num">9.850.000đ</td><td class="num"><b>55.430.000đ</b></td><td><span class="badge badge--pending badge--sm">Đang chạy</span></td></tr>
       <tr><td><b>09/2026</b></td><td class="num">21.300.000đ</td><td class="num">17.040.000đ</td><td class="num">+118.400đ</td><td class="num">24.600.000đ</td><td class="num"><b>57.441.100đ</b></td><td><span class="badge badge--done badge--sm">Khớp Shopee</span></td></tr>

@@ -41,7 +41,7 @@
 .set__k code{font-size:10.5px;opacity:.7}
 .stack>.card:last-of-type{margin-bottom:64px}
 </style>
-<script>window.ADM_SCREENS=[["index.html","Mục lục"],["00-he-component.html","00 · Hệ component"],["01-hop-viec.html","01 · Việc cần xử lý · Tất cả"],["02-hop-viec-duyet-chi.html","02 · Việc cần xử lý · Chờ duyệt chi"],["03-ho-so-lenh-chi.html","03 · Hồ sơ lệnh chi RT-2720"],["04-hop-viec-khieu-nai.html","04 · Việc cần xử lý · Khiếu nại"],["05-ho-so-khieu-nai.html","05 · Hồ sơ khiếu nại KN706476"],["06-hop-viec-doi-soat.html","06 · Việc cần xử lý · Đối soát"],["07-ho-so-doi-soat.html","07 · Hồ sơ đối soát DS241010"],["08-hop-viec-gian-lan.html","08 · Việc cần xử lý · Nghi gian lận"],["09-giao-dich-don.html","09 · Giao dịch · Đơn & hoa hồng"],["10-giao-dich-lenh-chi.html","10 · Giao dịch · Lệnh chi"],["12-nguoi-dung.html","12 · Người dùng"],["13-ho-so-nguoi-dung.html","13 · Hồ sơ người dùng"],["14-noi-dung.html","14 · Nội dung"],["15-cau-hinh.html","15 · Cấu hình"],["16-nhat-ky.html","16 · Nhật ký"],["17-trang-thai-phim-tat.html","17 · Trạng thái & phím tắt"],["18-ho-so-don.html","18 · Hồ sơ đơn 2409B58F2"],["19-nhan-vien.html","19 · Nhân viên"],["20-tai-khoan.html","20 · Tài khoản của tôi"],["21-doi-chieu.html","21 · Đối chiếu"]];</script>
+<script>window.ADM_SCREENS=[["index.html","Mục lục"],["00-he-component.html","00 · Hệ component"],["01-hop-viec.html","01 · Việc cần xử lý · Tất cả"],["02-hop-viec-duyet-chi.html","02 · Việc cần xử lý · Chờ duyệt chi"],["03-ho-so-lenh-chi.html","03 · Hồ sơ lệnh chi RT-2720"],["04-hop-viec-khieu-nai.html","04 · Việc cần xử lý · Khiếu nại"],["05-ho-so-khieu-nai.html","05 · Hồ sơ khiếu nại KN706476"],["06-hop-viec-doi-soat.html","06 · Việc cần xử lý · Đối soát"],["07-ho-so-doi-soat.html","07 · Hồ sơ đối soát DS241010"],["08-hop-viec-gian-lan.html","08 · Việc cần xử lý · Nghi gian lận"],["09-giao-dich-don.html","09 · Giao dịch · Đơn & hoa hồng"],["10-giao-dich-lenh-chi.html","10 · Giao dịch · Lệnh chi"],["12-nguoi-dung.html","12 · Người dùng"],["13-ho-so-nguoi-dung.html","13 · Hồ sơ người dùng"],["14-noi-dung.html","14 · Nội dung"],["15-cau-hinh.html","15 · Cấu hình"],["16-nhat-ky.html","16 · Nhật ký"],["17-trang-thai-phim-tat.html","17 · Trạng thái & phím tắt"],["18-ho-so-don.html","18 · Hồ sơ đơn 2409B58F2"],["19-nhan-vien.html","19 · Nhân viên"],["20-tai-khoan.html","20 · Tài khoản của tôi"],["21-doi-chieu.html","21 · Đối chiếu"],["22-chot-hoa-hong.html","22 · Chốt hoa hồng"]];</script>
 </head>
 <body class="adm" data-role="admin">
 <div class="app">
@@ -57,6 +57,7 @@
     <div class="sb__group">Giao dịch</div>
     <a class="sb__item" data-nav="don" href="09-giao-dich-don.html"><svg class="ic"><use href="#i-package"/></svg><span>Đơn &amp; hoa hồng</span></a>
     <a class="sb__item" data-nav="lenh-chi" data-roles="finance admin" href="10-giao-dich-lenh-chi.html"><svg class="ic"><use href="#i-bank"/></svg><span>Lệnh chi</span></a>
+    <a class="sb__item" data-nav="chot-hh" data-roles="finance admin" href="22-chot-hoa-hong.html"><svg class="ic"><use href="#i-check-circle"/></svg><span>Chốt hoa hồng</span></a>
     <a class="sb__item" data-nav="doi-chieu" data-roles="finance admin" href="21-doi-chieu.html"><svg class="ic"><use href="#i-layers"/></svg><span>Đối chiếu</span></a>
     <div class="sb__group">Tra cứu</div>
     <a class="sb__item" data-nav="nguoi-dung" href="12-nguoi-dung.html"><svg class="ic"><use href="#i-users"/></svg><span>Người dùng</span></a>
@@ -95,23 +96,28 @@
   <div class="pg__actions"><a class="btn btn--ghost btn--sm" href="16-nhat-ky.html"><svg class="ic"><use href="#i-history"/></svg>Lịch sử thay đổi</a><button class="btn btn--ghost btn--sm" data-open="#modal-keys"><svg class="ic"><use href="#i-keyboard"/></svg>Phím tắt</button></div>
 </div>
 
-<div class="toolbar"><div class="counts"><button class="counts__i is-on">Tất cả <b>18</b></button><button class="counts__i">Đã sửa <b>3</b></button><button class="counts__i">Công khai <b>9</b></button></div><div class="fbar"><label class="fsearch"><svg class="ic ic--sm"><use href="#i-search"/></svg><input placeholder="Tìm cài đặt"></label></div></div>
+<div class="toolbar"><div class="counts"><button class="counts__i is-on">Tất cả <b>20</b></button><button class="counts__i">Đã sửa <b>3</b></button><button class="counts__i">Công khai <b>6</b></button></div><div class="fbar"><label class="fsearch"><svg class="ic ic--sm"><use href="#i-search"/></svg><input placeholder="Tìm cài đặt"></label></div></div>
 
 <div class="card">
-  <div class="card__head"><h2 class="card__t">Rút tiền &amp; duyệt chi</h2><span class="card__meta">6 tham số</span></div>
+  <div class="card__head"><h2 class="card__t">Rút tiền &amp; duyệt chi</h2><span class="card__meta">7 tham số</span></div>
   <div class="set is-dirty">
     <div><div class="set__k">Ngưỡng rút tối thiểu<code>withdraw_min</code></div><div class="set__d">Lệnh nhỏ hơn bị chặn ngay lúc tạo.</div><div class="row row--wrap mt-8 small"><span class="badge badge--pending badge--sm">Chưa lưu</span><span class="chg"><s>30.000đ</s> → <b>50.000đ</b></span><a class="link" data-toast="Đã hoàn tác · ngưỡng rút giữ 30.000đ">Hoàn tác</a></div></div>
     <div class="set__v"><div class="input-wrap"><input class="input input--money" value="50.000"><span class="input__sfx">đ</span></div></div>
     <div class="set__m"><span class="badge badge--info badge--sm">Công khai</span></div>
   </div>
   <div class="set">
-    <div><div class="set__k">Mức cần duyệt<code>withdraw_auto_max</code></div><div class="set__d">Dưới mức này PayOS chuyển ngay; từ mức này trở lên cần một người duyệt.</div></div>
+    <div><div class="set__k">Mức cần duyệt<code>withdraw_approval_min</code></div><div class="set__d">Dưới mức này PayOS chuyển ngay; từ mức này trở lên cần một người duyệt.</div></div>
     <div class="set__v"><div class="input-wrap"><input class="input input--money" value="500.000"><span class="input__sfx">đ</span></div></div>
     <div class="set__m"><span class="badge badge--info badge--sm">Công khai</span></div>
   </div>
   <div class="set">
-    <div><div class="set__k">Số lệnh tự động mỗi ngày<code>withdraw_auto_daily_count</code></div><div class="set__d">Từ lệnh thứ ba trong ngày của một người, lệnh phải chờ duyệt dù số tiền nhỏ.</div></div>
+    <div><div class="set__k">Số lệnh tự động mỗi ngày<code>withdraw_daily_auto_count</code></div><div class="set__d">Từ lệnh thứ ba trong ngày của một người, lệnh phải chờ duyệt dù số tiền nhỏ. Mỗi lúc chỉ một lệnh đang xử lý.</div></div>
     <div class="set__v"><div class="input-wrap"><input class="input input--sfx" value="2"><span class="input__sfx">lệnh</span></div></div>
+    <div class="set__m"></div>
+  </div>
+  <div class="set">
+    <div><div class="set__k">Lệnh lớn chuyển khoản theo lô<code>withdraw_auto_max</code></div><div class="set__d">Từ mức này lệnh đã duyệt không đi PayOS mà vào lô chuyển khoản.</div></div>
+    <div class="set__v"><div class="input-wrap"><input class="input input--money" value="50.000.000"><span class="input__sfx">đ</span></div></div>
     <div class="set__m"></div>
   </div>
   <div class="set">
@@ -132,9 +138,19 @@
 </div>
 
 <div class="card">
-  <div class="card__head"><h2 class="card__t">Tiền hoàn &amp; mời bạn</h2><span class="card__meta">4 tham số</span></div>
+  <div class="card__head"><h2 class="card__t">Tiền hoàn &amp; mời bạn</h2><span class="card__meta">6 tham số</span></div>
   <div class="set">
-    <div><div class="set__k">Tỷ lệ hoàn cho người dùng<code>user_share_bp</code></div><div class="set__d">Phần hoa hồng Shopee trả mà người dùng nhận; một tỷ lệ cho mọi người.</div></div>
+    <div><div class="set__k">Cho rút khi<code>credit_on</code></div><div class="set__d">Shopee chốt kỳ: tiền chỉ sang Có thể rút sau khi kế toán chốt hoa hồng ở màn Chốt hoa hồng.</div></div>
+    <div class="set__v"><select class="input"><option>Shopee chốt kỳ</option><option>Shopee duyệt đơn</option></select></div>
+    <div class="set__m"></div>
+  </div>
+  <div class="set">
+    <div><div class="set__k">Bắt đầu tính đơn từ<code>conversions_start_at</code></div><div class="set__d">Đơn mua trước ngày này không được ghi nhận.</div></div>
+    <div class="set__v"><input class="input" value="ngày ra mắt"></div>
+    <div class="set__m"></div>
+  </div>
+  <div class="set">
+    <div><div class="set__k">Tỷ lệ hoàn cho người dùng<code>tier_share_bp.silver</code></div><div class="set__d">Phần hoa hồng Shopee trả mà người dùng nhận; một tỷ lệ cho mọi người.</div></div>
     <div class="set__v"><div class="input-wrap"><input class="input input--sfx" value="80"><span class="input__sfx">%</span></div></div>
     <div class="set__m"><span class="badge badge--info badge--sm">Công khai</span></div>
   </div>

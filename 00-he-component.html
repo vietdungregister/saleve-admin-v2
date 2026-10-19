@@ -7,7 +7,7 @@
 <title>Hệ component V2 · salevề vận hành</title>
 <link rel="stylesheet" href="admin.css">
 <link rel="stylesheet" href="admin-v2.css">
-<script>window.ADM_SCREENS=[["index.html","Mục lục"],["00-he-component.html","00 · Hệ component"],["01-hop-viec.html","01 · Việc cần xử lý · Tất cả"],["02-hop-viec-duyet-chi.html","02 · Việc cần xử lý · Chờ duyệt chi"],["03-ho-so-lenh-chi.html","03 · Hồ sơ lệnh chi RT-2720"],["04-hop-viec-khieu-nai.html","04 · Việc cần xử lý · Khiếu nại"],["05-ho-so-khieu-nai.html","05 · Hồ sơ khiếu nại KN706476"],["06-hop-viec-doi-soat.html","06 · Việc cần xử lý · Đối soát"],["07-ho-so-doi-soat.html","07 · Hồ sơ đối soát DS241010"],["08-hop-viec-gian-lan.html","08 · Việc cần xử lý · Nghi gian lận"],["09-giao-dich-don.html","09 · Giao dịch · Đơn & hoa hồng"],["10-giao-dich-lenh-chi.html","10 · Giao dịch · Lệnh chi"],["12-nguoi-dung.html","12 · Người dùng"],["13-ho-so-nguoi-dung.html","13 · Hồ sơ người dùng"],["14-noi-dung.html","14 · Nội dung"],["15-cau-hinh.html","15 · Cấu hình"],["16-nhat-ky.html","16 · Nhật ký"],["17-trang-thai-phim-tat.html","17 · Trạng thái & phím tắt"],["18-ho-so-don.html","18 · Hồ sơ đơn 2409B58F2"],["19-nhan-vien.html","19 · Nhân viên"],["20-tai-khoan.html","20 · Tài khoản của tôi"],["21-doi-chieu.html","21 · Đối chiếu"]];</script>
+<script>window.ADM_SCREENS=[["index.html","Mục lục"],["00-he-component.html","00 · Hệ component"],["01-hop-viec.html","01 · Việc cần xử lý · Tất cả"],["02-hop-viec-duyet-chi.html","02 · Việc cần xử lý · Chờ duyệt chi"],["03-ho-so-lenh-chi.html","03 · Hồ sơ lệnh chi RT-2720"],["04-hop-viec-khieu-nai.html","04 · Việc cần xử lý · Khiếu nại"],["05-ho-so-khieu-nai.html","05 · Hồ sơ khiếu nại KN706476"],["06-hop-viec-doi-soat.html","06 · Việc cần xử lý · Đối soát"],["07-ho-so-doi-soat.html","07 · Hồ sơ đối soát DS241010"],["08-hop-viec-gian-lan.html","08 · Việc cần xử lý · Nghi gian lận"],["09-giao-dich-don.html","09 · Giao dịch · Đơn & hoa hồng"],["10-giao-dich-lenh-chi.html","10 · Giao dịch · Lệnh chi"],["12-nguoi-dung.html","12 · Người dùng"],["13-ho-so-nguoi-dung.html","13 · Hồ sơ người dùng"],["14-noi-dung.html","14 · Nội dung"],["15-cau-hinh.html","15 · Cấu hình"],["16-nhat-ky.html","16 · Nhật ký"],["17-trang-thai-phim-tat.html","17 · Trạng thái & phím tắt"],["18-ho-so-don.html","18 · Hồ sơ đơn 2409B58F2"],["19-nhan-vien.html","19 · Nhân viên"],["20-tai-khoan.html","20 · Tài khoản của tôi"],["21-doi-chieu.html","21 · Đối chiếu"],["22-chot-hoa-hong.html","22 · Chốt hoa hồng"]];</script>
 <style>
 /* Bổ sung riêng cho màn này */
 /* màn 00: sơ đồ vòng đời, hình thu nhỏ panel/hồ sơ, lưới mẫu */
@@ -65,6 +65,7 @@
     <div class="sb__group">Giao dịch</div>
     <a class="sb__item" data-nav="don" href="09-giao-dich-don.html"><svg class="ic"><use href="#i-package"/></svg><span>Đơn &amp; hoa hồng</span></a>
     <a class="sb__item" data-nav="lenh-chi" data-roles="finance admin" href="10-giao-dich-lenh-chi.html"><svg class="ic"><use href="#i-bank"/></svg><span>Lệnh chi</span></a>
+    <a class="sb__item" data-nav="chot-hh" data-roles="finance admin" href="22-chot-hoa-hong.html"><svg class="ic"><use href="#i-check-circle"/></svg><span>Chốt hoa hồng</span></a>
     <a class="sb__item" data-nav="doi-chieu" data-roles="finance admin" href="21-doi-chieu.html"><svg class="ic"><use href="#i-layers"/></svg><span>Đối chiếu</span></a>
     <div class="sb__group">Tra cứu</div>
     <a class="sb__item" data-nav="nguoi-dung" href="12-nguoi-dung.html"><svg class="ic"><use href="#i-users"/></svg><span>Người dùng</span></a>
@@ -153,7 +154,8 @@
       <tr><td class="mono">rejected</td><td>Từ chối · mã lý do</td><td><span class="badge badge--fail badge--sm">Từ chối</span></td></tr>
       <tr><td class="mono">cancelled</td><td>Đã huỷ (người dùng huỷ trước khi duyệt)</td><td><span class="badge badge--off badge--sm">Đã huỷ</span></td></tr>
       <tr><td class="mono">expired</td><td>Hết hạn duyệt · tiền về ví</td><td><span class="badge badge--off badge--sm">Hết hạn</span></td></tr>
-      <tr><td rowspan="6">Đơn <span class="mono">order.status</span></td><td class="mono">pending</td><td>Chờ sàn duyệt</td><td><span class="badge badge--pending badge--sm">Chờ sàn duyệt</span></td></tr>
+      <tr><td rowspan="7">Đơn <span class="mono">order.status</span></td><td class="mono">pending</td><td>Chờ sàn duyệt</td><td><span class="badge badge--pending badge--sm">Chờ sàn duyệt</span></td></tr>
+      <tr><td class="mono">awaiting_settlement</td><td>Chờ chốt kỳ (sàn đã duyệt, chưa chốt; app vẫn ghi Chờ sàn duyệt)</td><td><span class="badge badge--blue badge--sm">Chờ chốt kỳ</span></td></tr>
       <tr><td class="mono">credited</td><td>Đã về ví (vào phần Có thể rút)</td><td><span class="badge badge--done badge--sm">Đã về ví</span></td></tr>
       <tr><td class="mono">rejected</td><td>Bị từ chối · lý do (huỷ, đổi trả, kênh khác…)</td><td><span class="badge badge--fail badge--sm">Bị từ chối</span></td></tr>
       <tr><td class="mono">unmatched</td><td>Không khớp (chưa gắn được người dùng)</td><td><span class="badge badge--purple badge--sm">Không khớp</span></td></tr>
@@ -321,7 +323,7 @@
     <div class="approve" style="border-style:solid;border-color:var(--reu);background:var(--reu-nhat)"><span class="approve__p"><i class="is-done">✓</i></span><div class="approve__t"><b>Lê Thu Hà 14:05</b><small>PayOS chuyển, hoặc vào lô chuyển khoản</small></div><span class="badge badge--done"><i class="dot"></i>Đã duyệt</span></div>
     <div class="approve"><span class="approve__p"><i>1</i></span><div class="approve__t"><b>Cần người thứ hai</b><small>Điều chỉnh số dư do bạn tạo: bạn không thấy nút duyệt</small></div><span class="badge badge--purple">Cần người thứ hai</span></div>
   </div>
-  <p class="spec"><b>Khi nào dùng:</b> lệnh rút dưới <span class="mono">withdraw_auto_max</span> (500.000đ) và trong <span class="mono">withdraw_auto_daily_count</span> (2 lệnh/ngày) → tự chuyển. Từ 500.000đ hoặc từ lệnh thứ ba trong ngày → một người duyệt. Bù khiếu nại trong <span class="mono">complaint_self_credit_max</span> → một người, cộng ngay. Điều chỉnh khác → người thứ hai, khác người tạo. Hệ thống trả sẵn trạng thái và nút được phép; giao diện không ghi ngưỡng. Hết hạn duyệt → “Hết hạn”, tiền về ví.</p>
+  <p class="spec"><b>Khi nào dùng:</b> lệnh rút dưới <span class="mono">withdraw_approval_min</span> (500.000đ) và trong <span class="mono">withdraw_daily_auto_count</span> (2 lệnh/ngày), mỗi lúc một lệnh → tự chuyển. Từ 500.000đ hoặc từ lệnh thứ ba trong ngày → một người duyệt. Bù khiếu nại trong <span class="mono">complaint_self_credit_max</span> → một người, cộng ngay. Điều chỉnh khác → người thứ hai, khác người tạo. Hệ thống trả sẵn trạng thái và nút được phép; giao diện không ghi ngưỡng. Hết hạn duyệt → “Hết hạn”, tiền về ví.</p>
 </section>
 
 <!-- 12 STK CHE -->
