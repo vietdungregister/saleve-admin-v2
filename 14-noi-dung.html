@@ -74,7 +74,7 @@
 
 <div data-tabs class="stack">
 <div class="row row--between row--wrap">
-  <div class="tabs"><span class="tabs__i is-active" data-tab="bai">Bài viết <span class="tabs__n">12</span></span><span class="tabs__i" data-tab="vc">Voucher <span class="tabs__n">8</span></span><span class="tabs__i" data-tab="cd">Chiến dịch <span class="tabs__n">3</span></span><span class="tabs__i" data-tab="tb">Thông báo</span></div>
+  <div class="tabs"><span class="tabs__i is-active" data-tab="bai">Bài viết <span class="tabs__n">12</span></span><span class="tabs__i" data-tab="vc">Voucher <span class="tabs__n">5</span></span><span class="tabs__i" data-tab="cd">Chiến dịch <span class="tabs__n">3</span></span><span class="tabs__i" data-tab="tb">Thông báo</span></div>
   <div class="fbar"><button class="fsel">Trạng thái: <b>Tất cả</b><svg class="ic"><use href="#i-chevron-down"/></svg></button></div>
 </div>
 
@@ -99,18 +99,19 @@
 
 <div class="stack" data-panel="vc" hidden>
 <div class="tbl-wrap">
-  <div class="tbl__hd"><b>8 voucher</b><button class="btn btn--secondary btn--sm" style="margin-left:auto" data-toast="Mở form thêm voucher (ngoài phạm vi mẫu này)"><svg class="ic"><use href="#i-plus"/></svg>Thêm voucher</button></div>
+  <div class="tbl__hd"><b>5 voucher thưởng</b><span class="muted small">đã thưởng 1.060.000đ</span><button class="btn btn--secondary btn--sm" style="margin-left:auto" data-open="#dr-vc"><svg class="ic"><use href="#i-plus"/></svg>Tạo voucher thưởng</button></div>
   <table class="tbl tbl--v2 tbl--compact" id="tbl-vc">
-    <thead class="sort"><tr><th>Mã</th><th class="sort">Mô tả</th><th>Sàn</th><th class="sort is-asc">Hạn</th><th class="sort">Trạng thái</th><th>Hiện với người dùng</th><th class="right">Hành động</th></tr></thead>
+    <colgroup><col style="width:108px"><col><col style="width:186px"><col style="width:96px"><col style="width:104px"><col style="width:116px"><col style="width:112px"></colgroup>
+    <thead class="sort"><tr><th>Mã</th><th class="sort">Thưởng</th><th class="sort">Thời gian</th><th class="num sort">Đã dùng</th><th class="num sort">Đã thưởng</th><th class="sort">Trạng thái</th><th class="right">Hành động</th></tr></thead>
     <tbody>
-      <tr><td class="code">SVFREE50K</td><td>Freeship tối đa 50.000đ đơn từ 0đ<span class="sub">tặng người dùng mới</span></td><td>Shopee</td><td>31/10/2026</td><td><span class="badge badge--done badge--sm">Đang chạy</span></td><td><span class="badge badge--done badge--sm">Có</span></td><td class="acts"><button class="btn btn--ghost btn--sm">Sửa</button><span class="lnk" data-open="#m-xoa-vc">Xoá…</span></td></tr>
-      <tr><td class="code">SV1111GIAM15</td><td>Giảm 15% tối đa 100.000đ · đơn từ 300.000đ<span class="sub">chiến dịch 11.11 Siêu sale</span></td><td>Shopee</td><td>11/11/2026</td><td><span class="badge badge--off badge--sm">Chưa bắt đầu</span></td><td><span class="badge badge--off badge--sm">Chưa</span></td><td class="acts"><button class="btn btn--ghost btn--sm">Sửa</button><span class="lnk" data-open="#m-xoa-vc">Xoá…</span></td></tr>
-      <tr><td class="code">SVTECH200</td><td>Giảm 200.000đ điện tử · đơn từ 2.000.000đ</td><td>Shopee</td><td>20/10/2026</td><td><span class="badge badge--done badge--sm">Đang chạy</span></td><td><span class="badge badge--done badge--sm">Có</span></td><td class="acts"><button class="btn btn--ghost btn--sm">Sửa</button><span class="lnk" data-open="#m-xoa-vc">Xoá…</span></td></tr>
-      <tr class="is-dim"><td class="code">SV1010SALE</td><td>Giảm 10% tối đa 50.000đ · ngày 10.10</td><td>Shopee</td><td>10/10/2026</td><td><span class="badge badge--off badge--sm">Hết hạn</span></td><td><span class="badge badge--off badge--sm">Không</span></td><td class="acts"><button class="btn btn--ghost btn--sm" data-toast="Đã nhân bản SV1010SALE thành bản nháp mới">Nhân bản</button></td></tr>
-      <tr class="is-dim"><td class="code">SVBEAUTY30</td><td>Giảm 30.000đ mỹ phẩm · đơn từ 150.000đ<span class="sub">xoá 12/10 · Trần Đức Minh · "sàn ngừng mã"</span></td><td>Shopee</td><td>30/10/2026</td><td><span class="badge badge--off badge--sm">Đã xoá</span></td><td><span class="badge badge--off badge--sm">Không</span></td><td class="acts"><button class="btn btn--ghost btn--sm" data-toast="Đã khôi phục SVBEAUTY30 · ghi nhật ký">Khôi phục</button></td></tr>
+      <tr><td class="code">SVNEW20</td><td><b>+20.000đ tiền hoàn</b><span class="sub">đơn đầu tiên · từ 100.000đ</span></td><td style="white-space:nowrap">01/10 – 31/12/2026</td><td class="num">12 / 1.000</td><td class="num">240.000đ</td><td><span class="badge badge--done badge--sm">Đang chạy</span></td><td class="acts"><button class="btn btn--ghost btn--sm" data-open="#dr-vc">Sửa</button><span class="lnk" data-open="#m-xoa-vc">Tắt…</span></td></tr>
+      <tr><td class="code">SV1111X2</td><td><b>Gấp đôi tiền hoàn, tối đa 50.000đ</b><span class="sub">đơn từ 300.000đ · ngày 11/11 · 1 lần/người</span></td><td>11/11/2026</td><td class="num">0 / 500</td><td class="num">0đ</td><td><span class="badge badge--pending badge--sm">Chưa bắt đầu</span></td><td class="acts"><button class="btn btn--ghost btn--sm" data-open="#dr-vc">Sửa</button><span class="lnk" data-open="#m-xoa-vc">Tắt…</span></td></tr>
+      <tr class="is-dim"><td class="code">SVTHANG10</td><td><b>+5% tiền hoàn, tối đa 30.000đ</b><span class="sub">đơn từ 200.000đ · 1 lần/người</span></td><td style="white-space:nowrap">01/10 – 31/10/2026</td><td class="num">50 / 50</td><td class="num">610.000đ</td><td><span class="badge badge--off badge--sm">Hết lượt</span></td><td class="acts"><button class="btn btn--ghost btn--sm" data-toast="Đã nhân bản SVTHANG10 thành bản nháp mới">Nhân bản</button></td></tr>
+      <tr class="is-dim"><td class="code">SV1010</td><td><b>+10.000đ tiền hoàn</b><span class="sub">đơn từ 150.000đ</span></td><td style="white-space:nowrap">05/10 – 10/10/2026</td><td class="num">21 / 200</td><td class="num">210.000đ</td><td><span class="badge badge--off badge--sm">Hết hạn</span></td><td class="acts"><button class="btn btn--ghost btn--sm" data-toast="Đã nhân bản SV1010 thành bản nháp mới">Nhân bản</button></td></tr>
+      <tr><td class="code">SVTEST15</td><td><b>+15.000đ tiền hoàn</b><span class="sub">đơn từ 100.000đ</span></td><td><span class="muted">—</span></td><td class="num"><span class="muted">—</span></td><td class="num"><span class="muted">—</span></td><td><span class="badge badge--off badge--sm">Nháp</span></td><td class="acts"><button class="btn btn--ghost btn--sm" data-open="#dr-vc">Sửa</button><span class="lnk" data-toast="Đã xoá bản nháp SVTEST15 · ghi nhật ký">Xoá</span></td></tr>
     </tbody>
   </table>
-  <div class="pager"><span>1–5 / 8 voucher</span><div class="pager__r"><select class="input"><option>25 / trang</option></select><button class="btn btn--ghost btn--icon" disabled><svg class="ic"><use href="#i-chevron-left"/></svg></button><button class="btn btn--ghost btn--icon"><svg class="ic"><use href="#i-chevron-right"/></svg></button></div></div>
+  <div class="pager"><span>1–5 / 5 voucher</span><div class="pager__r"><select class="input"><option>25 / trang</option></select><button class="btn btn--ghost btn--icon" disabled><svg class="ic"><use href="#i-chevron-left"/></svg></button><button class="btn btn--ghost btn--icon" disabled><svg class="ic"><use href="#i-chevron-right"/></svg></button></div></div>
 </div>
 </div>
 
@@ -119,9 +120,9 @@
   <table class="tbl tbl--v2 tbl--compact">
     <thead class="sort"><tr><th>Tên</th><th class="sort">Thời gian</th><th class="sort">Trạng thái</th><th>Bài liên kết</th><th>Voucher liên kết</th><th class="num sort">Lượt xem</th><th class="right">Hành động</th></tr></thead>
     <tbody>
-      <tr><td><b>11.11 Siêu sale</b><span class="sub">/su-kien/11-11</span></td><td>01/11 – 11/11/2026</td><td><span class="badge badge--off badge--sm">Nháp</span></td><td>Lịch sale 11.11 Shopee</td><td class="code">SV1111GIAM15</td><td class="num muted">—</td><td class="acts"><button class="btn btn--ghost btn--sm">Sửa</button><button class="btn btn--secondary btn--sm" data-toast="Đã lên lịch “11.11 Siêu sale” từ 01/11 · ghi nhật ký">Lên lịch</button></td></tr>
-      <tr class="is-dim"><td><b>Sale 10.10</b><span class="sub">/su-kien/10-10</span></td><td>05/10 – 10/10/2026</td><td><span class="badge badge--done badge--sm">Đã kết thúc</span></td><td>Săn voucher 0h ngày đôi</td><td class="code">SV1010SALE</td><td class="num">1.284</td><td class="acts"><button class="btn btn--ghost btn--sm">Xem</button></td></tr>
-      <tr><td><b>Tết 2027</b><span class="sub">/su-kien/tet-2027</span></td><td>15/01 – 05/02/2027</td><td><span class="badge badge--off badge--sm">Nháp</span></td><td class="muted">chưa gắn</td><td class="muted">chưa gắn</td><td class="num muted">—</td><td class="acts"><button class="btn btn--ghost btn--sm">Sửa</button></td></tr>
+      <tr><td><b>11.11 Siêu sale</b><span class="sub">/su-kien/11-11</span></td><td style="white-space:nowrap">01/11 – 11/11/2026</td><td><span class="badge badge--off badge--sm">Nháp</span></td><td>Lịch sale 11.11 Shopee</td><td class="code">SV1111X2</td><td class="num muted">—</td><td class="acts"><button class="btn btn--ghost btn--sm">Sửa</button><button class="btn btn--secondary btn--sm" data-toast="Đã lên lịch “11.11 Siêu sale” từ 01/11 · ghi nhật ký">Lên lịch</button></td></tr>
+      <tr class="is-dim"><td><b>Sale 10.10</b><span class="sub">/su-kien/10-10</span></td><td style="white-space:nowrap">05/10 – 10/10/2026</td><td><span class="badge badge--done badge--sm">Đã kết thúc</span></td><td>Săn voucher 0h ngày đôi</td><td class="code">SV1010</td><td class="num">1.284</td><td class="acts"><button class="btn btn--ghost btn--sm">Xem</button></td></tr>
+      <tr><td><b>Tết 2027</b><span class="sub">/su-kien/tet-2027</span></td><td style="white-space:nowrap">15/01 – 05/02/2027</td><td><span class="badge badge--off badge--sm">Nháp</span></td><td class="muted">chưa gắn</td><td class="muted">chưa gắn</td><td class="num muted">—</td><td class="acts"><button class="btn btn--ghost btn--sm">Sửa</button></td></tr>
     </tbody>
   </table>
 </div>
@@ -134,7 +135,7 @@
       <tr><td>09:00 · 15/10/2026</td><td>Có đơn chờ chốt kỳ</td><td>App · Zalo</td><td>Kỳ 09/2026 đã chốt — kiểm tra ví của bạn</td><td class="num">412</td><td><span class="badge badge--done badge--sm">Đã gửi</span></td><td>Hệ thống</td></tr>
       <tr><td>20:00 · 10/10/2026</td><td>Tất cả</td><td>App · Zalo</td><td>Voucher 10.10 mở lúc 0h — đặt nhắc ngay</td><td class="num">1.284</td><td><span class="badge badge--done badge--sm">Đã gửi</span></td><td>Nguyễn Sơn</td></tr>
       <tr><td>18:30 · 08/10/2026</td><td>Có đơn chờ sàn duyệt</td><td>App</td><td>Đơn của bạn đang chờ Shopee duyệt</td><td class="num">412</td><td><span class="badge badge--done badge--sm">Đã gửi</span></td><td>Trần Đức Minh</td></tr>
-      <tr><td>—</td><td>Tất cả</td><td>App · Zalo</td><td>Lịch sale 11.11 — săn voucher sớm</td><td class="num muted">1.284</td><td><span class="badge badge--off badge--sm">Nháp</span></td><td>Nguyễn Sơn</td></tr>
+      <tr><td>—</td><td>Tất cả</td><td>App · Zalo</td><td>11.11 — gấp đôi tiền hoàn</td><td class="num muted">1.284</td><td><span class="badge badge--off badge--sm">Nháp</span></td><td>Nguyễn Sơn</td></tr>
     </tbody>
   </table>
 </div>
@@ -144,6 +145,31 @@
   </main>
 </div>
 </div>
+<div class="drawer drawer--w" id="dr-vc" role="dialog" aria-labelledby="dr-vc-t">
+  <div class="drawer__hd"><div><div class="drawer__t" id="dr-vc-t">Voucher thưởng</div></div><button class="drawer__x" data-close aria-label="Đóng"><svg class="ic"><use href="#i-x"/></svg></button></div>
+  <div class="drawer__bd">
+    <div class="pv-wrap">
+      <div class="form">
+        <label class="field"><span class="field__l">Mã voucher <em>*</em></span><input class="input mono" value="SVNEW20"></label>
+        <label class="field"><span class="field__l">Tên hiển thị <em>*</em></span><input class="input" value="Thưởng đơn đầu tiên"></label>
+        <label class="field"><span class="field__l">Kiểu thưởng</span><select class="input"><option>Cộng thêm số tiền</option><option>Cộng thêm % tiền hoàn</option></select></label>
+        <label class="field"><span class="field__l">Mức thưởng <em>*</em></span><input class="input" value="20.000 đ"></label>
+        <label class="field"><span class="field__l">Tối đa mỗi đơn</span><input class="input" placeholder="đ"></label>
+        <label class="field"><span class="field__l">Đơn tối thiểu</span><input class="input" value="100.000 đ"></label>
+        <label class="field"><span class="field__l">Áp cho</span><select class="input"><option>Đơn đầu tiên</option><option>Mọi đơn</option></select></label>
+        <label class="field"><span class="field__l">Mỗi người tối đa</span><input class="input" value="1 lần"></label>
+        <label class="field"><span class="field__l">Tổng số lượt <em>*</em></span><input class="input" value="1.000"></label>
+        <label class="field"><span class="field__l">Cách nhận</span><select class="input"><option>Người dùng bấm Lưu</option><option>Tự áp cho mọi người đủ điều kiện</option></select></label>
+        <label class="field"><span class="field__l">Bắt đầu <em>*</em></span><input class="input" value="00:00 · 01/10/2026"></label>
+        <label class="field"><span class="field__l">Kết thúc <em>*</em></span><input class="input" value="23:59 · 31/12/2026"></label>
+        <label class="field span2"><span class="field__l">Hiện ở Trang chủ</span><div class="row gap-16" style="height:36px"><label class="check"><i class="on"></i>Có</label></div></label>
+      </div>
+      <div class="preview"><div class="sec__t">Xem trước trên điện thoại</div><div class="pv-phone"><div class="pv-notif"><span class="avatar avatar--sm">s</span><div><b>+20.000đ tiền hoàn</b><small>Đơn đầu tiên từ 100.000đ · hạn 31/12/2026 · Lưu</small></div></div></div></div>
+    </div>
+    <div class="callout callout--neutral small"><svg class="ic"><use href="#i-info"/></svg><div>Người tạo <b data-role-name>Nguyễn Sơn</b> · 19/10/2026.</div></div>
+  </div>
+  <div class="drawer__ft"><span class="grow"></span><button class="btn btn--ghost" data-toast="Đã lưu nháp SVNEW20 · ghi nhật ký">Lưu nháp</button><button class="btn btn--primary" data-toast="Đã bật SVNEW20 · người dùng thấy trong app · ghi nhật ký">Lưu và bật</button></div>
+</div>
 <div class="drawer drawer--w" id="dr-tb" role="dialog" aria-labelledby="dr-tb-t">
   <div class="drawer__hd"><div><div class="drawer__t" id="dr-tb-t">Gửi thông báo</div></div><button class="drawer__x" data-close aria-label="Đóng"><svg class="ic"><use href="#i-x"/></svg></button></div>
   <div class="drawer__bd">
@@ -151,11 +177,11 @@
       <div class="form">
         <label class="field"><span class="field__l">Nhóm nhận</span><select class="input"><option>Tất cả · 1.284 người</option><option>Có đơn chờ chốt kỳ · 412</option><option>Chưa có đơn 30 ngày · 530</option></select></label>
         <label class="field span2"><span class="field__l">Kênh</span><div class="row gap-16" style="height:36px"><label class="check"><i class="on"></i>Thông báo app</label><label class="check"><i class="on"></i>Zalo</label><label class="check"><i></i>Email</label></div></label>
-        <label class="field span2"><span class="field__l">Tiêu đề <em>*</em></span><input class="input" value="Lịch sale 11.11 — săn voucher sớm"></label>
-        <label class="field span2"><span class="field__l">Nội dung <em>*</em></span><textarea class="input" data-min="10">Voucher giảm 15% tối đa 100.000đ mở từ 0h 01/11. Đặt nhắc trong app để không bỏ lỡ.</textarea><div class="counter"></div></label>
+        <label class="field span2"><span class="field__l">Tiêu đề <em>*</em></span><input class="input" value="11.11 — gấp đôi tiền hoàn"></label>
+        <label class="field span2"><span class="field__l">Nội dung <em>*</em></span><textarea class="input" data-min="10">11.11 gấp đôi tiền hoàn, tối đa 50.000đ. Lưu voucher trong app để không bỏ lỡ.</textarea><div class="counter"></div></label>
         <label class="field span2"><span class="field__l">Liên kết khi bấm</span><input class="input" value="/su-kien/11-11"></label>
       </div>
-      <div class="preview"><div class="sec__t">Xem trước trên điện thoại</div><div class="pv-phone"><div class="pv-notif"><span class="avatar avatar--sm">s</span><div><b>Lịch sale 11.11 — săn voucher sớm</b><small>Voucher giảm 15% tối đa 100.000đ mở từ 0h 01/11. Đặt nhắc trong app để không bỏ lỡ.</small></div></div></div></div>
+      <div class="preview"><div class="sec__t">Xem trước trên điện thoại</div><div class="pv-phone"><div class="pv-notif"><span class="avatar avatar--sm">s</span><div><b>11.11 — gấp đôi tiền hoàn</b><small>11.11 gấp đôi tiền hoàn, tối đa 50.000đ. Lưu voucher trong app để không bỏ lỡ.</small></div></div></div></div>
     </div>
     <div class="callout callout--neutral small"><svg class="ic"><use href="#i-info"/></svg><div>Người gửi <b data-role-name>Nguyễn Sơn</b> · 16/10/2026.</div></div>
   </div>
@@ -175,11 +201,11 @@
   <div class="modal__ft"><button class="btn btn--ghost" data-close>Huỷ</button><button class="btn btn--danger-solid" data-toast="Đã ẩn bài · ghi nhật ký">Ẩn bài</button></div>
 </div></div>
 <div class="modal-wrap" id="m-xoa-vc" role="dialog" aria-labelledby="m-xoa-vc-t"><div class="modal modal--danger">
-  <h2 class="modal__t" id="m-xoa-vc-t">Xoá voucher?</h2>
-  <p class="modal__d">Voucher ẩn ngay khỏi app người dùng; khôi phục được trong 30 ngày.</p>
-  <label class="field"><span class="field__l">Lý do <em>*</em></span><textarea class="input" data-min="10" placeholder="Vd: sàn ngừng mã, nhập sai điều kiện…"></textarea><div class="counter"></div></label>
+  <h2 class="modal__t" id="m-xoa-vc-t">Tắt voucher SVNEW20?</h2>
+  <p class="modal__d">Người dùng không lưu hay dùng thêm được; đơn đã áp vẫn giữ thưởng.</p>
+  <label class="field"><span class="field__l">Lý do <em>*</em></span><textarea class="input" data-min="10" placeholder="Vd: hết ngân sách, nhập sai điều kiện…"></textarea><div class="counter"></div></label>
   <div class="callout callout--neutral small"><svg class="ic"><use href="#i-info"/></svg><div>Người thực hiện <b data-role-name>Nguyễn Sơn</b> · 16/10/2026.</div></div>
-  <div class="modal__ft"><button class="btn btn--ghost" data-close>Huỷ</button><button class="btn btn--danger-solid" data-toast="Đã xoá voucher · ẩn khỏi app · ghi nhật ký">Xoá voucher</button></div>
+  <div class="modal__ft"><button class="btn btn--ghost" data-close>Huỷ</button><button class="btn btn--danger-solid" data-toast="Đã tắt SVNEW20 · ẩn khỏi app · ghi nhật ký">Tắt voucher</button></div>
 </div></div>
 <div class="modal-wrap" id="modal-keys" role="dialog" aria-label="Phím tắt"><div class="modal" style="width:560px">
   <h2 class="modal__t">Phím tắt</h2>
