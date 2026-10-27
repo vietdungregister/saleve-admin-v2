@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hệ component V2 · salevề vận hành</title>
+<title>Hệ component V2 · salevề nội bộ</title>
 <link rel="stylesheet" href="admin.css">
 <link rel="stylesheet" href="admin-v2.css">
 <script>window.ADM_SCREENS=[["index.html","Mục lục"],["00-he-component.html","00 · Hệ component"],["01-hop-viec.html","01 · Việc cần xử lý · Tất cả"],["02-hop-viec-duyet-chi.html","02 · Việc cần xử lý · Chờ duyệt chi"],["03-ho-so-lenh-chi.html","03 · Hồ sơ lệnh chi RT-2720"],["04-hop-viec-khieu-nai.html","04 · Việc cần xử lý · Khiếu nại"],["05-ho-so-khieu-nai.html","05 · Hồ sơ khiếu nại KN706476"],["06-hop-viec-doi-soat.html","06 · Việc cần xử lý · Đối soát"],["07-ho-so-doi-soat.html","07 · Hồ sơ đối soát DS241010"],["08-hop-viec-gian-lan.html","08 · Việc cần xử lý · Nghi gian lận"],["09-giao-dich-don.html","09 · Giao dịch · Đơn & hoa hồng"],["10-giao-dich-lenh-chi.html","10 · Giao dịch · Lệnh chi"],["12-nguoi-dung.html","12 · Người dùng"],["13-ho-so-nguoi-dung.html","13 · Hồ sơ người dùng"],["14-noi-dung.html","14 · Nội dung"],["15-cau-hinh.html","15 · Cấu hình"],["16-nhat-ky.html","16 · Nhật ký"],["17-trang-thai-phim-tat.html","17 · Trạng thái & phím tắt"],["18-ho-so-don.html","18 · Hồ sơ đơn 2409B58F2"],["19-nhan-vien.html","19 · Nhân viên"],["20-tai-khoan.html","20 · Tài khoản của tôi"],["21-doi-chieu.html","21 · Đối chiếu"],["22-chot-hoa-hong.html","22 · Chốt hoa hồng"]];</script>
@@ -54,8 +54,8 @@
 <body class="adm" data-role="admin">
 <div class="app">
 <aside class="sb">
-  <a class="sb__brand" href="01-hop-viec.html"><span class="sb__logo">sale<em>về</em></span><span class="sb__tag">vận hành</span></a>
-  <nav class="sb__nav" aria-label="Vận hành">
+  <a class="sb__brand" href="01-hop-viec.html"><span class="sb__logo">sale<em>về</em></span><span class="sb__tag">nội bộ</span></a>
+  <nav class="sb__nav" aria-label="Menu chính">
     <div class="sb__group">Việc cần xử lý</div>
     <a class="sb__item sb__item--inbox" data-nav="hop-viec" href="01-hop-viec.html"><svg class="ic"><use href="#i-home"/></svg><span>Tất cả</span><b class="n n--hot" data-role-total>9</b></a>
     <a class="sb__item sb__item--inbox" data-nav="duyet-chi" data-roles="finance admin" href="02-hop-viec-duyet-chi.html"><svg class="ic"><use href="#i-wallet"/></svg><span>Chờ duyệt chi</span><b class="n n--hot">3</b></a>
@@ -83,7 +83,7 @@
 </aside>
 <div class="main">
   <header class="hd">
-    <div class="hd__crumb"><span>Vận hành</span><i>/</i><b>Hệ component</b></div>
+    <div class="hd__crumb"><b>Hệ component</b></div>
     <label class="hd__search"><svg class="ic ic--sm"><use href="#i-search"/></svg><input placeholder="Tìm người dùng, mã KN / DS / RT, mã đơn sàn…"><span class="kbd">⌘K</span></label>
     <div style="position:relative">
       <button class="hd__inbox" data-pop="#pop-inbox"><svg class="ic ic--sm"><use href="#i-bell"/></svg><span>Việc cần xử lý</span><b class="n n--hot" data-role-total>9</b></button>
@@ -298,7 +298,7 @@
           <label><input type="radio" name="ly-do-00"><span>Khác<small>other · ghi rõ</small></span></label>
         </div>
       </div>
-      <label class="field"><span class="field__l">Ghi chú gửi người dùng <em>*</em><small>≥ 10 ký tự · nguyên văn</small></span><textarea class="input" data-min="10">Sàn ghi nhận đơn áp mã giảm 40% sau khi mua nên hoa hồng tính trên 150.000đ.</textarea><div class="counter"></div></label>
+      <label class="field"><span class="field__l">Ghi chú gửi người dùng <em>*</em><small>≥ 2 ký tự · nguyên văn</small></span><textarea class="input" data-min="10">Sàn ghi nhận đơn áp mã giảm 40% sau khi mua nên hoa hồng tính trên 150.000đ.</textarea><div class="counter"></div></label>
       <div class="row" style="gap:8px"><button class="btn btn--danger" data-open="#m-xn">Từ chối KN706476…</button><button class="btn btn--ghost btn--sm">Lưu nháp</button></div>
     </div>
     <div style="background:var(--sand-2);border-radius:var(--r);padding:20px;display:grid;place-items:center">
